@@ -1,0 +1,135 @@
+CLASE 2 · Cinco corridas, cinco datos
+Estadísticos con tres lanzamientos de moneda · Semana 1 · 90 minutos
+Hoy distinguirás lo que observó tu equipo de lo que predice un modelo.
+
+---
+Un resultado que puede sorprender
+Una moneda equilibrada no obliga a que cinco corridas de tres lanzamientos tengan media exactamente 1.5 caras. Escribe tu predicción: ¿qué valores de X esperas observar con mayor frecuencia?
+
+---
+00–07 min · Predicción individual
+Anota el valor más frecuente que esperas para X ∈ {0,1,2,3}. Explica si supones P(cara)=0.5 y lanzamientos independientes. Después compararás tu predicción con tu equipo y con sus datos.
+
+---
+Una corrida y un lanzamiento
+Una corrida consta de tres lanzamientos y produce una secuencia, por ejemplo C S C. La variable X cuenta caras por corrida: X(CSC)=2. Cinco corridas producen cinco valores de X, aunque haya quince lanzamientos.
+
+---
+Valores admisibles del conteo
+Tres lanzamientos producen 0, 1, 2 o 3 caras. La secuencia CCC da 3 y SSS da 0. Ninguna corrida de tres lanzamientos puede producir diez caras. Conserva la secuencia para verificar el conteo.
+
+---
+La pregunta de la clase
+¿Cómo se distribuye el número de caras en las cinco corridas del equipo? Para responder, conserva cada secuencia original, cuenta frecuencias y calcula medidas de centro y dispersión.
+
+---
+07–15 min · Acuerdo de cuatro
+1 lanza, 2 escribe la secuencia completa, 3 verifica el conteo X, 4 supervisa las cinco corridas y coordina el análisis. Cambien papeles después de la tercera corrida. Cada persona hará una salida individual.
+
+---
+La tabla antes de lanzar
+Dibujen cinco filas con estas columnas: corrida i | lanzamiento 1 | lanzamiento 2 | lanzamiento 3 | Xᵢ. No anoten solo X: la secuencia permite comprobar si hubo un error de conteo.
+
+---
+15–27 min · Cinco corridas
+Realicen exactamente cinco corridas de tres lanzamientos. Registren C o S después de cada lanzamiento. Si no cuentan con moneda, usen las cinco secuencias suministradas y declaren su origen.
+
+---
+Control de integridad
+¿Hay cinco filas, quince símbolos y cinco valores Xᵢ entre 0 y 3? Si aparece X=10, se registró otra cosa o existe un error: vuelvan a la secuencia antes de hacer cálculos.
+
+---
+Una muestra de práctica
+Supongamos que X toma los valores {0,1,1,3,3}. Es una muestra preparada para comprobar los procedimientos. Sus cinco números no sustituyen los resultados de tu equipo.
+
+---
+Frecuencia absoluta
+f(x)=Σᵢ 1(Xᵢ=x), para x=0,1,2,3. En {0,1,1,3,3}: f(0)=1, f(1)=2, f(2)=0, f(3)=2. Comprueba Σₓf(x)=5.
+
+---
+Frecuencia relativa
+h(x)=f(x)/5. Para la muestra de práctica: h(0)=0.20, h(1)=0.40, h(2)=0, h(3)=0.40. Deben sumar 1. Calcula ahora la tabla de tu equipo.
+
+---
+27–38 min · Haz visible la distribución
+Dibuja un diagrama de puntos con eje horizontal 0, 1, 2, 3. Coloca cinco puntos, uno por corrida. Compáralo con la tabla: ambos deben mostrar la misma frecuencia para cada valor.
+
+---
+¿Qué significa centro?
+Una medida de centro resume una muestra, pero puede ocultar datos diferentes. Media, mediana y moda responden preguntas distintas. Escribe qué podría escapar si solo informas una media.
+
+---
+Media aritmética
+x̄=(1/n)ΣᵢXᵢ. En {0,1,1,3,3}: x̄=(0+1+1+3+3)/5=1.6 caras por corrida. Calcula la media de tus cinco corridas y conserva la unidad.
+
+---
+Mediana
+Ordena los cinco valores. La mediana es el tercero: en {0,1,1,3,3} vale 1. Si tu equipo obtiene otra muestra, ordena antes de elegir; la mediana no es necesariamente la media.
+
+---
+Moda
+La moda reúne los valores de frecuencia máxima. En {0,1,1,3,3} hay dos modas: 1 y 3, ambas aparecen dos veces. Compara esta respuesta con la mediana.
+
+---
+38–50 min · Tus tres medidas
+Completen media, mediana y moda de su equipo. Una persona muestra las operaciones; otra revisa la tabla de frecuencias. Expliquen en una frase qué dice cada medida sobre las cinco corridas.
+
+---
+¿Qué significa dispersión?
+Dos muestras pueden tener la misma media y agruparse de manera distinta. Para describir cuánto cambian los datos usaremos rango y desviaciones respecto de x̄.
+
+---
+Rango
+R=máximo−mínimo. Para {0,1,1,3,3}, R=3−0=3 caras. Se calcula rápidamente, pero solo depende de los dos extremos. Determina el rango de tu equipo.
+
+---
+Desviaciones respecto de la media
+dᵢ=Xᵢ−x̄. Con x̄=1.6, las desviaciones de {0,1,1,3,3} son {−1.6,−0.6,−0.6,1.4,1.4}. Su suma es 0; los signos se compensan.
+
+---
+Cuadrados de desviaciones
+Los cinco cuadrados son {2.56,0.36,0.36,1.96,1.96}; su suma es 7.20. Reproduzcan el cálculo. El cuadrado evita la cancelación y da más peso a distancias grandes.
+
+---
+Varianza muestral
+s²=[Σᵢ(Xᵢ−x̄)²]/(n−1). Para el ejemplo, s²=7.20/4=1.80 caras². Anoten el divisor: dividir entre 5 calcularía otra medida, la dispersión descriptiva con divisor n.
+
+---
+Desviación estándar muestral
+s=√s²=√1.80≈1.342 caras por corrida. La raíz recupera la unidad original. Redondeen solo después de completar la operación; no llamen «1.342 caras» a una corrida individual.
+
+---
+50–67 min · Cálculo del equipo
+Con sus cinco Xᵢ completen una tabla: Xᵢ | Xᵢ−x̄ | (Xᵢ−x̄)². Sumen cuadrados, dividan entre 4 y calculen s. Dos integrantes verifican por vías independientes.
+
+---
+La misma media no basta
+A={0,1,1,3,3} y B={1,1,2,2,2}. Ambas tienen media 1.6. Sin embargo, s²_A=1.80 y s²_B=0.30. Comprueben los valores y dibujen sus diagramas.
+
+---
+67–76 min · Intercambio entre equipos
+Intercambien secuencias y cálculos. Revisen dominio de X, cinco filas, Σf=5, media, cuadrados y divisor. Devuelvan un error específico o indiquen qué comprobaron y por qué coincide.
+
+---
+Lo que resume tu muestra
+x̄ y s² se calculan con las cinco corridas observadas: son estadísticos de esta muestra. Los resultados pueden cambiar en otro equipo. Compara sus valores sin declarar que una de las monedas está sesgada.
+
+---
+Una pregunta para la semana 2
+Si la moneda fuera equilibrada y repitiéramos muchas corridas, ¿qué promedio esperaríamos? La pregunta requiere un modelo de probabilidad y supuestos sobre los lanzamientos. Conserva tu predicción; no reemplaces con ella la media observada.
+
+---
+76–84 min · Producto común
+Entreguen las cinco secuencias, tabla, diagrama, media, mediana, moda, rango, s² y s. Expliquen una diferencia entre datos y modelo y una corrección recibida. Las cuatro personas responden por su parte del análisis.
+
+---
+84–90 min · Salida individual
+Para {0,1,1,3,3}, calcula x̄, mediana y s². Explica por qué cinco corridas con x̄=1.6 no prueban que la moneda tenga sesgo. Presenta tus operaciones y un límite de la conclusión.
+
+---
+La próxima clase
+Revisaremos un informe que atribuye grandes conclusiones a muestras de gatos. Tus herramientas de hoy, en especial unidad, frecuencia, media y divisor de la varianza, permitirán comprobar sus afirmaciones.
+
+---
+Fuentes y alcance
+Guía docente Word 1150018: semana 1, descriptiva. UEA 1153001: programa institucional. Notas de Mora et al., §§1.1.2–1.1.3; Lederer (2025), §2.2. Actividad adaptada de «Clase 2» SCIROM. A y B son muestras didácticas.

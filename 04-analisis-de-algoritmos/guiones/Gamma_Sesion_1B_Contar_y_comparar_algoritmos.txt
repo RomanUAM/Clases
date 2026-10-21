@@ -1,0 +1,461 @@
+SESIÓN 1B | CONTAR Y COMPARAR ALGORITMOS
+
+Tres estrategias para calcular 1 + 2 + … + n.
+
+Primero pseudocódigo; después Python o MATLAB; siempre con un modelo de costo explícito.
+
+Análisis y Diseño de Algoritmos · 90 minutos
+
+---
+
+ACTIVAR: PREGUNTA DE LA SESIÓN
+
+Dos algoritmos pueden producir exactamente el mismo resultado y realizar cantidades de trabajo muy diferentes.
+
+¿Cómo construimos una comparación que no dependa únicamente de nuestra intuición ni de un cronómetro?
+
+---
+
+META DE APRENDIZAJE
+
+Al terminar podrás:
+
+• justificar que tres estrategias producen la misma suma;
+• elegir una operación básica y expresar su conteo como función de n;
+• contrastar una predicción teórica con mediciones en un solo lenguaje.
+
+---
+
+RUTA DE 90 MINUTOS
+
+Predicción y casos · 10 min
+
+Tres estrategias · 25 min
+
+Conteo y comparación · 20 min
+
+Experimento en Python o MATLAB · 25 min
+
+Auditoría y cierre · 10 min
+
+---
+
+EVIDENCIAS DE HOY
+
+Por pareja:
+
+• tres algoritmos en pseudocódigo;
+• trazas para casos pequeños;
+• tabla de operaciones predichas;
+• mediciones controladas;
+• conclusión con límites.
+
+Individualmente: una decisión argumentada al final.
+
+---
+
+ROLES DE LA PAREJA
+
+Ronda 1:
+
+• Analista: deriva el conteo.
+• Auditor/a: prueba casos límite y cuestiona supuestos.
+
+Ronda 2:
+
+• Programador/a: traduce un algoritmo.
+• Experimentalista: controla mediciones y registra resultados.
+
+Cambien roles a mitad de la sesión.
+
+---
+
+EL PROBLEMA
+
+Dado un entero n ≥ 1, calcular:
+
+S(n) = 1 + 2 + 3 + … + n
+
+Entrada: n.
+
+Salida: el valor exacto de S(n).
+
+Antes de diseñar, calculen S(1), S(2), S(5) y S(10). Conserven estos casos para detectar errores de límites, inicialización y fórmula.
+
+---
+
+PREDECIR: ORDENA LAS TRES ESTRATEGIAS
+
+Ordena por trabajo esperado:
+
+A. sumar uno por uno;
+
+B. emparejar extremos;
+
+C. usar una fórmula cerrada.
+
+Hazlo para n=10 y para n=1 000 000. Escribe el criterio que utilizaste, no solo el orden.
+
+---
+
+COMPROMETERSE: SUBASTA DE ALGORITMOS
+
+Cada pareja dispone de 100 créditos simbólicos para invertir en las tres estrategias.
+
+La inversión representa confianza en que una estrategia combinará:
+
+• corrección;
+• costo bajo;
+• claridad de justificación;
+• comportamiento estable al crecer n.
+
+Podrán redistribuir después de analizar evidencia.
+
+---
+
+ESTRATEGIA A | RECORRIDO
+
+ALGORITMO suma_iterativa(n)
+  total ← 0
+  PARA i ← 1 HASTA n
+    total ← total + i
+  FIN PARA
+  devolver total
+FIN
+
+Identifiquen entrada, acumulador, condición de repetición y salida.
+
+---
+
+TRAZA DE suma_iterativa(5)
+
+Completen:
+
+i | total antes | operación | total después
+
+1 | 0 | 0+1 | 1
+
+2 | 1 | ___ | ___
+
+…
+
+5 | ___ | ___ | ___
+
+La traza conecta el pseudocódigo con el resultado. Comprueben además este invariante: después de procesar i, el acumulador contiene 1+2+…+i. Expliquen qué permite concluir cuando i=n.
+
+---
+
+MODELO DE COSTO DEL BUCLE
+
+Si la operación básica es la suma del cuerpo: C_A(n)=n sumas.
+
+Elijan un modelo y declárenlo antes de comparar.
+
+Para n iteraciones, respondan:
+
+• ¿cuántas veces se ejecuta el cuerpo?
+• ¿cuántas veces se verifica la condición?
+• ¿cuántas veces cambia total?
+
+Producto: conteo exacto y operación básica identificada.
+
+---
+
+ESTRATEGIA B | EMPAREJAR EXTREMOS
+
+Observa:
+
+1 + n = n + 1
+
+2 + (n−1) = n + 1
+
+3 + (n−2) = n + 1
+
+Cada pareja tiene la misma suma. La cantidad de parejas depende de si n es par o impar.
+
+---
+
+CASOS PAR E IMPAR
+
+Para n=10 hay n/2 parejas, cada una suma n+1:
+
+(1+10)+(2+9)+…+(5+6)
+
+Para n=9 hay piso(n/2) parejas y queda (n+1)/2:
+
+(1+9)+(2+8)+(3+7)+(4+6)+5
+
+Construyan ambas trazas e indiquen cómo tratar el valor central.
+
+---
+
+PSEUDOCÓDIGO DE EMPAREJAMIENTO
+
+ALGORITMO suma_pares(n)
+  total ← 0
+  PARA i ← 1 HASTA piso(n/2)
+    total ← total + i + (n-i+1)
+  FIN PARA
+  SI n es impar
+    total ← total + (n+1)/2
+  devolver total
+FIN
+
+---
+
+CONFRONTAR: MENOS ITERACIONES NO SIEMPRE ES MENOS TRABAJO
+
+El emparejamiento usa aproximadamente n/2 iteraciones, pero su cuerpo realiza más operaciones que el recorrido simple.
+
+Comparen bajo dos modelos:
+
+1. contar únicamente iteraciones;
+2. contar sumas y restas.
+
+¿La conclusión permanece igual?
+
+---
+
+ESTRATEGIA C | FÓRMULA CERRADA
+
+Escribimos la suma en ambos sentidos:
+
+S = 1 + 2 + … + n
+
+S = n + (n−1) + … + 1
+
+Al sumar columna por columna obtenemos n veces n+1:
+
+2S = n(n+1)
+
+---
+
+FÓRMULA CORRECTA Y PSEUDOCÓDIGO
+
+Por tanto:
+
+S(n) = n(n+1)/2
+
+No es n(n−1)/2. Esa expresión omite una cantidad equivalente a n.
+
+Compruébenlo con n=1, n=5 y n=10 antes de programar.
+
+ALGORITMO suma_formula(n)
+  validar que n sea entero y n ≥ 1
+  total ← n·(n+1)/2
+  devolver total
+FIN
+
+El número de operaciones aritméticas no crece con n bajo este modelo.
+
+---
+
+CORRECCIÓN NO ES EFICIENCIA
+
+Una estrategia puede ser:
+
+• correcta y costosa;
+• correcta y eficiente;
+• rápida en una prueba, pero incorrecta para ciertos datos;
+• matemáticamente correcta, pero vulnerable a límites del tipo numérico.
+
+Evaluaremos estas propiedades por separado.
+
+---
+
+CONSTRUIR: TU TABLA TEÓRICA
+
+Completen antes de ejecutar código:
+
+algoritmo | iteraciones | sumas/restas | multiplicaciones/divisiones | costo elegido
+
+Filas: recorrido, emparejamiento y fórmula.
+
+Escriban cada conteo en función de n. Después evalúen n=100, 1000 y 1 000 000. Identifiquen cuál crece con n y cuál conserva un número fijo de operaciones.
+
+---
+
+RUTA PYTHON: SI TU PAREJA ELIGIÓ PYTHON
+
+def suma_iterativa(n):
+    total = 0
+    for i in range(1, n + 1):
+        total += i
+    return total
+
+def suma_formula(n):
+    return n * (n + 1) // 2
+
+Identifiquen la correspondencia con cada línea del pseudocódigo.
+
+---
+
+RUTA MATLAB: SI TU PAREJA ELIGIÓ MATLAB
+
+function total = suma_iterativa(n)
+    total = 0;
+    for i = 1:n
+        total = total + i;
+    end
+end
+
+function total = suma_formula(n)
+    total = n * (n + 1) / 2;
+end
+
+---
+
+UNA ELECCIÓN POR PAREJA
+
+Cada pareja usará Python o MATLAB, no ambos.
+
+El objetivo es comparar algoritmos dentro del mismo entorno. Comparar directamente Python contra MATLAB introduciría diferencias de implementación que no responden a nuestra pregunta de hoy.
+
+Registren lenguaje, versión y equipo utilizado.
+
+---
+
+INSTRUMENTAR EL CONTEO
+
+Además del tiempo, modifiquen el programa para devolver un contador de la operación básica.
+
+Ejemplo conceptual:
+
+contador ← 0
+cada vez que ocurre la operación básica:
+  contador ← contador + 1
+
+El contador debe coincidir con la predicción teórica.
+
+---
+
+PROBAR: PROTOCOLO Y TAMAÑOS
+
+Para cada algoritmo y tamaño:
+
+1. verifiquen el resultado;
+2. hagan una ronda de calentamiento;
+3. realicen y registren 7 mediciones;
+4. reporten la mediana.
+
+Prueben n=10², 10³, 10⁴, 10⁵ y 10⁶ en el mismo equipo y entorno.
+
+Si tarda demasiado, deténganla y registren el evento.
+
+---
+
+TIPOS NUMÉRICOS Y DESBORDAMIENTO
+
+La fórmula puede calcular pocas operaciones y aun así producir un resultado incorrecto si el tipo numérico no representa n(n+1).
+
+Antes de usar entradas grandes, averigüen:
+
+• tipo de dato;
+• valor máximo;
+• comportamiento ante desbordamiento.
+
+---
+
+TABLA EXPERIMENTAL
+
+Registren:
+
+algoritmo | n | resultado correcto | operaciones contadas | tiempo 1…7 | mediana
+
+Mantengan separadas las columnas teóricas y observadas. Una coincidencia entre ambas fortalece la explicación; una diferencia exige investigar.
+
+---
+
+REPRESENTACIÓN DE RESULTADOS
+
+Construyan una gráfica:
+
+• eje horizontal: n;
+• eje vertical: mediana del tiempo;
+• una serie por algoritmo.
+
+No unan puntos faltantes como si hubieran sido medidos. Indiquen unidades y condiciones del experimento.
+
+---
+
+INTERPRETAR SIN EXAGERAR
+
+Conclusión válida:
+
+«En este entorno y para estos tamaños, la mediana del recorrido creció al aumentar n; el conteo predice n sumas».
+
+Conclusión excesiva:
+
+«La fórmula siempre tarda exactamente lo mismo en cualquier computadora».
+
+---
+
+REORGANIZAR: REVISA TU SUBASTA CON EVIDENCIA
+
+Redistribuyan sus 100 créditos usando la evidencia.
+
+Por cada cambio, escriban:
+
+• qué observación modificó su decisión;
+• qué supuesto permanece;
+• qué riesgo o límite conserva la estrategia elegida.
+
+Cierren con esta reorganización: «Antes comparaba ______; ahora comparo ______ bajo el modelo de costo ______».
+
+---
+
+AUDITORÍA ENTRE PAREJAS
+
+Otra pareja revisará:
+
+• casos de prueba;
+• operación básica;
+• expresión de costo;
+• control experimental;
+• correspondencia entre datos y conclusión.
+
+Respondan cada observación con «aceptada», «rechazada» o «pendiente», seguida de evidencia.
+
+---
+
+TRANSFERIR: UNA DECISIÓN CON CONDICIONES
+
+Completen en pareja:
+
+«Para entradas ______ elegiríamos ______ porque su costo ______. Esta afirmación usa como operación básica ______. El experimento mostró ______, pero no permite concluir ______.»
+
+---
+
+SALIDA INDIVIDUAL: DEFIENDE UNA ELECCIÓN
+
+Responde sin consultar a tu pareja:
+
+1. ¿Por qué n/2 iteraciones no garantiza la mitad de todas las operaciones?
+2. ¿Qué diferencia existe entre contar y cronometrar?
+3. ¿Qué algoritmo elegirías para n=10⁶ y bajo qué supuesto?
+
+---
+
+IDEA QUE NOS LLEVAMOS
+
+Comparar algoritmos exige declarar el tamaño de entrada, la operación básica y el modelo de costo.
+
+El pseudocódigo permite razonar; la implementación permite experimentar. Ninguna medición aislada reemplaza el análisis, y ningún análisis ignora las condiciones reales de ejecución.
+
+---
+
+PRÓXIMA SESIÓN
+
+Transformaremos los conteos en funciones y compararemos sus patrones de crecimiento.
+
+La pregunta será:
+
+¿qué información conservamos cuando dejamos de mirar cada operación exacta y nos concentramos en lo que ocurre al crecer n?
+
+---
+
+MATERIALES QUE SUSTENTAN LA SESIÓN
+
+Material base del curso, páginas 22–89, y material Crecimiento de funciones.
+
+Python y MATLAB se usan como medios de contraste; el pseudocódigo conserva el papel principal.

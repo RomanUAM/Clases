@@ -1,0 +1,418 @@
+SEMANA 1 | DEL ALGORITMO AL CRECIMIENTO
+
+Tres sesiones para pasar de «sé programar» a «sé describir, ejecutar y analizar un algoritmo».
+
+Análisis y Diseño de Algoritmos · UEA 1151040
+
+---
+
+LA RUTA DE TRABAJO
+
+En cada reto seguiremos el mismo ciclo:
+
+Predecir → diseñar → ejecutar → contar → discutir → formalizar → transferir.
+
+Primero pensamos individualmente. Después contrastamos en pareja. Al final, cada persona entrega una evidencia breve.
+
+---
+
+TRES SESIONES, UNA PREGUNTA
+
+¿Cómo cambia el trabajo de un algoritmo cuando cambia su entrada?
+
+1A · Especificar: del barco al algoritmo.
+
+1B · Comparar: tres formas de sumar.
+
+1C · Explicar: crecimiento y búsqueda.
+
+---
+
+SESIÓN 1A | RETO: PROGRAMAR A UNA PERSONA
+
+En pareja, escriban instrucciones para que otra persona construya un barco de papel sin observar el modelo terminado.
+
+Restricción: quien ejecuta solo puede obedecer instrucciones explícitas. No puede adivinar la intención.
+
+---
+
+ANTES DE ESCRIBIR: FIJEN EL CONTRATO
+
+Entrada: hoja tamaño carta y, si su diseño lo requiere, regla y tijeras.
+
+Salida: un objeto que cumpla criterios acordados de «barco».
+
+Pregunta incómoda: ¿cómo sabremos que el resultado es correcto y no solo parecido?
+
+---
+
+DESCRIBIR LOS ELEMENTOS
+
+Nombrar evita depender de gestos:
+
+• hoja, borde, esquina, centro y línea de doblez;
+• orientación vertical u horizontal;
+• cara visible y cara posterior;
+• estado de la hoja después de cada operación.
+
+¿Qué nombres faltan para eliminar la ambigüedad?
+
+---
+
+DE UNA ACCIÓN HUMANA A UNA OPERACIÓN
+
+«Dobla la hoja» no basta.
+
+Una operación debe indicar acción y parámetros:
+
+DOBLAR(origen, destino, sentido)
+
+GIRAR(ángulo, dirección)
+
+CORTAR(desde, hasta)
+
+MARCAR(punto o línea)
+
+---
+
+PRUEBA DE AMBIGÜEDAD
+
+Intercambien algoritmos. La pareja ejecutora debe elegir literalmente cualquier interpretación permitida por el texto.
+
+Marquen cada punto donde tuvieron que preguntar, inferir o corregir. Esos puntos no son «errores del usuario»: revelan una especificación incompleta.
+
+---
+
+PSEUDOCÓDIGO: LA IDEA ANTES DEL LENGUAJE
+
+ALGORITMO construir_barco(hoja)
+  orientar hoja en vertical
+  repetir cada doblez con referencias explícitas
+  verificar simetría después de cada etapa
+  abrir la figura por la base
+  verificar criterios de salida
+  devolver figura
+FIN
+
+¿Qué líneas todavía esconden decisiones?
+
+---
+
+TRAZA: EL ESTADO TAMBIÉN IMPORTA
+
+Registren una fila después de cada operación:
+
+paso | operación | estado esperado | estado observado
+
+Si aparece una flor, no basta decir «salió mal». Localicen el primer estado que dejó de coincidir con lo esperado y expliquen por qué.
+
+---
+
+¿CUÁNTO TRABAJO HIZO EL ALGORITMO?
+
+Elijan una operación básica: doblar, cortar o verificar.
+
+Para una hoja, cuenten cuántas veces se ejecuta. Si aplicamos el mismo algoritmo de forma independiente a n hojas:
+
+T(n) = k·n
+
+¿Qué representa k? ¿Qué suposición permite multiplicar?
+
+---
+
+1, 100 O 1000 HOJAS
+
+En pareja, predigan el número de operaciones para 1, 100 y 1000 hojas.
+
+Después discutan: ¿más personas cambian el trabajo total o solo el tiempo transcurrido? Diferencien costo del algoritmo, paralelismo y organización del proceso.
+
+---
+
+CIERRE INDIVIDUAL 1A
+
+En tres líneas:
+
+1. Escribe una instrucción ambigua que detectaste.
+2. Reescríbela como operación precisa.
+3. Explica qué depende del tamaño de entrada y qué permanece constante.
+
+---
+
+SESIÓN 1B | SUBASTA DE ALGORITMOS
+
+Problema: calcular 1 + 2 + … + n.
+
+Cada pareja propone una solución, predice su costo y defiende cuándo conviene usarla.
+
+No gana el código más corto: gana la explicación que distingue corrección, número de operaciones y medición experimental.
+
+---
+
+PRIMERO, UNA PREDICCIÓN
+
+Sin programar, ordena de menor a mayor trabajo:
+
+A. Sumar uno por uno.
+B. Emparejar extremos: 1+n, 2+(n−1), …
+C. Usar una fórmula cerrada.
+
+¿Cambiaría tu orden para n = 10, 1000 y 1 000 000?
+
+---
+
+ALGORITMO A | RECORRIDO
+
+ALGORITMO suma_iterativa(n)
+  suma ← 0
+  PARA i ← 1 HASTA n
+    suma ← suma + i
+  FIN PARA
+  devolver suma
+FIN
+
+Si la operación básica es la suma del cuerpo, se ejecuta n veces.
+
+---
+
+ALGORITMO B | EMPAREJAR EXTREMOS
+
+ALGORITMO suma_pares(n)
+  total ← 0
+  PARA i ← 1 HASTA piso(n/2)
+    total ← total + i + (n - i + 1)
+  FIN PARA
+  SI n es impar
+    total ← total + (n + 1)/2
+  devolver total
+FIN
+
+¿Reducir iteraciones implica reducir todas las operaciones?
+
+---
+
+ALGORITMO C | FÓRMULA
+
+ALGORITMO suma_formula(n)
+  devolver n·(n + 1)/2
+FIN
+
+La suma de 1 a n usa n(n+1)/2, no n(n−1)/2.
+
+La fórmula evita recorrer los n valores, pero todavía exige justificar su corrección y considerar límites numéricos.
+
+---
+
+CONTAR EXIGE DECIDIR QUÉ CONTAMOS
+
+Completen una tabla para cada algoritmo:
+
+• iteraciones;
+• sumas y restas;
+• multiplicaciones y divisiones;
+• comparaciones y asignaciones.
+
+Dos conteos distintos pueden ser correctos si declaran su modelo de costo. Sin modelo, «es más rápido» es una afirmación incompleta.
+
+---
+
+DEL PSEUDOCÓDIGO A PYTHON
+
+def suma_iterativa(n):
+    total = 0
+    for i in range(1, n + 1):
+        total += i
+    return total
+
+def suma_formula(n):
+    return n * (n + 1) // 2
+
+La traducción conserva la estrategia; la sintaxis no sustituye el análisis.
+
+---
+
+DEL PSEUDOCÓDIGO A MATLAB
+
+function total = suma_iterativa(n)
+    total = 0;
+    for i = 1:n
+        total = total + i;
+    end
+end
+
+function total = suma_formula(n)
+    total = n * (n + 1) / 2;
+end
+
+---
+
+EXPERIMENTO CONTROLADO
+
+Cada pareja elige Python o MATLAB, no ambos.
+
+1. Verifiquen resultados con casos pequeños.
+2. Usen la misma máquina y tipo numérico.
+3. Hagan un calentamiento.
+4. Repitan 7 veces por tamaño.
+5. Reporten la mediana.
+
+No comparen directamente tiempos entre lenguajes.
+
+---
+
+DOS RESULTADOS, DOS COLUMNAS
+
+Para n = 10², 10³, 10⁴, 10⁵ y 10⁶ registren:
+
+n | operaciones predichas | tiempo observado | resultado correcto
+
+El conteo teórico explica la estructura del algoritmo. El tiempo observado también incluye lenguaje, equipo, optimizaciones y ruido.
+
+---
+
+AUDITORÍA ENTRE PAREJAS
+
+Una persona presenta el modelo de costo. La otra pareja intenta refutarlo con un caso límite o una operación omitida.
+
+Después cambian roles.
+
+Producto: una conclusión corregida que separe «produce el resultado correcto» de «escala mejor cuando n crece».
+
+---
+
+CIERRE INDIVIDUAL 1B
+
+Completa:
+
+«Para n grande elegiría ______ porque ______. Mi evidencia teórica es ______ y mi evidencia experimental es ______. Esta conclusión depende de la suposición ______.»
+
+---
+
+SESIÓN 1C | CARRERA DE FUNCIONES
+
+Cada pareja recibe tarjetas con funciones de costo. Antes de calcular, ordénenlas según cómo creen que crecerán:
+
+1, log₂ n, n, n log₂ n, n², 2ⁿ.
+
+Después prueben su orden con una tabla de valores.
+
+---
+
+¿QUÉ PASA CUANDO n SE DUPLICA?
+
+Completen para n y 2n:
+
+• 1 cambia por un factor 1.
+• log₂ n aumenta aproximadamente en 1.
+• n se multiplica por 2.
+• n² se multiplica por 4.
+• 2ⁿ se transforma en (2ⁿ)².
+
+El patrón importa más que un tiempo aislado.
+
+---
+
+CONSTANTES, TÉRMINOS Y TAMAÑO
+
+Comparen:
+
+T₁(n) = 1000n
+
+T₂(n) = n²
+
+Para entradas pequeñas, T₂ puede ser menor. Para entradas suficientemente grandes, n² termina dominando.
+
+Pregunta: ¿en qué valor aproximado cambia la ventaja?
+
+---
+
+RETO HUMANO | ENCONTRAR UNA TARJETA
+
+Con tarjetas ordenadas de 1 a 64, una persona oculta un objetivo.
+
+Estrategia A: revisar desde el inicio.
+
+Estrategia B: mirar el centro y descartar la mitad incompatible.
+
+Predigan el peor número de preguntas antes de ejecutar.
+
+---
+
+BÚSQUEDA SECUENCIAL
+
+ALGORITMO buscar_secuencial(A, objetivo)
+  PARA cada posición i de A
+    SI A[i] = objetivo
+      devolver i
+  devolver NO_ENCONTRADO
+FIN
+
+En el peor caso inspecciona n elementos. Su crecimiento es lineal: Θ(n).
+
+---
+
+BÚSQUEDA BINARIA
+
+ALGORITMO buscar_binaria(A, objetivo)
+  mientras quede un intervalo
+    m ← punto medio
+    SI A[m] = objetivo: devolver m
+    SI objetivo < A[m]: conservar mitad izquierda
+    EN OTRO CASO: conservar mitad derecha
+  devolver NO_ENCONTRADO
+FIN
+
+Requisito: A debe estar ordenado.
+
+---
+
+DESCARTAR LA MITAD
+
+Después de k preguntas quedan aproximadamente n/2ᵏ candidatos.
+
+Terminamos cuando n/2ᵏ ≤ 1; por ello k crece como log₂ n.
+
+Para 16, 32 y 64 tarjetas, predigan y comprueben el máximo de preguntas de la búsqueda binaria.
+
+---
+
+UNA PRIMERA LECTURA DE Θ, O Y Ω
+
+Θ(g(n)): describe un crecimiento ajustado.
+
+O(g(n)): expresa una cota superior.
+
+Ω(g(n)): expresa una cota inferior.
+
+Hoy las usamos para comunicar patrones de crecimiento. Las definiciones formales y sus demostraciones vendrán después.
+
+---
+
+TRANSFERENCIA | ELEGIR CON ARGUMENTOS
+
+Para cada caso, elijan estrategia y justifiquen:
+
+• sumar 1…n una vez;
+• buscar muchas veces en datos ordenados;
+• procesar independientemente mil hojas;
+• trabajar con una entrada pequeña y una constante enorme.
+
+No basta nombrar una complejidad: declaren entrada, operación básica y supuestos.
+
+---
+
+CIERRE DE LA SEMANA
+
+Entrega individual:
+
+1. Define algoritmo sin usar la palabra «programa».
+2. Explica por qué contar operaciones y medir tiempo no son lo mismo.
+3. Da un ejemplo donde duplicar n duplique el trabajo y otro donde agregue solo un paso.
+4. Formula una pregunta que todavía tengas.
+
+---
+
+FUENTES Y CONTINUIDAD
+
+Base de trabajo: material del curso, páginas 22–89; Crecimiento de funciones; borradores de las clases 1–4.
+
+Esta presentación introduce intuiciones y prácticas. La formalización de sumatorias, cotas y demostraciones continúa en la siguiente secuencia del curso.

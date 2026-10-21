@@ -1,0 +1,510 @@
+EXPOSICIÓN 2
+CRECIMIENTO DE FUNCIONES
+Cómo comparar algoritmos cuando aumenta el tamaño del problema
+
+En esta sesión aprenderás a:
+Interpretar las notaciones Theta, O, Omega, o pequeña y omega pequeña.
+Clasificar funciones por su crecimiento.
+Utilizar propiedades, límites y sumatorias para justificar una clasificación.
+Relacionar el crecimiento de una función con la viabilidad de un algoritmo.
+
+---
+
+TARJETA 1. El problema de la escala
+
+Dos algoritmos resuelven el mismo problema.
+Con 1000 datos, uno tarda un segundo y otro una hora.
+
+Pregunta:
+¿La diferencia se conservará, disminuirá o aumentará con un millón de datos?
+
+La medición exacta depende de la computadora, el lenguaje y la implementación.
+El análisis asintótico estudia cómo crece el trabajo cuando aumenta n.
+
+---
+
+TARJETA 2. El ejemplo de los barcos como función
+
+Si cada barco requiere k operaciones y se fabrican n barcos uno por uno:
+
+T(n) = kn + b
+
+k representa el trabajo repetido por barco.
+b representa preparación y cierre.
+
+Cuando n crece, el término kn domina a b.
+
+Clasificación:
+T(n) pertenece a Theta de n.
+
+Pregunta:
+¿Cambiar el color del papel modifica el orden de crecimiento?
+
+---
+
+TARJETA 3. Cinco notaciones
+
+Theta de g:
+Cota ajustada. f y g crecen al mismo orden.
+
+O de g:
+Cota superior. f no crece más rápido que g, salvo factores constantes.
+
+Omega de g:
+Cota inferior. f no crece más lento que g, salvo factores constantes.
+
+o pequeña de g:
+f crece estrictamente más lento que g.
+
+omega pequeña de g:
+f crece estrictamente más rápido que g.
+
+---
+
+TARJETA 4. Definición formal de Theta
+
+f(n) pertenece a Theta de g(n) si existen constantes positivas c1, c2 y n0 tales que:
+
+0 menor o igual que c1 g(n)
+menor o igual que f(n)
+menor o igual que c2 g(n)
+
+para toda n mayor o igual que n0.
+
+Interpretación:
+A partir de n0, f queda atrapada entre dos múltiplos positivos de g.
+
+---
+
+TARJETA 5. Ejemplo de Theta de n cuadrada
+
+Función:
+f(n) = un medio de n cuadrada menos 3n.
+
+Queremos demostrar:
+f(n) pertenece a Theta de n cuadrada.
+
+Al dividir entre n cuadrada:
+
+f(n) entre n cuadrada = un medio menos 3 entre n.
+
+Para n mayor o igual que 7 puede elegirse:
+c1 = 1 entre 14.
+c2 = 1 entre 2.
+n0 = 7.
+
+Las constantes no son únicas. Lo importante es demostrar que existen.
+
+---
+
+TARJETA 6. Funciones dentro y fuera de Theta de n cuadrada
+
+Dentro:
+an cuadrada + bn + c pertenece a Theta de n cuadrada cuando a es positiva.
+
+Fuera:
+6n cúbica no pertenece a Theta de n cuadrada.
+
+Razón:
+El cociente 6n cúbica entre n cuadrada es 6n y no puede acotarse mediante una constante cuando n crece.
+
+Actividad:
+Clasificar 4n cuadrada + 20n + 7 y 2n cúbica + n.
+
+---
+
+TARJETA 7. Definición formal de O grande
+
+f(n) pertenece a O de g(n) si existen constantes positivas c y n0 tales que:
+
+0 menor o igual que f(n)
+menor o igual que c g(n)
+
+para toda n mayor o igual que n0.
+
+O proporciona una cota superior.
+No exige que la cota sea la más ajustada.
+
+Ejemplo:
+Una función en Theta de n también pertenece a O de n cuadrada.
+
+---
+
+TARJETA 8. Ejemplo de O de n cuadrada
+
+Función:
+f(n) = 20n + 200.
+
+La función pertenece a O de n cuadrada.
+
+Una elección posible es:
+c = 2.
+n0 = 17.
+
+Pero la clasificación más informativa es:
+f(n) pertenece a Theta de n.
+
+Idea central:
+O de n cuadrada es una afirmación verdadera, pero no es una cota ajustada.
+
+---
+
+TARJETA 9. Definición formal de Omega
+
+f(n) pertenece a Omega de g(n) si existen constantes positivas c y n0 tales que:
+
+0 menor o igual que c g(n)
+menor o igual que f(n)
+
+para toda n mayor o igual que n0.
+
+Omega proporciona una cota inferior.
+
+Uso:
+Demostrar que una cantidad de trabajo no puede bajar de cierto crecimiento dentro de un modelo definido.
+
+---
+
+TARJETA 10. Relación entre Theta, O y Omega
+
+Teorema:
+
+f(n) pertenece a Theta de g(n)
+si y sólo si
+f(n) pertenece a O de g(n)
+y
+f(n) pertenece a Omega de g(n).
+
+Interpretación:
+Una cota ajustada combina una cota superior y una cota inferior del mismo orden.
+
+---
+
+TARJETA 11. o pequeña y omega pequeña
+
+f(n) pertenece a o pequeña de g(n) si f crece estrictamente más lento que g.
+
+Prueba mediante límite:
+El límite de f(n) entre g(n) es cero.
+
+f(n) pertenece a omega pequeña de g(n) si f crece estrictamente más rápido que g.
+
+Prueba mediante límite:
+El límite de f(n) entre g(n) es infinito.
+
+Ejemplos:
+2n pertenece a o pequeña de n cuadrada.
+n cuadrada entre 2 pertenece a omega pequeña de n.
+n cuadrada entre 2 no pertenece a omega pequeña de n cuadrada.
+
+---
+
+TARJETA 12. Analogía con relaciones entre números
+
+O se parece a menor o igual que.
+Omega se parece a mayor o igual que.
+Theta se parece a igual a.
+o pequeña se parece a menor que.
+omega pequeña se parece a mayor que.
+
+Advertencia:
+La analogía ayuda, pero no es perfecta.
+No todas las funciones pueden compararse asintóticamente de forma total.
+
+Ejemplo de oscilación:
+n elevada a 1 más seno de n cambia entre órdenes cercanos a 1 y n cuadrada.
+
+---
+
+TARJETA 13. Notación asintótica dentro de ecuaciones
+
+Ejemplo:
+
+2n cuadrada + 3n + 1
+= 2n cuadrada + Theta de n
+= Theta de n cuadrada.
+
+Interpretación:
+Theta de n representa una función no especificada cuyo crecimiento es lineal.
+
+Otro ejemplo:
+
+T(n) = 2T(n entre 2) + Theta de n.
+
+El término Theta de n representa el trabajo de combinar dos soluciones parciales.
+
+---
+
+TARJETA 14. Propiedades algebraicas
+
+Transitividad:
+Si f pertenece a Theta de g y g pertenece a Theta de h, entonces f pertenece a Theta de h.
+
+Reflexividad:
+f pertenece a Theta de f.
+
+Simetría de Theta:
+f pertenece a Theta de g si y sólo si g pertenece a Theta de f.
+
+Simetría transpuesta:
+f pertenece a O de g si y sólo si g pertenece a Omega de f.
+
+Actividad:
+Explicar cuál de estas propiedades permite encadenar comparaciones.
+
+---
+
+TARJETA 15. Jerarquía de crecimiento
+
+Orden aproximado, de menor a mayor crecimiento:
+
+1
+logaritmo de n
+raíz de n
+n
+n logaritmo de n
+n cuadrada
+n cúbica
+2 elevada a n
+n factorial
+
+Pregunta:
+¿Dónde colocarías n elevada a 1.5?
+
+Respuesta:
+Entre n y n cuadrada.
+
+---
+
+TARJETA 16. Monotonía, piso y techo
+
+Una función es monótona creciente si no disminuye cuando aumenta n.
+
+En análisis asintótico, piso y techo suelen conservar el orden:
+
+piso de n entre 2 pertenece a Theta de n.
+techo de logaritmo de n pertenece a Theta de logaritmo de n.
+
+Razón:
+El redondeo modifica el valor por una cantidad acotada, no su tasa de crecimiento.
+
+---
+
+TARJETA 17. Polinomios y exponenciales
+
+Polinomio:
+Si el coeficiente principal es positivo, un polinomio de grado d pertenece a Theta de n elevada a d.
+
+Ejemplo:
+7n cuarta - 3n cuadrada + 10 pertenece a Theta de n cuarta.
+
+Exponencial:
+Para a mayor que 1, a elevada a n supera asintóticamente a cualquier polinomio.
+
+Ejemplo:
+n elevada a 100 pertenece a o pequeña de 2 elevada a n.
+
+---
+
+TARJETA 18. Logaritmos
+
+La base del logaritmo sólo introduce un factor constante:
+
+logaritmo base a de n
+= logaritmo base b de n dividido entre logaritmo base b de a.
+
+Por ello:
+logaritmo base 2 de n pertenece a Theta de logaritmo natural de n.
+
+Consecuencia:
+En notación asintótica suele escribirse log n sin especificar la base.
+
+---
+
+TARJETA 19. Factoriales y Fibonacci
+
+Factorial:
+n factorial crece más rápido que c elevada a n para cualquier constante c positiva fija.
+
+Fibonacci:
+Los números de Fibonacci crecen proporcionalmente a phi elevada a n, donde phi es la razón áurea.
+
+Jerarquía:
+Polinomios, exponenciales y factoriales representan escalas muy diferentes.
+
+Pregunta:
+¿Por qué un algoritmo factorial deja de ser práctico incluso con entradas moderadas?
+
+---
+
+TARJETA 20. Sumatorias fundamentales
+
+Constante:
+La suma de 1 desde i igual a 1 hasta n pertenece a Theta de n.
+
+Aritmética:
+La suma de i desde 1 hasta n pertenece a Theta de n cuadrada.
+
+Cuadrados:
+La suma de i cuadrada desde 1 hasta n pertenece a Theta de n cúbica.
+
+Geométrica creciente:
+La suma de 2 elevada a i desde 0 hasta n pertenece a Theta de 2 elevada a n.
+
+Armónica:
+La suma de 1 entre i desde 1 hasta n pertenece a Theta de log n.
+
+---
+
+TARJETA 21. Técnicas para acotar sumas
+
+Término máximo por número de términos:
+Si todos los términos son no negativos, la suma no supera n veces el término mayor.
+
+Agrupamiento:
+Separar términos en bloques con magnitudes semejantes.
+
+Comparación integral:
+Comparar la suma con el área bajo una función monótona.
+
+Serie geométrica:
+Cuando la razón es mayor que 1, el término mayor determina el orden.
+
+Pregunta:
+¿Qué técnica usarías para la serie armónica?
+
+---
+
+TARJETA 22. Regla para series polinómicas
+
+Para una constante d no negativa:
+
+La suma de i elevada a d desde 1 hasta n
+pertenece a Theta de n elevada a d + 1.
+
+Ejemplos:
+
+Suma de 1 pertenece a Theta de n.
+Suma de i pertenece a Theta de n cuadrada.
+Suma de i cuadrada pertenece a Theta de n cúbica.
+
+Interpretación:
+Sumar una potencia suele aumentar el exponente en uno.
+
+---
+
+TARJETA 23. Regla para series logarítmicas
+
+La suma de logaritmo de i desde 1 hasta n pertenece a Theta de n log n.
+
+Idea de la cota superior:
+Cada término es menor o igual que log n y existen n términos.
+
+Idea de la cota inferior:
+Los últimos n entre 2 términos son al menos del orden de logaritmo de n entre 2.
+
+Las cotas superior e inferior tienen el mismo orden.
+
+---
+
+TARJETA 24. Sustitución de equivalentes asintóticos
+
+Si una parte de una expresión pertenece a Theta de otra función, puede sustituirse para analizar el orden total.
+
+Ejemplo:
+
+Suma desde i igual a 1 hasta n de paréntesis 3i cuadrada + 2i + 1.
+
+Cada término pertenece a Theta de i cuadrada.
+
+Por lo tanto, la suma pertenece a:
+Theta de la suma de i cuadrada.
+
+Resultado:
+Theta de n cúbica.
+
+---
+
+TARJETA 25. Aplicación: tres formas de sumar
+
+Ciclo completo:
+n iteraciones.
+Theta de n.
+
+Recorrido por pares:
+Aproximadamente n entre 2 iteraciones.
+Theta de n.
+
+Fórmula n(n + 1) entre 2:
+Número constante de operaciones bajo el modelo elemental.
+Theta de 1.
+
+Idea central:
+Reducir una constante no cambia el orden.
+Eliminar la dependencia respecto de n sí cambia el orden.
+
+---
+
+TARJETA 26. Aplicación: búsqueda en un arreglo ordenado
+
+Búsqueda secuencial:
+Peor caso de n comparaciones.
+Theta de n.
+
+Búsqueda mediante saltos cercanos a raíz de n:
+Aproximadamente 2 raíz de n comparaciones.
+Theta de raíz de n.
+
+Búsqueda binaria:
+Techo de logaritmo base 2 de n + 1 comparaciones.
+Theta de log n.
+
+La condición que permite la mejora es que el arreglo esté ordenado.
+
+---
+
+TARJETA 27. Errores frecuentes
+
+Usar O cuando se quiere afirmar una cota ajustada.
+Confundir tiempo observado con cantidad de operaciones.
+Eliminar términos sin explicar que se estudia el comportamiento asintótico.
+Suponer que una constante grande nunca importa para entradas reales.
+Clasificar un ciclo por su apariencia sin contar cuántas veces se ejecuta.
+Confundir peor caso, caso promedio y mejor caso.
+
+---
+
+TARJETA 28. Actividad en parejas
+
+Clasifiquen cada función con una cota Theta ajustada:
+
+1. 7n + 30.
+2. 4n cuadrada + 2n + 100.
+3. n log n + 8n.
+4. La suma de i desde 1 hasta n.
+5. La suma de 3 elevada a i desde 0 hasta n.
+
+Para cada función:
+Identifiquen el término dominante.
+Propongan una justificación.
+Indiquen un error que podría cometer otra pareja.
+
+---
+
+TARJETA 29. Cierre de la segunda exposición
+
+Completar las frases:
+
+Theta sirve para...
+O sirve para...
+Omega sirve para...
+Una constante multiplicativa...
+Una suma de n términos...
+La búsqueda binaria mejora a la secuencial porque...
+
+Producto de salida:
+Una comparación argumentada entre dos algoritmos, con función de trabajo, cota asintótica y supuesto de entrada.
+
+FUENTES BASE
+Baase y Van Gelder. Algoritmos computacionales. Fragmento trabajado: páginas PDF 22 a 89 del archivo proporcionado.
+Presentación Crecimiento de Funciones proporcionada para el curso, 43 páginas.

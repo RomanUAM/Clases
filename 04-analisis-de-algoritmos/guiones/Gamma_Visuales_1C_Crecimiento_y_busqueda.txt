@@ -1,0 +1,39 @@
+INSTRUCCIONES ADICIONALES PARA GAMMA
+
+Audiencia: estudiantes universitarios de Ingeniería en Computación que ya cursaron programación.
+Duración: 90 minutos.
+Formato: presentación 16:9.
+Texto: preservar exactamente los cortes marcados con --- del guion 1C.
+Extensión prevista: 34 tarjetas.
+Voz: hablar directamente al estudiante. No incluir notas para el profesor.
+
+ESTILO VISUAL
+
+Cómic universitario contemporáneo, tinta limpia, sombreado plano, estudiantes mexicanos de aproximadamente 20 años. Paleta azul marino, turquesa, coral y crema. No infantil. Sin palabras, números, logotipos ni fórmulas dentro de imágenes generadas.
+
+IMÁGENES GENERADAS: USAR SOLO EN ESTAS 7 TARJETAS
+
+PORTADA: carrera visual entre funciones; estudiantes observan que la ventaja inicial cambia al crecer la entrada.
+PREDECIR: LA CARRERA DE FUNCIONES: cinco corredores representan crecimiento constante, logarítmico, lineal, n log n y cuadrático.
+PROBAR: DUPLICA n Y OBSERVA QUÉ CAMBIA: estudiantes duplican pilas de tarjetas y comparan cuánto crece el trabajo.
+CONFRONTAR: UNA CONSTANTE PUEDE CAMBIAR AL GANADOR: un corredor lineal con mochila pesada vence al principio, pero el cuadrático termina superándolo.
+CONSTRUIR: RETO DE BÚSQUEDA HUMANA: una colección ordenada de tarjetas y una persona que solo puede preguntar menor, mayor o igual.
+BÚSQUEDA SECUENCIAL Y PSEUDOCÓDIGO: revisión desde el primer elemento; tres posiciones del objetivo muestran mejor, intermedio y peor caso.
+CONFRONTAR: DESCARTA LA MITAD Y CONSERVA LA RESPUESTA: vista cenital de 16 tarjetas que se reducen a 8, 4, 2 y 1.
+
+OBJETOS NATIVOS, NO IMÁGENES
+
+RUTA DE 90 MINUTOS: línea de tiempo de la sesión.
+CONSTANTE Y LOGARÍTMICO, LINEAL Y n log n, CUADRÁTICO Y EXPONENCIAL: pares de gráficas pequeñas con escalas explícitas.
+PUNTO DE CRUCE: gráfica nativa de 1000n y n² con cruce en n=1000.
+TÉRMINO DOMINANTE: descomposición visual de 3n²+20n+7.
+MAPA INICIAL: COTAS O Y Ω y COTA AJUSTADA | Θ: diagramas relacionados con la misma codificación de color; presentarlos como lectura inicial, no como demostración formal.
+FORMALIZAR: CLASIFICA POR TÉRMINO DOMINANTE: tarjetas movibles.
+BÚSQUEDA SECUENCIAL Y PSEUDOCÓDIGO y PSEUDOCÓDIGO BINARIO: bloques monoespaciados.
+TRAZA BINARIA: tabla editable.
+REDUCCIONES Y COMPARACIONES: secuencia nativa 16→8→4→2→1 y nota separada para la comparación final.
+TRANSFERIR: ELIGE UNA BÚSQUEDA CON SUS CONDICIONES: tabla editable de comparación.
+
+COMPOSICIÓN
+
+Hacer visible la progresión predecir, calcular, confrontar, formalizar y transferir. Alternar gráfica, actividad, cómic, pseudocódigo, traza y comparación. No repetir una composición más de dos tarjetas consecutivas. Cada actividad debe mostrar acción, producto y criterio de logro.

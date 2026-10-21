@@ -1,0 +1,26 @@
+[
+  {
+    "archivo": "Apunte_analisis_cualitativo.docx",
+    "identico_a": "01-analisis-y-visualizacion-de-datos/materiales/Apunte_analisis_cualitativo(1).docx"
+  },
+  {
+    "archivo": "Apunte_analisis_cualitativo_tostadas_metodologia.docx",
+    "identico_a": "01-analisis-y-visualizacion-de-datos/materiales/Apunte_Tostadas.docx"
+  },
+  {
+    "archivo": "Caso_Ana_Laura_para_Gamma.txt",
+    "identico_a": "03-economia-financiera/guiones/Caso_Ana_Laura_para_Gamma.md"
+  },
+  {
+    "archivo": "burbuja.m",
+    "identico_a": "04-analisis-de-algoritmos/codigo/burbuja.m"
+  },
+  {
+    "archivo": "par_mas_cercano.m",
+    "identico_a": "04-analisis-de-algoritmos/codigo/par_mas_cercano.m"
+  },
+  {
+    "archivo": "planta_markov.m",
+    "identico_a": "04-analisis-de-algoritmos/codigo/planta_markov.m"
+  }
+]

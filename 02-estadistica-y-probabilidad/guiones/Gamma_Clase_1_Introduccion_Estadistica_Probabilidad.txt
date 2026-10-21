@@ -1,0 +1,449 @@
+CLASE 1 | INTRODUCCIÓN A LA ESTADÍSTICA Y LA PROBABILIDAD
+
+Notas para el estudiante
+
+Del conteo de avistamientos cerca de Gatolandia a una decisión sustentada en datos.
+
+Duración sugerida: 90 minutos
+
+---
+
+UN DATO TODAVÍA NO ES UNA RESPUESTA
+
+Durante cinco minutos observamos estos conteos:
+
+2, 3, 1, 4, 2
+
+¿Qué representan? ¿Doce gatos diferentes, doce pasos frente al observador o cinco mediciones de presencia?
+
+Antes de calcular, debemos definir qué medimos y para qué.
+
+---
+
+METAS DE APRENDIZAJE
+
+Al finalizar podrás:
+
+• distinguir estadística descriptiva e inferencial;
+• reconocer los elementos de un modelo probabilístico;
+• definir una variable observable;
+• resumir un conjunto pequeño de datos;
+• separar observación, modelo, estimación y decisión.
+
+---
+
+RUTA DE LA CLASE
+
+Conceptos iniciales · 20 min
+
+Diseño de la observación · 15 min
+
+Conteo en campo · 10 min
+
+Organización y análisis · 25 min
+
+Modelo, inferencia y cierre · 20 min
+
+---
+
+LA PREGUNTA ANTES DEL CÁLCULO
+
+Una investigación comienza con una necesidad de información.
+
+Pregunta de hoy:
+
+¿Cuál es la tasa de avistamientos de gatos por minuto en una zona definida cerca de Gatolandia, bajo un protocolo de observación específico?
+
+La respuesta dependerá del lugar, horario y método.
+
+---
+
+ESTADÍSTICA
+
+La estadística es la disciplina que permite aprender de datos afectados por variación e incertidumbre.
+
+Incluye recopilar, documentar, limpiar, organizar, representar y analizar datos. También permite construir modelos, estimar cantidades desconocidas y apoyar decisiones sin ocultar sus límites.
+
+---
+
+DOS FUNCIONES DE LA ESTADÍSTICA
+
+Estadística descriptiva
+
+Resume lo observado. Responde: ¿qué ocurrió en estos datos?
+
+Estadística inferencial
+
+Usa una muestra para aprender sobre un proceso o población. Responde: ¿qué podemos sostener más allá de estas observaciones y con cuánta incertidumbre?
+
+---
+
+DESCRIPCIÓN E INFERENCIA
+
+En la muestra {2, 3, 1, 4, 2}:
+
+«La media observada es 2.4» es una descripción.
+
+«La tasa del proceso es cercana a 2.4 por minuto» es una inferencia que requiere supuestos y una medida de incertidumbre.
+
+---
+
+EL CICLO ESTADÍSTICO
+
+Pregunta y propósito
+
+Diseño y recopilación
+
+Documentación y limpieza
+
+Organización y visualización
+
+Análisis y modelado
+
+Interpretación y decisión
+
+El ciclo puede regresar al diseño cuando detectamos datos insuficientes o una medición ambigua.
+
+---
+
+DE DATO A DECISIÓN
+
+Dato: «2 avistamientos».
+
+Información: «2 avistamientos durante un minuto, dentro de un radio definido».
+
+Conocimiento provisional: «la tasa observada cambia entre minutos».
+
+Decisión: ampliar el muestreo antes de asignar recursos.
+
+El contexto transforma el dato, pero no elimina la incertidumbre.
+
+---
+
+INCERTIDUMBRE
+
+La incertidumbre expresa que no conocemos con certeza un resultado, un parámetro o una explicación.
+
+Puede surgir de mediciones incompletas, variación entre observaciones, información faltante, modelos simplificados o aleatoriedad física.
+
+La estadística cuantifica parte de esa incertidumbre. No puede eliminarla por decreto.
+
+---
+
+AZAR EPISTÉMICO Y ONTOLÓGICO
+
+Azar epistémico: desconocemos información suficiente para predecir el resultado, como las condiciones exactas de un dado.
+
+Azar ontológico: algunas teorías físicas describen aleatoriedad intrínseca.
+
+El análisis estadístico suele funcionar sin resolver esta discusión filosófica: necesita un modelo explícito de resultados posibles.
+
+---
+
+EL CASO DEL CLIMA
+
+Los modelos atmosféricos siguen leyes físicas, pero pequeñas diferencias en las condiciones iniciales pueden amplificarse.
+
+Además intervienen error de medición, resolución limitada y simplificaciones del modelo.
+
+Una probabilidad de lluvia expresa incertidumbre predictiva bajo información y modelos disponibles, no ignorancia absoluta ni certeza total.
+
+---
+
+PROBABILIDAD
+
+La probabilidad proporciona un lenguaje matemático para representar incertidumbre.
+
+Asigna valores entre 0 y 1 a eventos dentro de un espacio de resultados posibles.
+
+El significado de esos valores depende del modelo y de la interpretación adoptada. Un cálculo exacto puede descansar sobre supuestos aproximados.
+
+---
+
+EXPERIMENTO, RESULTADO Y ESPACIO MUESTRAL
+
+Experimento aleatorio: procedimiento cuyo resultado individual no conocemos con certeza.
+
+Resultado: valor obtenido en una ejecución.
+
+Espacio muestral Ω: conjunto de resultados considerados posibles.
+
+Para un dado: Ω={1,2,3,4,5,6}.
+
+---
+
+EVENTOS
+
+Un evento es un subconjunto del espacio muestral.
+
+Para un dado:
+
+A = «resultado par» = {2,4,6}
+
+B = «resultado mayor que 4» = {5,6}
+
+A∩B={6}
+
+A∪B={2,4,5,6}
+
+---
+
+AXIOMAS DE KOLMOGÓROV
+
+Para cualquier evento A:
+
+1. P(A) ≥ 0.
+
+2. P(Ω) = 1.
+
+3. Si A y B son mutuamente excluyentes, entonces P(A∪B)=P(A)+P(B).
+
+Estos axiomas definen una medida de probabilidad coherente.
+
+---
+
+PROPIEDADES DERIVADAS
+
+P(∅)=0
+
+P(Aᶜ)=1−P(A)
+
+Si A⊆B, entonces P(A)≤P(B)
+
+P(A∪B)=P(A)+P(B)−P(A∩B)
+
+La última expresión evita contar dos veces los resultados compartidos por A y B.
+
+---
+
+PROBABILIDAD Y ESTADÍSTICA
+
+Probabilidad: partimos de un modelo y deducimos qué resultados esperaríamos.
+
+Estadística: partimos de datos y evaluamos qué modelos o parámetros resultan compatibles.
+
+En la práctica alternamos ambas direcciones: modelo, datos, contraste, revisión y decisión.
+
+---
+
+PROPÓSITO DE GATOLANDIA
+
+El mismo conteo podría apoyar preguntas ecológicas, sanitarias, urbanas o académicas.
+
+En esta clase el propósito es metodológico: aprender a diseñar una medición reproducible y analizar un fenómeno de conteo.
+
+No estimaremos la población total de gatos con solo cinco minutos de observación.
+
+---
+
+EL SISTEMA OBSERVADO
+
+Componentes relevantes:
+
+• zona y radio de observación;
+• intervalos de tiempo;
+• gatos que entran o salen del área;
+• persona observadora;
+• horario y condiciones ambientales.
+
+Cambiar uno de estos elementos puede cambiar la distribución de los conteos.
+
+---
+
+VARIABLE OPERACIONAL
+
+Definimos X como el número de avistamientos registrados durante un intervalo de un minuto dentro del radio de 3 metros.
+
+X es cuantitativa discreta y toma valores 0,1,2,…
+
+Esta definición mide avistamientos. No garantiza contar gatos distintos.
+
+---
+
+REINGRESOS Y DOBLE CONTEO
+
+Sin identificar individuos, el mismo gato puede generar más de un avistamiento.
+
+Regla propuesta: contar cada entrada al radio como un evento. Si un gato sale y vuelve a entrar, registrar un nuevo evento y anotarlo como posible reingreso.
+
+La conclusión se referirá a eventos de paso, no al tamaño de la población.
+
+---
+
+UNIDAD Y EXPOSICIÓN
+
+Unidad de observación: un intervalo de un minuto.
+
+Exposición total por estudiante: cinco minutos en una ubicación fija.
+
+Variable: número de entradas observadas por intervalo.
+
+Población estadística: todos los intervalos de un minuto que podrían observarse bajo condiciones definidas de lugar, horario y protocolo.
+
+Muestra individual: los cinco intervalos observados.
+
+Esta población estadística no es la población biológica de gatos.
+
+---
+
+PROTOCOLO INDIVIDUAL
+
+1. Registra fecha, ubicación, hora y condiciones.
+
+2. Mantén una posición fija.
+
+3. Observa cinco intervalos consecutivos de un minuto.
+
+4. Cuenta entradas al radio de 3 metros.
+
+5. Registra cada conteo, incluso cuando sea cero.
+
+6. No interactúes con los animales.
+
+Alternativa accesible: observa desde un punto seguro y accesible o analiza un conjunto proporcionado con el mismo formato. La evidencia y los criterios permanecen iguales.
+
+---
+
+EL RADIO DE 3 METROS
+
+La estimación visual introduce error.
+
+Antes de iniciar, calibra la distancia con una referencia del entorno cuya longitud conozcas o con una medición autorizada.
+
+Durante el conteo mantén la misma referencia. Si un caso queda en el límite, regístralo en observaciones.
+
+---
+
+OBSERVAR SIN ALTERAR
+
+No llames, alimentes, persigas ni toques a los gatos.
+
+Mantén distancia y no bloquees su trayectoria.
+
+Si existe riesgo para una persona o un animal, suspende el conteo.
+
+La prioridad ética y de seguridad está por encima de completar la muestra.
+
+Nadie debe desplazarse a una zona que limite su movilidad o percepción segura.
+
+---
+
+TRAZABILIDAD
+
+La hoja de registro debe incluir:
+
+nombre o código · fecha · hora inicial · ubicación · clima · incidencias
+
+Por intervalo:
+
+número · inicio y fin · conteo · observaciones
+
+Una observación sin metadatos pierde capacidad de comparación.
+
+---
+
+DATOS DE PRÁCTICA
+
+Ejemplo:
+
+Intervalo 1: 2
+
+Intervalo 2: 3
+
+Intervalo 3: 1
+
+Intervalo 4: 4
+
+Intervalo 5: 2
+
+Muestra: {2,3,1,4,2}
+
+Total: 12 avistamientos en 5 minutos.
+
+---
+
+PREGUNTAS PARA LA SIGUIENTE CLASE
+
+Con la muestra {2,3,1,4,2} podemos preguntar:
+
+• ¿cuál es su centro?
+• ¿qué valor se repite?
+• ¿cuánto varían los datos?
+• ¿cómo cambia el resumen si aparece un valor extremo?
+
+La siguiente clase construirá medidas para responder.
+
+---
+
+PUENTE AL EXPERIMENTO DE MONEDAS
+
+En equipos de dos o tres realizaremos cinco corridas de tres lanzamientos.
+
+La variable será X = número de caras por corrida.
+
+La muestra tendrá cinco valores, cada uno entre 0 y 3. Con ella estudiaremos media, mediana, moda, rango, varianza y desviación estándar.
+
+---
+PROPUESTA DE 20 MINUTOS
+
+Producto individual:
+
+1. pregunta y propósito;
+2. protocolo y definición de X;
+3. tabla de cinco conteos;
+4. gráfica;
+5. media, mediana y dispersión;
+6. interpretación;
+7. dos limitaciones;
+8. mejora del diseño.
+
+Los cálculos deben conservar unidades.
+
+---
+
+CRITERIOS DE CALIDAD
+
+Claridad: otra persona entiende qué se midió.
+
+Trazabilidad: lugar, hora y protocolo están documentados.
+
+Coherencia: gráfica y medidas responden a la pregunta.
+
+Prudencia: la conclusión no excede cinco observaciones.
+
+Reproducibilidad: otra persona podría repetir el procedimiento.
+
+Accesibilidad: el producto puede elaborarse con observación directa o con el conjunto alternativo, sin reducir la exigencia de análisis.
+
+---
+
+CIERRE INDIVIDUAL
+
+Responde en cuatro frases:
+
+1. ¿Qué describe la estadística descriptiva?
+2. ¿Qué agrega la inferencia?
+3. ¿Por qué un conteo no sigue automáticamente una distribución de Poisson?
+4. ¿Qué mide realmente X en Gatolandia?
+
+---
+
+MAPA DE LA CLASE
+
+Partimos de una pregunta y definimos una medición.
+
+Los datos permitieron describir lo observado.
+
+La probabilidad aportó un modelo provisional.
+
+La inferencia cuantificó la incertidumbre sobre una tasa.
+
+La decisión final conserva los supuestos y las limitaciones.
+
+---
+
+FUENTES Y ALCANCE
+
+Contenido elaborado a partir de las notas docentes de la Clase 1.
+
+El ejemplo de Poisson funciona como primera aproximación. Una unidad posterior debe desarrollar diseño muestral, independencia, estimación, diagnóstico del modelo e intervalos de confianza con mayor profundidad.

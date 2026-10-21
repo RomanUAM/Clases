@@ -1,0 +1,904 @@
+INSTRUCCIONES PARA GAMMA
+
+Crear una presentación académica dirigida a estudiantes de maestría.
+Utilizar un diseño sobrio, claro y contemporáneo.
+Conservar las URL completas y convertirlas en botones activos.
+Cada separador de tres guiones indica una nueva tarjeta.
+No inventar estadísticas, resultados experimentales ni fuentes.
+La gráfica y los ejemplos del curso tienen una función didáctica.
+
+---
+
+ANÁLISIS DE DATOS
+
+Carta temática y guía del estudiante
+
+Posgrado en Diseño y Visualización de la Información
+Universidad Autónoma Metropolitana
+
+UEA: Análisis de Datos
+Clave: 1407211
+Nivel: Maestría
+Carácter: Obligatoria
+Créditos: 8
+Duración: 11 semanas
+Horas semanales: 3 horas de teoría y 2 horas de práctica
+Profesor: Dr. Román Anselmo Mora Gutiérrez
+
+---
+
+PROPÓSITO DEL CURSO
+
+Al finalizar la UEA, podrás seleccionar y emplear métodos de análisis de datos cualitativos y cuantitativos para sustentar decisiones y representar información de manera clara, coherente y pertinente.
+
+El curso articula el análisis de datos con la visualización de información y culmina en un proyecto individual relacionado con tu Idónea Comunicación de Resultados, desarrollado durante todo el trimestre.
+
+---
+
+RESULTADOS DE APRENDIZAJE
+
+Al finalizar el curso podrás:
+
+• Distinguir entre análisis de datos y visualización de información.
+• Formular un problema de análisis.
+• Reconocer las características y limitaciones de los datos disponibles.
+• Recolectar, organizar y analizar información cualitativa.
+• Aplicar fundamentos de estadística, muestreo y comparación.
+• Plantear un diseño experimental congruente con una pregunta.
+• Construir e interpretar modelos de regresión.
+• Realizar ejercicios introductorios de simulación.
+• Comunicar resultados mediante visualizaciones comprensibles y metodológicamente sustentadas.
+
+---
+
+FORMA DE TRABAJO
+
+Trabajarás mediante:
+
+• Sesiones teórico prácticas.
+• Lecturas breves.
+• Discusión de casos.
+• Ejercicios con datos.
+• Actividades individuales.
+• Tres proyectos de integración en equipo.
+• Un proyecto final individual.
+
+Cada proyecto partirá de una pregunta detonadora y definirá un usuario, un propósito, un mensaje y un medio.
+
+---
+
+EVALUACIÓN
+
+Proyecto de integración 1
+Modalidad: equipo
+Entrega: semana 4
+Valor: 20 %
+
+Proyecto de integración 2
+Modalidad: equipo
+Entrega: semana 8
+Valor: 20 %
+
+Proyecto de integración 3
+Modalidad: equipo
+Entrega: semana 10
+Valor: 20 %
+
+Tareas y lecturas
+Modalidad: individual
+Entrega: durante el trimestre
+Valor: 10 %
+
+Proyecto final relacionado con la ICR
+Modalidad: individual
+Entrega: semana 11
+Valor: 30 %
+
+Total: 100 %
+
+---
+
+EQUIVALENCIA DE CALIFICACIONES
+
+MB: de 8.5 a 10
+
+B: de 7.0 a menos de 8.5
+
+S: de 6.0 a menos de 7.0
+
+NA: menos de 6.0
+
+El promedio se calculará con las ponderaciones establecidas. La equivalencia se aplicará sin redondear previamente.
+
+---
+
+PLANEACIÓN DEL CURSO
+
+Semana 1
+Análisis y visualización de información.
+
+Semana 2
+Introducción al análisis de datos.
+
+Semanas 3 y 4
+Información cualitativa.
+Entrega del Proyecto de integración 1.
+
+Semanas 5 y 6
+Información cuantitativa.
+
+Semanas 7 y 8
+Diseño de experimentos.
+Entrega del Proyecto de integración 2.
+
+Semana 9
+Regresión.
+
+Semana 10
+Simulación.
+Entrega del Proyecto de integración 3.
+
+Semana 11
+Integración y comunicación.
+Entrega del proyecto final individual.
+
+---
+
+RUTA DE LA PRIMERA SESIÓN
+
+Duración total: 5 horas
+
+1. Presentación del curso: 30 minutos.
+2. Activación y discusión: 25 minutos.
+3. Puesta en común: 35 minutos.
+4. Metodología IBM y cadena DIKW: 45 minutos.
+5. Lectura guiada: 30 minutos.
+6. Receso: 10 minutos.
+7. Análisis del caso: 45 minutos.
+8. Rediseño de la información: 55 minutos.
+9. Socialización: 15 minutos.
+10. Conclusión individual: 10 minutos.
+
+Las evidencias producidas forman parte del componente de tareas y lecturas.
+
+---
+
+PREGUNTA DETONADORA
+
+¿Visualizar es hacer gráficas?
+
+Responde individualmente:
+
+• ¿Qué significa visualizar información?
+• ¿Toda visualización es una gráfica?
+• ¿Toda gráfica comunica?
+• ¿Qué hace que los datos se conviertan en información significativa?
+• Dibuja un ejemplo de lo que consideras una visualización.
+
+Después compara tu respuesta con la de tus compañeros.
+
+---
+
+VISUALIZAR NO ES SOLAMENTE HACER GRÁFICAS
+
+Una gráfica es uno de los recursos disponibles para representar datos. Visualizar información implica decidir:
+
+• Qué se quiere comunicar.
+• A quién se dirige el mensaje.
+• Qué información se mostrará.
+• Qué información se excluirá.
+• Qué relaciones deben percibirse.
+• Qué medio se utilizará.
+• Qué comprensión o decisión se espera producir.
+
+Los datos no se convierten automáticamente en información por aparecer en una gráfica.
+
+---
+
+VISUALIZACIÓN Y COMUNICACIÓN MULTISENSORIAL
+
+La visualización de datos representa información principalmente mediante el canal visual.
+
+Puede incluir:
+
+• Gráficas.
+• Mapas.
+• Diagramas.
+• Interfaces.
+• Esquemas.
+• Representaciones espaciales.
+
+Cuando se utilizan sonido, tacto, movimiento u otros canales, resulta más preciso hablar de representación o comunicación multisensorial de información.
+
+Agregar colores, sonidos o movimientos no garantiza comprensión. Cada recurso debe tener una función relacionada con el usuario y el propósito.
+
+---
+
+CÓMO INTERPRETAMOS UNA VISUALIZACIÓN
+
+Definición inicial
+
+Colocar datos o puntos no constituye por sí mismo una visualización suficiente. Debemos preguntar qué puede comprender realmente la audiencia.
+
+Contexto
+
+Sin título, etiquetas, unidades, población y condiciones de medición, los datos no pueden interpretarse correctamente.
+
+Atención
+
+La posición, el tamaño, el color, la forma, el contraste, el movimiento y el sonido dirigen la atención.
+
+Carga informativa
+
+Los elementos decorativos o redundantes aumentan el esfuerzo mental y pueden ocultar el mensaje.
+
+Significado
+
+Los datos adquieren significado cuando una audiencia puede interpretarlos dentro de un contexto.
+
+Usuario y accesibilidad
+
+El lenguaje, el contraste, los símbolos y el medio deben responder a las características de la audiencia.
+
+Adaptación
+
+Una misma información puede necesitar representaciones diferentes para usuarios distintos.
+
+---
+
+CASO PARA ANALIZAR
+
+Tenemos una gráfica de dispersión.
+
+En el eje horizontal se representa el tiempo del proceso.
+
+En el eje vertical se representa la degradación de proteínas.
+
+La primera versión no tiene título, etiquetas, unidades, fuente ni explicación del contexto.
+
+Los puntos utilizan cruces, círculos, colores y tamaños diferentes solamente para que se vean atractivos.
+
+Preguntas:
+
+• ¿Qué puedes observar?
+• ¿Qué no puedes concluir?
+• ¿Qué significado parecen tener los colores y tamaños?
+• ¿Esas diferencias representan variables reales?
+• ¿Para quién está hecha la gráfica?
+• ¿Qué decisión permite tomar?
+
+IMAGEN SUGERIDA PARA GAMMA:
+Comparación entre una gráfica de dispersión deficiente y una gráfica corregida. No inventar datos adicionales. La versión deficiente debe usar colores, formas y tamaños sin significado. La versión corregida debe mostrar título, ejes, unidades y una tendencia descriptiva.
+
+---
+
+ERRORES QUE DEBES IDENTIFICAR
+
+• No existe una pregunta o título que explique la relación representada.
+• Los ejes no indican las variables ni sus unidades.
+• Los colores, tamaños y símbolos sugieren categorías inexistentes.
+• No se presenta una leyenda.
+• No se identifica la fuente.
+• No se define la población ni el tamaño de la muestra.
+• No se explican las condiciones del proceso.
+• La escala no está justificada.
+• No se comunica la variabilidad o incertidumbre.
+• Una asociación visual no demuestra causalidad.
+
+---
+
+METODOLOGÍA DE CIENCIA DE DATOS DE IBM
+
+1. Comprensión del problema
+Definir la pregunta, el usuario, la decisión y el valor esperado.
+
+2. Enfoque analítico
+Determinar si se necesita describir, comparar, explicar, predecir o simular.
+
+3. Requisitos de datos
+Definir variables, unidades, cobertura, calidad y restricciones éticas.
+
+4. Recolección
+Localizar u obtener datos trazables y documentar su procedencia.
+
+5. Comprensión de los datos
+Explorar estructura, significado, ausencias, sesgos y valores atípicos.
+
+6. Preparación
+Depurar, integrar y transformar los datos, documentando las decisiones.
+
+7. Modelación
+Seleccionar y aplicar técnicas congruentes con la pregunta.
+
+8. Evaluación
+Comprobar desempeño, coherencia, interpretación y utilidad.
+
+9. Despliegue y comunicación
+Construir el reporte, el artefacto y la presentación.
+
+10. Retroalimentación
+Observar el uso, recibir críticas y corregir los datos, el modelo o la representación.
+
+---
+
+CADENA DIKW
+
+Datos
+
+Registros, observaciones o mediciones que todavía no han sido interpretados.
+
+Información
+
+Datos organizados y contextualizados que permiten responder qué, quién, dónde, cuándo o cuánto.
+
+Conocimiento
+
+Interpretación de patrones y relaciones que permite comprender su relevancia, alcance y limitaciones.
+
+Sabiduría o acción responsable
+
+Uso del conocimiento para decidir, recomendar o actuar considerando incertidumbre, consecuencias y valores.
+
+La progresión no es automática. Una visualización puede ordenar datos sin producir conocimiento si carece de contexto o induce una interpretación equivocada.
+
+---
+
+LECTURAS DE LA PRIMERA SESIÓN
+
+Las lecturas se dividen en obligatorias y recomendadas.
+
+Las lecturas obligatorias tienen acceso abierto y no requieren pago.
+
+Las lecturas recomendadas permiten profundizar, pero su acceso puede ser parcial o institucional.
+
+Para cada lectura registra:
+
+• Una idea principal.
+• Un concepto relevante.
+• Una objeción o pregunta.
+• Una aplicación al caso de proteínas.
+• Una relación con tu tema de ICR.
+
+---
+
+LECTURA OBLIGATORIA 1
+
+¿Qué es la visualización de datos?
+
+Título:
+What Is Data Visualization?
+
+Institución:
+Tableau
+
+Acceso:
+Texto completo, abierto y sin registro.
+
+URL:
+https://www.tableau.com/visualization/what-is-data-visualization
+
+BOTÓN:
+ABRIR LECTURA SOBRE VISUALIZACIÓN
+
+Lee los apartados sobre definición, ventajas, riesgos, importancia y tipos de visualización.
+
+Pregunta para discutir:
+
+¿Por qué una gráfica visualmente atractiva puede producir una interpretación equivocada?
+
+---
+
+LECTURA OBLIGATORIA 2
+
+Metodología de Ciencia de Datos de IBM
+
+Título:
+Foundational Methodology for Data Science
+
+Autor:
+John B. Rollins
+
+Institución:
+IBM Analytics
+
+Acceso:
+PDF completo, abierto y sin registro.
+
+URL:
+https://tdwi.org/~/media/64511a895d86457e964174edc5c4c7b1
+
+BOTÓN:
+ABRIR METODOLOGÍA DE IBM
+
+Lee las seis páginas del documento.
+
+Preguntas para discutir:
+
+• ¿En qué etapa se define el problema?
+• ¿En qué etapa se identifica al usuario?
+• ¿Por qué la metodología debe ser iterativa?
+• ¿Qué sucede si la audiencia no comprende el resultado?
+
+---
+
+LECTURA OBLIGATORIA 3
+
+Datos, información, conocimiento y sabiduría
+
+Título:
+Data, Information, Knowledge, Wisdom: A Semiotic Theoretical and Empirical Exploration of the Hierarchy and its Quality Dimension
+
+Autores:
+Saša Baškarada y Andy Koronios
+
+Publicación:
+Australasian Journal of Information Systems
+
+Acceso:
+PDF completo, abierto y sin registro.
+
+URL:
+https://ajis.aaisnet.org/index.php/ajis/article/download/748/550/1781
+
+BOTÓN:
+ABRIR LECTURA SOBRE DIKW
+
+Para la primera sesión lee:
+
+• Resumen.
+• Introducción.
+• Apartado The DIKW Hierarchy.
+• Tabla 1.
+• Apartado Data and Information.
+
+Pregunta para discutir:
+
+¿Qué trabajo de contexto e interpretación permite que un dato funcione como información o conocimiento?
+
+---
+
+LECTURA RECOMENDADA 1
+
+Percepción y diseño de información
+
+Título:
+Information Visualization: Perception for Design
+
+Autor:
+Colin Ware
+
+Edición:
+Cuarta edición
+
+Acceso:
+Vista previa parcial en Google Books.
+
+URL:
+https://books.google.com/books/about/Information_Visualization.html?id=3-HFDwAAQBAJ
+
+BOTÓN:
+CONSULTAR VISTA PREVIA DE WARE
+
+El número de páginas visibles puede variar. Por esta razón no es una lectura obligatoria.
+
+Temas para profundizar:
+
+• Percepción visual.
+• Atención.
+• Color y contraste.
+• Formas y patrones.
+• Memoria de trabajo.
+• Eficiencia cognitiva.
+
+---
+
+LECTURA RECOMENDADA 2
+
+Análisis crítico de la jerarquía DIKW
+
+Título:
+The Wisdom Hierarchy: Representations of the DIKW Hierarchy
+
+Autora:
+Jennifer Rowley
+
+Publicación:
+Journal of Information Science, 33(2), 163 a 180.
+
+Acceso:
+El resumen es público. El texto completo puede requerir acceso institucional o suscripción.
+
+URL DEL ARTÍCULO:
+https://doi.org/10.1177/0165551506070706
+
+FICHA ACADÉMICA:
+https://research.bangor.ac.uk/en/publications/the-wisdom-hierarchy-representations-of-the-dikw-hierarchy/
+
+BOTÓN:
+CONSULTAR ARTÍCULO RECOMENDADO DE ROWLEY
+
+Si no puedes acceder al texto completo, consulta el resumen y utiliza como lectura principal el artículo abierto de Baškarada y Koronios.
+
+---
+
+RECURSO COMPLEMENTARIO ABIERTO
+
+Datos, información, evidencia y conocimiento
+
+Título:
+Data, Information, Evidence, and Knowledge: A Proposal for Health Informatics and Data Science
+
+Autor:
+Olaf Dammann
+
+Acceso:
+PDF completo, abierto y sin registro.
+
+URL:
+https://ojphi.jmir.org/2018/3/e62348/PDF
+
+BOTÓN:
+ABRIR RECURSO COMPLEMENTARIO
+
+El autor propone analizar la secuencia:
+
+Datos
+Información
+Evidencia
+Conocimiento
+
+Pregunta para discutir:
+
+¿Qué criterios debe cumplir la información para funcionar como evidencia?
+
+---
+
+ACTIVIDAD DE LECTURA
+
+Para cada lectura obligatoria registra:
+
+Idea principal
+
+¿Qué sostiene el texto?
+
+Concepto relevante
+
+¿Qué ayuda a comprender sobre análisis o visualización?
+
+Aplicación
+
+¿Cómo usarías ese concepto en la gráfica sobre tiempo y degradación de proteínas?
+
+Cuestionamiento
+
+¿Qué afirmación necesita discutirse, matizarse o contrastarse?
+
+Relación metodológica
+
+¿Con qué etapa de IBM y con qué nivel de DIKW se relaciona?
+
+---
+
+DISCUSIÓN EN EQUIPO
+
+• ¿Los datos se convierten en información por el solo hecho de representarlos?
+• ¿Qué cambia cuando cambia el usuario?
+• ¿Cómo influyen la percepción y la atención?
+• ¿Cuándo una gráfica aumenta la carga cognitiva?
+• ¿En qué momento IBM orienta una decisión visual?
+• ¿En qué nivel de DIKW se encuentra la gráfica analizada?
+• ¿Puede una gráfica contener datos correctos y comunicar una interpretación equivocada?
+• ¿Qué tendría que cambiar para producir conocimiento útil?
+
+Sustenten sus respuestas con las lecturas y con el caso analizado.
+
+---
+
+ACTIVIDAD DE APLICACIÓN
+
+Prueba de degustación y ventana de consumo
+
+Pregunta:
+
+¿Durante qué intervalo del proceso el producto conserva una calidad proteica verificable y una aceptabilidad sensorial adecuada para el usuario?
+
+En lugar de señalar un punto exacto, se propone identificar una ventana de consumo porque:
+
+• Las mediciones presentan variabilidad.
+• Los criterios dependen del producto.
+• El proceso puede modificar los resultados.
+• Las necesidades cambian según la audiencia.
+• La seguridad y la calidad deben evaluarse con criterios independientes.
+
+---
+
+DEGUSTACIÓN, CALIDAD PROTEICA Y SEGURIDAD
+
+Una prueba de degustación puede medir:
+
+• Agrado.
+• Sabor.
+• Aroma.
+• Textura.
+• Aceptabilidad.
+
+Sin embargo, una degustación no demuestra por sí sola:
+
+• La degradación de proteínas.
+• La inocuidad del alimento.
+• La calidad nutricional.
+• Una relación causal.
+
+La calidad proteica requiere una medición independiente.
+
+La seguridad debe establecerse antes de realizar cualquier prueba con personas.
+
+También se debe distinguir entre desnaturalización y degradación de proteínas.
+
+---
+
+DISEÑO PARA DIFERENTES AUDIENCIAS
+
+Consumidor
+
+Necesita conocer la ventana recomendada, las condiciones de conservación y las advertencias verificadas.
+
+Mensaje posible:
+
+Durante el intervalo validado se conserva la aceptabilidad sin rebasar los criterios establecidos de calidad y seguridad.
+
+Personal técnico
+
+Necesita conocer variables, unidades, método instrumental, escala sensorial, número de participantes, variabilidad y umbrales.
+
+Mensaje posible:
+
+La recomendación depende de criterios medidos y de su incertidumbre, no solamente de la apariencia de la gráfica.
+
+Investigación o ICR
+
+Necesita los datos completos, el diseño de la prueba, el procedimiento de medición, el modelo, los supuestos, los intervalos y las limitaciones.
+
+Mensaje posible:
+
+La evidencia permite describir una asociación y estimar una ventana, pero no basta para afirmar causalidad general.
+
+---
+
+PRODUCTO QUE CONSTRUIRÁS
+
+El rediseño puede incluir:
+
+• Un panel sensorial con tiempo y puntuación de aceptabilidad.
+• Promedio, variabilidad, escala y tamaño de muestra.
+• Un panel analítico con tiempo y una medida válida de calidad proteica.
+• Método de medición y unidades.
+• Un diagrama molecular identificado como esquema explicativo.
+• Una ventana recomendada representada mediante un intervalo sombreado.
+• Una conclusión dirigida al usuario.
+• Condiciones, limitaciones e incertidumbre.
+
+---
+
+ENTREGABLES DE LA PRIMERA SESIÓN
+
+1. Definición inicial y definición final de visualización.
+
+2. Explicación de lo que cambió entre ambas definiciones.
+
+3. Registro de las tres lecturas obligatorias.
+
+4. Matriz que incluya:
+
+• Errores de la gráfica.
+• Conclusiones permitidas.
+• Conclusiones no justificadas.
+• Decisiones de mejora.
+
+5. Dos propuestas del mismo mensaje para audiencias diferentes.
+
+6. Justificación del usuario, propósito, medio y criterios de accesibilidad.
+
+7. Conclusión individual relacionada con el proyecto de ICR.
+
+---
+
+CRITERIOS PARA REVISAR TU TRABAJO
+
+• Distingues entre dato, representación e información interpretada.
+• Reconoces que una gráfica es un recurso posible y no la definición completa de visualización.
+• Relacionas la representación con un usuario, una necesidad, un mensaje y un medio.
+• Justificas el canal sensorial sin asumir que más estímulos producen mayor comprensión.
+• Consideras legibilidad, accesibilidad, contexto, incertidumbre y riesgo de interpretación errónea.
+
+---
+
+PROYECTO DE INTEGRACIÓN 1
+
+Percepción de la pobreza
+
+Modalidad: equipo.
+Entrega: semana 4.
+
+Pregunta detonadora:
+
+¿Cuál es la percepción de la pobreza?
+
+El equipo diseñará una estrategia cualitativa acotada, organizará y codificará la información, identificará patrones y elaborará una representación visual.
+
+Productos:
+
+• Reporte escrito.
+• Artefacto.
+• Presentación.
+
+---
+
+PROYECTO DE INTEGRACIÓN 2
+
+Pobreza y desigualdad en México
+
+Modalidad: equipo.
+Entrega: semana 8.
+
+Pregunta detonadora:
+
+¿Qué muestran los datos sobre pobreza y desigualdad en México?
+
+El equipo localizará fuentes verificables, construirá indicadores comparables, analizará diferencias territoriales o temporales y justificará su diseño de análisis.
+
+Productos:
+
+• Reporte escrito.
+• Artefacto.
+• Presentación.
+
+---
+
+PROYECTO DE INTEGRACIÓN 3
+
+Pobreza y delincuencia
+
+Modalidad: equipo.
+Entrega: semana 10.
+
+Pregunta detonadora:
+
+¿Qué relación se observa entre pobreza y delincuencia?
+
+El equipo construirá un modelo exploratorio de regresión y un ejercicio de simulación o escenarios.
+
+Deberá:
+
+• Distinguir asociación y causalidad.
+• Considerar diferencias de población y territorio.
+• Explicitar variables omitidas.
+• Comunicar la incertidumbre.
+• Evitar interpretaciones estigmatizantes.
+
+Productos:
+
+• Reporte escrito.
+• Artefacto.
+• Presentación.
+
+---
+
+PROYECTO FINAL INTEGRADOR
+
+Modalidad: individual.
+Entrega: semana 11.
+
+Desarrollarás el proyecto durante todo el trimestre y estará relacionado con tu tema de Idónea Comunicación de Resultados.
+
+Deberás:
+
+• Plantear una pregunta central.
+• Identificar una audiencia concreta.
+• Trabajar con información trazable.
+• Justificar los métodos utilizados.
+• Preparar y analizar los datos.
+• Comunicar los resultados mediante un artefacto.
+• Presentar conclusiones y limitaciones.
+• Documentar las fuentes y referencias.
+
+Productos:
+
+• Reporte escrito.
+• Artefacto.
+• Presentación.
+
+---
+
+PREGUNTAS PARA DISEÑAR CADA PROYECTO
+
+• ¿Quién es mi usuario?
+• ¿Qué necesita comprender o decidir?
+• ¿Por qué es relevante el problema?
+• ¿Qué información debo mostrar?
+• ¿Qué información debo excluir?
+• ¿Cuál es el mensaje principal?
+• ¿Por qué medio lo comunicaré?
+• ¿Qué acción o reflexión deseo provocar?
+• ¿Qué incertidumbre debo comunicar?
+• ¿Cómo comprobaré que el mensaje fue comprendido?
+
+---
+
+PRODUCTOS OBLIGATORIOS POR PROYECTO
+
+Reporte escrito
+
+Pregunta detonadora, usuario, relevancia, fuentes, método, resultados, interpretación, límites y referencias.
+
+Artefacto
+
+Pieza de visualización adecuada al usuario, al mensaje y al medio, con un tránsito verificable de datos a información.
+
+Presentación
+
+Exposición breve de las decisiones, resultados, evidencia y limitaciones.
+
+---
+
+CRITERIOS DE EVALUACIÓN DE LOS PROYECTOS
+
+Planteamiento y pertinencia
+
+Problema delimitado, propósito claro y correspondencia con la audiencia.
+
+Datos y trazabilidad
+
+Procedencia identificable, preparación documentada y decisiones justificadas.
+
+Método
+
+Selección congruente, aplicación correcta, supuestos explícitos y límites reconocidos.
+
+Interpretación
+
+Conclusiones derivadas de la evidencia, sin confundir asociación, predicción y causalidad.
+
+Visualización
+
+Representación legible, funcional y adecuada al tipo de información, usuario y mensaje.
+
+Comunicación
+
+Estructura coherente, redacción clara, referencias completas y presentación profesional.
+
+---
+
+CIERRE DE LA PRIMERA SESIÓN
+
+Responde individualmente:
+
+• ¿Qué cambió entre tu definición inicial y tu definición final de visualización?
+• ¿Qué decisión visual podría confundir a una audiencia aunque los datos sean correctos?
+• ¿Qué etapa de la metodología IBM revisarás primero en tu proyecto?
+• ¿En qué nivel de DIKW se encuentra actualmente la información de tu proyecto?
+• ¿Qué decisión aplicarás a tu proyecto de ICR después de esta sesión?
+
+Conclusión:
+
+Visualizar no es decorar datos ni producir gráficas. Es transformar datos en una representación interpretable, pertinente y responsable para una audiencia, un propósito y una decisión.
+
+---
+
+REFERENCIAS PRINCIPALES
+
+Baškarada, S., y Koronios, A. (2013). Data, Information, Knowledge, Wisdom (DIKW): A Semiotic Theoretical and Empirical Exploration of the Hierarchy and its Quality Dimension. Australasian Journal of Information Systems, 18(1), 5 a 24.
+
+Dammann, O. (2018). Data, Information, Evidence, and Knowledge: A Proposal for Health Informatics and Data Science. Online Journal of Public Health Informatics, 10(3), e224.
+
+Rollins, J. B. (2015). Foundational Methodology for Data Science. IBM Analytics.
+
+Rowley, J. (2007). The Wisdom Hierarchy: Representations of the DIKW Hierarchy. Journal of Information Science, 33(2), 163 a 180.
+
+Tableau. (s. f.). What Is Data Visualization? Definition, Examples, and Learning Resources.
+
+Ware, C. (2020). Information Visualization: Perception for Design. Cuarta edición. Morgan Kaufmann.
+
+Referencia institucional:
+
+Plan y Programas de Estudio del Posgrado en Diseño y Visualización de la Información, aprobado por el Colegio Académico de la Universidad Autónoma Metropolitana en la sesión 509, celebrada el 27 de abril de 2022.

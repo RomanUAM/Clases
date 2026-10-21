@@ -1,0 +1,28 @@
+CODIGOS DE LA CLASE
+Solo burbuja, par mas cercano y planta de Markov.
+
+MATLAB
+Abrir la carpeta MATLAB como carpeta de trabajo y ejecutar:
+  burbuja
+  par_mas_cercano
+  planta_markov(30)
+Datos propios:
+  [v,c,s] = burbuja([8 3 5 1 9 2]);
+  [par,d,c] = par_mas_cercano([0 0; 3 4; 0.1 0]);
+  [v,P,c] = planta_markov(1000);
+
+PYTHON 3
+No se necesitan paquetes externos. En la carpeta Python ejecutar:
+  python3 burbuja.py
+  python3 par_mas_cercano.py
+  python3 planta_markov.py
+Tambien se pueden importar las funciones y darles otros datos.
+
+El identificador de un punto empieza en 1 en ambas versiones.
+La misma semilla no genera necesariamente los mismos puntos entre MATLAB y
+Python. Para comparar resultados entre lenguajes, usar las mismas coordenadas.
+Markov entrega conteos esperados, que pueden no ser enteros. Muerte es absorbente.
+El conteo de distancias o productos no equivale a contar todas las operaciones.
+Los ejemplos MATLAB incluyen graficas; Python imprime los resultados.
+Python verificado en el entorno de entrega. MATLAB revisado pero no ejecutado:
+no se dispone de MATLAB ni Octave en este entorno.

@@ -1,0 +1,429 @@
+SESIÓN 1A | DEL PROCEDIMIENTO AL ALGORITMO
+
+Reto de especificación: ¿podemos comunicar a otra persona cómo construir un barco de papel sin depender de gestos ni adivinanzas?
+
+Análisis y Diseño de Algoritmos · 90 minutos
+
+---
+
+ACTIVAR: PREGUNTA DE LA SESIÓN
+
+¿Cómo le decimos a una máquina —o a una persona que actúa como máquina— exactamente qué debe hacer?
+
+Hoy no buscamos escribir código. Buscamos descubrir qué convierte una intención en un procedimiento ejecutable y verificable.
+
+---
+
+META DE APRENDIZAJE
+
+Al terminar podrás:
+
+• convertir una intención en entrada, salida y operaciones precisas;
+• detectar y corregir ambigüedades mediante una traza;
+• explicar cómo cambia el trabajo cuando crece el número de hojas.
+
+---
+
+RUTA DE 90 MINUTOS
+
+Activación · 10 min
+
+Diseño del algoritmo · 20 min
+
+Ejecución cruzada · 20 min
+
+Depuración y formalización · 25 min
+
+Escalamiento y cierre · 15 min
+
+---
+
+EVIDENCIAS DE HOY
+
+Tu pareja producirá:
+
+1. una especificación del problema;
+2. un algoritmo en pseudocódigo;
+3. una traza de ejecución;
+4. una versión corregida.
+
+Cada integrante entregará una explicación final individual.
+
+---
+
+TRABAJO EN PAREJA
+
+Primera ronda:
+
+• Diseñador/a: redacta y justifica las instrucciones.
+• Ejecutor/a crítico/a: obedece literalmente y registra ambigüedades.
+
+Segunda ronda: intercambien funciones. Ambas personas deben diseñar, ejecutar y explicar.
+
+---
+
+ACTIVAR: LO QUE YA HACES SIN DECIRLO
+
+Sin hablar con tu pareja, escribe durante dos minutos:
+
+¿Qué diferencia existe entre «sé hacer un barco» y «puedo describir un algoritmo para hacerlo»?
+
+Incluye un ejemplo de una decisión que normalmente tomas sin expresarla.
+
+---
+
+CONSTRUIR: EL RETO DEL BARCO
+
+Escriban instrucciones para que otra pareja construya un barco de papel.
+
+Condiciones:
+
+• no podrá observar el modelo terminado;
+• no podrá pedir demostraciones con las manos;
+• ejecutará literalmente lo escrito;
+• podrá detenerse cuando una instrucción admita varias interpretaciones.
+
+---
+
+ANTES DEL ALGORITMO: EL CONTRATO
+
+Todo problema necesita un acuerdo mínimo:
+
+• ¿qué se recibe?
+• ¿qué debe producirse?
+• ¿qué operaciones están permitidas?
+• ¿cómo se decide si el resultado es correcto?
+
+Sin contrato, dos soluciones pueden resolver problemas diferentes.
+
+---
+
+LA ENTRADA Y SU TAMAÑO
+
+Propuesta inicial:
+
+• una hoja tamaño carta;
+• regla y tijeras.
+
+Decidan: ¿la regla y las tijeras son entradas o recursos? Justifiquen.
+
+Usaremos n para representar el número de hojas procesadas.
+
+Producto: una definición de entrada y de n que otra pareja pueda aplicar sin preguntar.
+
+---
+
+LA SALIDA
+
+«Un barco de papel» todavía es impreciso.
+
+Propongan criterios observables, por ejemplo:
+
+• se sostiene sobre una superficie;
+• presenta dos lados aproximadamente simétricos;
+• conserva una abertura inferior;
+• procede de la hoja entregada.
+
+---
+
+CRITERIOS DE ACEPTACIÓN
+
+Clasifiquen cada criterio:
+
+• obligatorio;
+• deseable;
+• irrelevante para este problema.
+
+Después respondan: ¿un objeto puede parecer barco y, aun así, ser una salida incorrecta según el contrato?
+
+---
+
+ELEMENTOS QUE DEBEMOS NOMBRAR
+
+Sobre un esquema de la hoja, rotulen:
+
+borde · esquina · centro · línea de doblez · cara visible · cara posterior.
+
+Después de girarla, señalen qué referencias conservan su significado. Añadan solo los términos necesarios para que cada nombre identifique una parte sin depender de gestos.
+
+---
+
+ORIENTACIÓN Y REFERENCIAS
+
+«Arriba» cambia cuando giramos la hoja.
+
+Antes de cada operación indiquen:
+
+• orientación actual;
+• cara visible;
+• borde o esquina de referencia;
+• destino del movimiento.
+
+Diseñen una convención que siga siendo válida después de girar la figura.
+
+---
+
+EL ESTADO
+
+El algoritmo no opera siempre sobre la hoja inicial. Cada acción produce un nuevo estado.
+
+Representación mínima:
+
+estado inicial → operación → estado siguiente
+
+Si una instrucción supone un doblez que aún no existe, no puede ejecutarse en ese momento.
+
+---
+
+OPERACIONES PRIMITIVAS Y PARÁMETROS
+
+Acuerden acciones ejecutables: DOBLAR · GIRAR · MARCAR · CORTAR · ABRIR · VERIFICAR.
+
+Una acción necesita información:
+
+DOBLAR(origen, destino, sentido)
+
+GIRAR(ángulo, dirección)
+
+CORTAR(desde, hasta)
+
+VERIFICAR(propiedad)
+
+¿«Formar un triángulo» es una operación primitiva? Justifiquen con una instrucción parametrizada.
+
+---
+
+CONFRONTAR: UNA INSTRUCCIÓN, DOS INTERPRETACIONES
+
+Interpreta de dos maneras distintas:
+
+«Dobla la hoja a la mitad y lleva las esquinas al centro».
+
+¿A la mitad en qué dirección? ¿Qué esquinas? ¿Qué centro? ¿Sobre qué cara?
+
+Reescribe la frase hasta permitir una sola interpretación razonable.
+
+---
+
+CONSTRUIR: TU PRIMER BORRADOR
+
+En ocho minutos, redacten de 8 a 15 operaciones numeradas.
+
+No ejecuten todavía.
+
+Incluyan:
+
+• precondición de cada etapa;
+• acción y parámetros;
+• estado esperado;
+• una verificación antes de continuar.
+
+---
+
+PSEUDOCÓDIGO
+
+ALGORITMO construir_barco(hoja)
+  orientar la hoja
+  preparar la forma inicial
+  realizar la secuencia de dobleces
+  abrir la base
+  verificar criterios de aceptación
+  devolver figura
+FIN
+
+Este es un esqueleto: aún debemos sustituir frases generales por operaciones ejecutables.
+
+---
+
+ANTES Y DESPUÉS DE UNA OPERACIÓN
+
+Usaremos dos preguntas de apoyo:
+
+• Antes: ¿qué debe ser cierto para ejecutar la acción?
+• Después: ¿qué estado observable debe producir?
+
+Ejemplo: antes de DOBLAR(esquina, línea_central), la línea debe existir. Después, la esquina coincide con ella.
+
+¿Cómo lo verificarías?
+
+---
+
+PROBAR: OTRA PAREJA EJECUTA TU ALGORITMO
+
+Entreguen el algoritmo a otra pareja.
+
+La pareja ejecutora:
+
+1. no corrige silenciosamente;
+2. marca cada inferencia necesaria;
+3. registra la primera instrucción imposible o ambigua;
+4. continúa solo si puede elegir una interpretación explícita.
+
+---
+
+TRAZA DE EJECUCIÓN
+
+Registren:
+
+paso | operación | estado esperado | estado observado | decisión
+
+La traza permite reconstruir qué ocurrió. No escriban únicamente «funcionó» o «falló»: documenten el primer punto donde los estados dejaron de coincidir.
+
+---
+
+CONFRONTAR: QUERÍAMOS UN BARCO Y APARECIÓ UNA FLOR
+
+La intención era la misma; el estado observado fue distinto.
+
+Busquen la causa en cuatro lugares:
+
+• especificación;
+• operación ambigua;
+• precondición;
+• orden o ejecución.
+
+Localicen evidencia. ¿Qué supuesto reorganizaron al comparar intención, instrucción y estado?
+
+---
+
+DOS PREGUNTAS DE APOYO
+
+Dos preguntas diferentes:
+
+1. Si el algoritmo termina, ¿produce una salida aceptada?
+2. ¿El algoritmo termina para toda entrada permitida?
+
+En este reto, la lista finita facilita la segunda respuesta. La primera exige contrastar la salida con el contrato. Conserva estas preguntas como apoyo: las formalizaremos más adelante.
+
+---
+
+MEJORAR: CORRIGE LA PRIMERA DIVERGENCIA
+
+Corrijan solo después de identificar el primer desacuerdo de la traza.
+
+Etiqueten cada cambio:
+
+• precisión del vocabulario;
+• parámetro agregado;
+• reordenamiento;
+• verificación agregada;
+• criterio de salida corregido.
+
+Luego ejecuten nuevamente desde el inicio.
+
+---
+
+FORMALIZAR: ELIGE QUÉ OPERACIÓN CONTARÁS
+
+Para analizar el trabajo, elijan una operación representativa.
+
+Opciones:
+
+• número de dobleces;
+• número de cortes;
+• número de verificaciones;
+• total de operaciones primitivas.
+
+Declaren qué cuentan. Cambiar la operación básica cambia el número obtenido.
+
+---
+
+COSTO DE UNA HOJA A n HOJAS
+
+Supongan d dobleces, c cortes y v verificaciones:
+
+T(1) = d + c + v
+
+T_d(1) = d
+Si solo contamos dobleces: T_d(1)=d.
+
+Para n hojas independientes con costo k por hoja:
+
+T(n) = k·n
+
+Supuestos: mismo procedimiento y sin reutilizar trabajo.
+
+---
+
+TABLA DE ESCALAMIENTO
+
+Completen con su valor de k:
+
+n = 1 → T(n) = ___
+
+n = 10 → T(n) = ___
+
+n = 100 → T(n) = ___
+
+n = 1000 → T(n) = ___
+
+Describan el patrón sin usar todavía notación asintótica.
+
+---
+
+TRABAJO TOTAL Y TIEMPO TRANSCURRIDO
+
+Mil personas podrían procesar mil hojas simultáneamente. Eso reduce el tiempo transcurrido, pero no necesariamente el número total de operaciones.
+
+Distingan:
+
+• trabajo total;
+• recursos disponibles;
+• tiempo de ejecución paralelo.
+
+¿Qué estamos midiendo en T(n)?
+
+---
+
+AUDITORÍA ENTRE PAREJAS
+
+Revisen el algoritmo corregido de otra pareja:
+
+• ¿la entrada está delimitada?
+• ¿la salida es verificable?
+• ¿cada operación tiene parámetros?
+• ¿la traza puede reproducirse?
+• ¿el conteo declara una operación básica?
+
+Escriban una observación y una mejora concreta.
+
+---
+
+TRANSFERIR: UNA TAREA DIGITAL CONOCIDA
+
+Elijan una tarea digital conocida: ordenar archivos, registrar una cuenta o buscar un contacto.
+
+En cinco líneas indiquen:
+
+entrada · salida · operación básica · estado · criterio de corrección.
+
+¿Dónde podría aparecer una ambigüedad semejante a la del barco?
+
+---
+
+SALIDA INDIVIDUAL: EXPLICA LO QUE CAMBIÓ
+
+Entrega de salida:
+
+1. Define algoritmo sin usar la palabra «programa».
+2. Reescribe una instrucción ambigua como operación parametrizada.
+3. Explica qué representa n en T(n)=k·n.
+4. Indica una duda que deba resolverse antes de analizar algoritmos más grandes.
+
+---
+
+CIERRE Y PUENTE A LA SIGUIENTE SESIÓN
+
+Un algoritmo es una secuencia finita y precisa que produce una salida verificable y permite explicar su trabajo.
+
+Después compararemos tres estrategias para sumar de 1 a n.
+
+Preguntaremos: ¿qué operaciones realiza y cómo cambia su costo cuando n crece?
+
+---
+
+MATERIALES QUE SUSTENTAN LA SESIÓN
+
+Material base del curso, páginas 22–89, y material Crecimiento de funciones.
+
+La computabilidad llegará después de que consolides entrada, salida, estado, operación y costo.

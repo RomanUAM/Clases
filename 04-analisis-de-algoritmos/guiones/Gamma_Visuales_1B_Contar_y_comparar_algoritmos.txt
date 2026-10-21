@@ -1,0 +1,40 @@
+INSTRUCCIONES ADICIONALES PARA GAMMA
+
+Audiencia: estudiantes universitarios de Ingeniería en Computación que ya cursaron programación.
+Duración: 90 minutos.
+Formato: presentación 16:9.
+Texto: preservar exactamente los cortes marcados con --- del guion 1B.
+Extensión prevista: 36 tarjetas.
+Voz: hablar directamente al estudiante. No incluir notas para el profesor.
+
+ESTILO VISUAL
+
+Cómic universitario contemporáneo, tinta limpia, sombreado plano, estudiantes mexicanos de aproximadamente 20 años, aula de computación realista. Paleta azul marino, turquesa, coral y crema. No infantil. Sin palabras, números, logotipos ni código dentro de imágenes generadas.
+
+IMÁGENES GENERADAS: USAR SOLO EN ESTAS 8 TARJETAS
+
+PORTADA: tres caminos visuales para resolver una suma; estudiantes comparan recorrido, emparejamiento y fórmula.
+PREDECIR: ORDENA LAS TRES ESTRATEGIAS: una estudiante ordena tres tarjetas de estrategia antes de calcular; otra registra la justificación.
+COMPROMETERSE: SUBASTA DE ALGORITMOS: parejas distribuyen fichas entre tres algoritmos y muestran distintos niveles de confianza.
+ESTRATEGIA B | EMPAREJAR EXTREMOS: tarjetas numéricas se conectan desde ambos extremos mediante arcos; estudiantes descubren el patrón.
+CONFRONTAR: MENOS ITERACIONES NO SIEMPRE ES MENOS TRABAJO: una estrategia tiene menos iteraciones, pero cada iteración contiene más operaciones; balanza visual desequilibrada.
+INSTRUMENTAR EL CONTEO: dos estudiantes agregan un contador a un programa y comparan el valor con su predicción teórica.
+PROBAR: PROTOCOLO Y TAMAÑOS: cronómetro, varias corridas y registro de mediana; ambiente de medición controlada.
+REORGANIZAR: REVISA TU SUBASTA CON EVIDENCIA: las parejas redistribuyen sus fichas después de observar conteos y tiempos.
+
+OBJETOS NATIVOS, NO IMÁGENES
+
+RUTA DE 90 MINUTOS: línea de tiempo con cinco bloques.
+ESTRATEGIA A, PSEUDOCÓDIGO DE EMPAREJAMIENTO y FÓRMULA CORRECTA Y PSEUDOCÓDIGO: bloques monoespaciados.
+TRAZA DE suma_iterativa(5): tabla editable.
+MODELO DE COSTO DEL BUCLE: conteos mediante anotaciones junto al bucle.
+CASOS PAR E IMPAR: dos emparejamientos con arcos nativos.
+ESTRATEGIA C y FÓRMULA CORRECTA Y PSEUDOCÓDIGO: derivación editable de S(n)=n(n+1)/2.
+CONSTRUIR: TU TABLA TEÓRICA: tabla editable con algoritmo, iteraciones, operaciones y costo.
+RUTA PYTHON y RUTA MATLAB: código en bloques separados y legibles; presentarlos como opciones excluyentes.
+TABLA EXPERIMENTAL: tabla editable.
+REPRESENTACIÓN DE RESULTADOS: gráfica nativa con n en eje horizontal y mediana u operaciones en eje vertical.
+
+COMPOSICIÓN
+
+Alternar predicción, subasta, pseudocódigo, traza, comparación, experimento y decisión. No repetir una composición más de dos tarjetas consecutivas. Mantener Python y MATLAB legibles en proyección. Cada actividad debe mostrar acción, producto y criterio de logro.

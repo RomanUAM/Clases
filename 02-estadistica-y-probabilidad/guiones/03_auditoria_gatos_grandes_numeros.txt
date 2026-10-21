@@ -1,0 +1,135 @@
+CLASE 3 · ¿Demuestran los datos lo que afirma el informe?
+Auditoría de «Gatos y grandes números» · Semana 1 · 90 minutos
+Hoy reconstruirás cálculos y escribirás conclusiones con el alcance que permite la evidencia.
+
+---
+Una afirmación atractiva
+El informe dice que al pasar de 10 a 30 observaciones la media «converge» a 0.57. ¿Qué prueba esa secuencia de tres números? Escribe qué necesitarías comprobar antes de aceptar la frase.
+
+---
+00–07 min · Tu hipótesis de revisión
+Individualmente anota una pregunta sobre los datos, una sobre el protocolo y una sobre la conclusión. Compararemos qué se puede verificar con las tablas y qué requiere registros originales.
+
+---
+Primero: ¿qué se midió?
+Nuestra Clase 1 contó entradas a un radio de 3 m durante un minuto. El PDF cuenta gatos vistos en intervalos de dos minutos en varias zonas. Una entrada repetida y un individuo visto son unidades distintas.
+
+---
+No unas las dos bases
+Aunque ambas historias ocurran con gatos, no sumes los datos de la Clase 1 y del PDF. Para compararlos habría que homologar variable, duración, lugar, horario, regla de reingreso y selección de intervalos.
+
+---
+La pregunta de auditoría
+¿Qué cálculos del informe se reproducen? ¿Qué afirmaciones exceden sus tablas? Separaremos las dos preguntas: un cálculo correcto puede acompañarse de una interpretación injustificada.
+
+---
+07–17 min · Cuatro responsabilidades
+1 revisa definición y protocolo; 2 comprueba frecuencias y medias; 3 calcula varianzas; 4 examina frases y evidencias faltantes. Después cada integrante explicará un hallazgo distinto.
+
+---
+Los conteos publicados
+Para g=0,1,2,3, el PDF reporta frecuencias n=10: (5,3,1,1); n=20: (11,6,2,1); n=30: (18,8,3,1). Copien la tabla y comprueben que cada columna suma su n.
+
+---
+17–28 min · Una cuenta reproducible
+Para n=10: Σf(g)=5+3+1+1=10. Σg f(g)=0·5+1·3+2·1+3·1=8. Por tanto, ḡ₁₀=8/10=0.800 gatos vistos por intervalo de dos minutos, según esa tabla.
+
+---
+Las otras dos medias
+Para n=20, Σg f(g)=13 y ḡ₂₀=13/20=0.650. Para n=30, la suma es 17 y ḡ₃₀=17/30≈0.567. Comprueben ambas antes de seguir.
+
+---
+Una trayectoria observada
+Estas tres medias bajan: 0.800, 0.650, 0.567. La frase «en estas tablas las medias disminuyen» es descriptiva. La frase «convergen al valor real 0.57» exige evidencia que las tablas no aportan.
+
+---
+Media y segundo momento
+Para reconstruir la varianza también necesitas Σg²f(g). Las tres tablas dan 16, 23 y 29. Para n=10: 0²·5+1²·3+2²·1+3²·1=16.
+
+---
+Dos divisores, dos etiquetas
+vₙ=[Σ(g−ḡ)²]/n describe la dispersión de estos datos con divisor n. s²=[Σ(g−ḡ)²]/(n−1) es la varianza muestral usual para estimar la varianza del proceso bajo condiciones apropiadas.
+
+---
+Una fórmula de comprobación
+vₙ=[Σg²f(g)]/n−ḡ². Para n=10: v₁₀=16/10−0.8²=1.6−0.64=0.9600. Si el informe dice «s²», ¿es 0.9600 la cifra que corresponde a esa etiqueta?
+
+---
+La varianza con n−1
+s²=[n/(n−1)]vₙ. Para n=10: s²=(10/9)(0.9600)=1.0667. Comparen esta cifra con la etiqueta y el valor publicados en el PDF.
+
+---
+28–44 min · Recalculen dos tablas
+Para n=20 y n=30, usen media y segundo momento para obtener vₙ. Luego multipliquen por n/(n−1). Una persona calcula y otra reproduce por suma de cuadrados.
+
+---
+Resultados para contrastar
+n=20: vₙ=0.7275 y s²=0.7658. n=30: vₙ≈0.6456 y s²≈0.6678. El PDF llama «varianza muestral» a valores cercanos a vₙ y muestra redondeos discordantes.
+
+---
+44–51 min · Escribe la corrección
+Redacta: «Si se usa divisor n, los valores son…; si se llama varianza muestral con divisor n−1, los valores son…». No cambies solo el número: corrige definición, etiqueta y redondeo.
+
+---
+Otra comprobación inesperada
+Si todos los conteos gᵢ son enteros, Σgᵢ=k también es entero. Por ello, una media de n conteos tiene forma ḡ=k/n. Usa esta restricción para auditar cifras atribuidas a otros equipos.
+
+---
+¿Puede ser 0.78 con n=10?
+Si ḡ=0.78 para diez conteos enteros, la suma sería k=10(0.78)=7.8, que no es entera. Con la variable y n declarados, esa media no puede proceder de tales conteos.
+
+---
+Dos cifras más
+Con n=20, 0.66 implicaría k=13.2. Con n=30, 0.571 implicaría k=17.13. Ninguna es suma entera de los conteos declarados. No infieras por ello quién cometió el error ni inventes otra variable.
+
+---
+51–62 min · Audita en pares dentro del equipo
+Dos integrantes revisan la regla k/n; los otros dos verifican que el redondeo mostrado no resuelva la imposibilidad. Intercambien conclusiones. ¿Qué registro original pedirían para identificar la causa?
+
+---
+¿Más datos obligan a bajar la varianza?
+No. Al añadir observaciones, la dispersión de los valores puede aumentar o disminuir. Las tres varianzas calculadas bajan en este caso; esa trayectoria no establece una regla universal.
+
+---
+Datos frente a estimadores
+La varianza de los conteos describe diferencias entre intervalos observados. La variabilidad de ḡ entre muestras repetidas describe la precisión de un estimador. No son la misma cantidad.
+
+---
+Una relación que estudiaremos después
+Al comparar muchas muestras obtenidas bajo condiciones equivalentes, podremos estudiar cómo varían sus medias. El informe muestra una sola trayectoria por tamaño. Todavía no tenemos la evidencia ni los supuestos para cuantificar su precisión.
+
+---
+¿Se acreditaron los supuestos?
+El PDF menciona zonas, horarios, clima y observadores diferentes. Examinen si ofrece los registros originales y un diseño suficiente para sostener independencia y comparabilidad. Si falta información, anótenla como límite.
+
+---
+La ley de grandes números
+Una ley matemática puede describir lo que ocurre al crecer n bajo condiciones explícitas. Tres medias de una secuencia no demuestran empíricamente la ley ni revelan el valor poblacional exacto.
+
+---
+El teorema central del límite
+Habla de la distribución aproximada de medias estandarizadas bajo condiciones pertinentes. Con una sola media para cada n no observamos esa distribución. Su desarrollo formal llegará al estudiar muestreo.
+
+---
+62–75 min · Reescribe dos conclusiones
+Primera: escribe qué muestran exactamente las tres tablas. Segunda: explica qué datos, repeticiones o diseño harían falta para hablar de otros intervalos. Incluye variable y duración en ambas frases.
+
+---
+Una versión que sí se sostiene
+«Las medias calculadas con las tres tablas publicadas son 0.800, 0.650 y 0.567 gatos vistos por intervalo de dos minutos». La frase no identifica una media real del campus ni afirma que todos los equipos obtendrán 0.567.
+
+---
+75–84 min · Dictamen del equipo
+Elijan tres afirmaciones. Para cada una escriban: afirmación | cálculo o evidencia | corrección | dato faltante. Incluyan el protocolo incompatible, una varianza mal rotulada y una media imposible. Cada integrante defiende un renglón.
+
+---
+84–90 min · Salida individual
+Escribe una conclusión sustentada y otra que no se sostiene. Justifica una con un cálculo reproducible. Añade una pregunta sobre el muestreo que todavía no puede responderse con estas tablas.
+
+---
+Lo que aprendimos a exigir
+Una afirmación estadística debe indicar qué se midió, cómo se obtuvo, qué cálculo se hizo y a qué conjunto alcanza. La próxima vez que veas «convergencia» o «precisión», pide datos y condiciones.
+
+---
+Fuentes y estado del caso
+Guía Word 1150018: semana 1, variabilidad y datos. PDF «Gatos y grandes números» para auditoría. Notas de Mora et al., §1.1.3.5; Lederer (2025), §1.3 como anticipo. UEA 1153001: programa institucional. El PDF no demuestra convergencia.

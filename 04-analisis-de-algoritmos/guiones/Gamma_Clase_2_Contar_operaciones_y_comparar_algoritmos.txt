@@ -1,0 +1,266 @@
+CLASE 2
+¿TODOS LOS ALGORITMOS HACEN EL MISMO TRABAJO?
+Operaciones y crecimiento
+
+En esta clase compararás procedimientos que producen la misma salida, pero ejecutan diferentes cantidades de operaciones.
+
+---
+
+ACTIVIDAD INICIAL. SUBASTA DE ALGORITMOS
+
+Cada pareja recibe el problema de sumar del 1 hasta n.
+
+Antes de escribir código debe ofertar:
+Cuántas operaciones cree necesitar.
+Qué operación contará.
+Qué estrategia utilizará.
+
+La oferta más baja no gana automáticamente.
+Primero debe producir la respuesta correcta y justificar el conteo.
+
+Rondas:
+n = 10.
+n = 100.
+n = 1 000 000.
+
+---
+
+TARJETA 1. Un mismo problema, distintos procedimientos
+
+Problema:
+Sumar los primeros n números naturales.
+
+Entrada:
+Un entero positivo n.
+
+Salida:
+1 + 2 + 3 + ... + n.
+
+Pregunta:
+¿Existe una sola manera de obtener la respuesta?
+
+---
+
+TARJETA 2. Votación inicial
+
+Para sumar del 1 al 100, ¿qué procedimiento elegirías?
+
+A. Recorrer todos los números.
+B. Emparejar el primero con el último.
+C. Utilizar una fórmula.
+
+Vota antes de calcular.
+Después tendrás que justificar tu elección mediante el número de operaciones.
+
+---
+
+TARJETA 3. Procedimiento con ciclo
+
+PSEUDOCÓDIGO
+
+función sumar_con_ciclo(n)
+    suma = 0
+    para i desde 1 hasta n
+        suma = suma + i
+    devolver suma
+
+Operación básica:
+Actualizar la variable suma.
+
+Número de iteraciones:
+n.
+
+---
+
+TARJETA 4. MATLAB y Python
+
+MATLAB
+
+function s = sumar_con_ciclo(n)
+    s = 0;
+    for i = 1:n
+        s = s + i;
+    end
+end
+
+PYTHON
+
+def sumar_con_ciclo(n):
+    s = 0
+    for i in range(1, n + 1):
+        s += i
+    return s
+
+La sintaxis cambia.
+El algoritmo continúa realizando n iteraciones.
+
+---
+
+TARJETA 5. Emparejar extremos
+
+1 + 100 = 101
+2 + 99 = 101
+3 + 98 = 101
+...
+50 + 51 = 101
+
+Existen 50 pares de 101.
+
+Resultado:
+50 por 101 = 5050.
+
+---
+
+TARJETA 6. Pseudocódigo por pares
+
+función sumar_por_pares(n)
+    suma = 0
+    para i desde 1 hasta piso de n entre 2
+        suma = suma + i + (n + 1 - i)
+    si n es impar
+        suma = suma + (n + 1) entre 2
+    devolver suma
+
+El ciclo se ejecuta aproximadamente n entre 2 veces.
+
+Pregunta:
+¿Dejó de depender el trabajo de n?
+
+---
+
+TARJETA 7. Reducir a la mitad no elimina el crecimiento
+
+Para n = 100:
+El ciclo completo realiza 100 iteraciones.
+El recorrido por pares realiza 50.
+
+Para n = 1000:
+El ciclo completo realiza 1000.
+El recorrido por pares realiza 500.
+
+Ambos trabajos aumentan proporcionalmente a n.
+El segundo reduce una constante, pero mantiene crecimiento lineal.
+
+---
+
+TARJETA 8. La fórmula directa
+
+S(n) = n(n + 1) entre 2.
+
+PSEUDOCÓDIGO
+
+función sumar_con_formula(n)
+    devolver n(n + 1) entre 2
+
+El número de operaciones aritméticas no aumenta con n bajo el modelo elemental de costo constante.
+
+---
+
+TARJETA 9. La fórmula en MATLAB y Python
+
+MATLAB
+
+function s = sumar_con_formula(n)
+    s = n * (n + 1) / 2;
+end
+
+PYTHON
+
+def sumar_con_formula(n):
+    return n * (n + 1) // 2
+
+Pregunta:
+¿Por qué una expresión más corta no garantiza por sí misma un algoritmo mejor?
+
+Respuesta que debes justificar:
+Debemos contar operaciones y estudiar cómo dependen de la entrada, no solamente observar cuántas líneas tiene el programa.
+
+---
+
+TARJETA 10. Funciones de trabajo
+
+Ciclo completo:
+T1(n) = n.
+
+Recorrido por pares:
+T2(n) es aproximadamente n entre 2.
+
+Fórmula:
+T3(n) = k, donde k es constante.
+
+Las funciones permiten comparar qué ocurre cuando n aumenta.
+
+---
+
+TARJETA 11. Escala de la entrada
+
+Compararemos:
+n = 100.
+n = 1000.
+n = 10 000.
+n = 1 000 000.
+
+Completa una tabla con el número de iteraciones de cada procedimiento.
+
+Pregunta:
+¿En qué momento la diferencia deja de parecer pequeña?
+
+Juego de predicción:
+Cada pareja apuesta una ficha por el procedimiento que cree que realizará menos operaciones antes de completar la tabla. La ficha se recupera sólo si la explicación coincide con el conteo.
+
+---
+
+TARJETA 12. Crecimiento constante y lineal
+
+Trabajo constante:
+El número de operaciones permanece aproximadamente igual cuando crece n.
+
+Trabajo lineal:
+Si n se multiplica por diez, el número de operaciones también se multiplica aproximadamente por diez.
+
+Clasificación inicial:
+La fórmula tiene crecimiento constante.
+Los dos recorridos tienen crecimiento lineal.
+
+---
+
+TARJETA 13. Corrección y eficiencia son preguntas distintas
+
+Corrección:
+¿El algoritmo produce la suma correcta para toda entrada válida?
+
+Eficiencia:
+¿Cuántas operaciones necesita conforme aumenta n?
+
+Un algoritmo puede ser correcto y demasiado costoso.
+Un algoritmo rápido que produce una respuesta incorrecta no resuelve el problema.
+
+---
+
+TARJETA 14. Actividad en parejas
+
+Para cada uno de los tres procedimientos:
+Escribe la entrada y la salida.
+Identifica la operación básica.
+Obtén una función de trabajo.
+Prueba n igual a 10 y n igual a 1000.
+Explica si el trabajo es constante o lineal.
+
+Producto:
+Una comparación argumentada, no sólo los resultados numéricos.
+
+Auditoría cruzada:
+Otra pareja revisará si la operación básica y la función de trabajo son coherentes con el pseudocódigo.
+
+---
+
+TARJETA 15. Cierre de la clase 2
+
+Responde:
+¿Por qué recorrer n entre 2 pares continúa siendo lineal?
+¿Qué cambia entre MATLAB y Python y qué permanece?
+¿Qué relación existe entre tamaño de entrada y número de operaciones?
+¿Cuál procedimiento elegirías para n igual a un millón y por qué?
+
+Próxima clase:
+Buscaremos patrones de crecimiento antes de introducir la notación asintótica.

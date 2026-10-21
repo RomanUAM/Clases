@@ -1,0 +1,420 @@
+SESIÓN 1C | CRECIMIENTO Y BÚSQUEDA
+
+De los conteos exactos a los patrones que explican qué ocurre cuando la entrada crece.
+
+Análisis y Diseño de Algoritmos · 90 minutos
+
+---
+
+ACTIVAR: PREGUNTA DE LA SESIÓN
+
+Si dos algoritmos funcionan y sus tiempos dependen del equipo, ¿cómo anticipamos cuál seguirá siendo viable cuando n aumente diez, cien o un millón de veces?
+
+Hoy construiremos una primera respuesta mediante funciones y búsqueda.
+
+---
+
+META DE APRENDIZAJE
+
+Al terminar podrás:
+
+• comparar funciones observando qué ocurre cuando n se duplica;
+• distinguir los patrones constante, logarítmico, lineal, cuadrático y exponencial;
+• elegir entre búsqueda secuencial y binaria según las condiciones de los datos.
+
+---
+
+RUTA DE 90 MINUTOS
+
+Carrera de funciones · 25 min
+
+Constantes y términos dominantes · 15 min
+
+Reto de búsqueda humana · 25 min
+
+Notación asintótica inicial · 15 min
+
+Transferencia y cierre · 10 min
+
+---
+
+EVIDENCIAS DE HOY
+
+Por pareja:
+
+• orden razonado de funciones;
+• tabla al duplicar n;
+• trazas de dos búsquedas;
+• explicación de un patrón de crecimiento.
+
+Individualmente: clasificación y justificación de un caso nuevo.
+
+---
+
+ROLES DE LA PAREJA
+
+• Predictor/a: formula la respuesta antes de calcular.
+• Verificador/a: construye tabla o traza y busca un contraejemplo.
+
+Intercambien roles en cada reto. La respuesta final debe integrar predicción, evidencia y corrección.
+
+---
+
+PREDECIR: LA CARRERA DE FUNCIONES
+
+Ordenen de menor a mayor crecimiento esperado:
+
+1 · log₂n · n · n log₂n · n² · 2ⁿ
+
+Primero háganlo sin calculadora. Escriban al lado de cada decisión una razón provisional.
+
+---
+
+VALORES PARA n=2, 4, 8 Y 16
+
+Construyan una tabla con una fila por función y una columna por valor de n.
+
+No busquen únicamente el valor mayor. Observen cuánto cambia cada función cuando n se duplica.
+
+---
+
+PROBAR: DUPLICA n Y OBSERVA QUÉ CAMBIA
+
+Para cada f(n), calculen:
+
+f(2n) / f(n)
+
+Este cociente responde: ¿por qué factor cambia el costo al duplicar la entrada?
+
+Cuando el cociente no sea constante, describan su tendencia.
+
+---
+
+CONSTANTE Y LOGARÍTMICO
+
+f(n)=1
+
+f(2n)/f(n)=1
+
+El costo modelado no depende de n.
+
+f(n)=log₂n
+
+Al duplicar:
+
+log₂(2n)=log₂n+1
+
+Duplicar n agrega una unidad: aparece cuando eliminamos una fracción constante del problema.
+
+---
+
+LINEAL Y n log n
+
+f(n)=n → f(2n)=2f(n)
+
+El trabajo se duplica al procesar cada elemento.
+
+f(n)=n log₂n
+
+Al duplicar:
+
+f(2n)=2n(log₂n+1)
+
+Crece un poco más que el doble: combina niveles logarítmicos con trabajo lineal.
+
+---
+
+CUADRÁTICO Y EXPONENCIAL
+
+f(n)=n² → f(2n)=4f(n)
+
+El trabajo se cuadruplica.
+
+f(n)=2ⁿ
+
+Al pasar de n a 2n:
+
+2²ⁿ=(2ⁿ)²
+
+Duplicar n eleva al cuadrado el valor anterior; entradas moderadas pueden volverlo inviable.
+
+---
+
+REORGANIZAR: CORRIGE TU ORDEN CON EVIDENCIA
+
+Revisen el orden inicial de la carrera.
+
+Por cada cambio escriban:
+
+«Pensábamos ______. La tabla mostró ______. Ahora sostenemos ______ porque al duplicar n ocurre ______.»
+
+Corrijan su predicción con la tabla. Si grafican, revisen unidades, rango de n y escala de ambos ejes antes de interpretar.
+
+---
+
+CONFRONTAR: UNA CONSTANTE PUEDE CAMBIAR AL GANADOR
+
+Comparen:
+
+T₁(n)=1000n
+
+T₂(n)=n²
+
+Para n pequeño, n² puede ser menor que 1000n. La clase de crecimiento no decide por sí sola cuál algoritmo gana en todos los tamaños.
+
+---
+
+PUNTO DE CRUCE
+
+Igualamos:
+
+1000n = n²
+
+Para n>0:
+
+n = 1000
+
+Antes de 1000, el término cuadrático puede resultar menor; después, termina superando al lineal. Compruébenlo con n=100, 1000 y 10 000.
+
+---
+
+TÉRMINO DOMINANTE
+
+Considera:
+
+T(n)=3n²+20n+7
+
+Cuando n crece, el término n² determina el patrón principal.
+
+No estamos diciendo que 20n+7 sea cero; decimos que su influencia relativa disminuye frente a n². Compruébenlo para n=10, 100 y 1000 comparando el aporte de cada término.
+
+---
+
+PRIMERA IDEA ASINTÓTICA Y SUS LÍMITES
+
+El análisis asintótico conserva el patrón dominante para entradas grandes y permite comparar sin fijar una máquina.
+
+No reemplaza constantes, memoria, datos reales ni medición. Dos algoritmos de la misma clase pueden comportarse distinto para entradas pequeñas.
+
+---
+
+MAPA INICIAL: COTAS O Y Ω
+
+Lectura inicial, sin demostración formal:
+
+O(g(n)) ofrece un techo de crecimiento para n grande.
+
+Ejemplo:
+
+3n+7 ∈ O(n)
+
+Ω(g(n)) ofrece un piso de crecimiento para n grande.
+
+Ejemplo:
+
+3n+7 ∈ Ω(n)
+
+La cota inferior no significa automáticamente «mejor caso».
+
+---
+
+COTA AJUSTADA | Θ
+
+T(n) ∈ Θ(g(n)) cuando g(n) acota el crecimiento por arriba y por abajo, salvo constantes, para n suficientemente grande.
+
+Ejemplo:
+
+3n+7 ∈ Θ(n)
+
+Θ comunica una clase de crecimiento ajustada.
+
+---
+
+FORMALIZAR: CLASIFICA POR TÉRMINO DOMINANTE
+
+Propongan una cota Θ para:
+
+• 8
+• 4log₂n+9
+• 7n+20
+• n²+1000n
+• 5·2ⁿ+n³
+
+Primero identifiquen el término dominante; después justifiquen por qué los demás pierden influencia relativa.
+
+---
+
+CONSTRUIR: RETO DE BÚSQUEDA HUMANA
+
+Una persona elige en secreto un número presente en una colección ordenada.
+
+La otra solo puede preguntar por un valor y recibir:
+
+«menor», «mayor» o «igual».
+
+Objetivo: encontrarlo y contar preguntas.
+
+---
+
+PREDECIR: ¿CUÁNTAS PREGUNTAS NECESITARÁS?
+
+Realicen el reto con tarjetas ordenadas de:
+
+• 16 elementos;
+• 32 elementos;
+• 64 elementos.
+
+Antes de comenzar, predigan el máximo de preguntas para dos estrategias: revisar en orden y dividir el intervalo.
+
+---
+
+BÚSQUEDA SECUENCIAL Y PSEUDOCÓDIGO
+
+Estrategia: revisar desde el primer elemento hasta encontrar el objetivo.
+
+Registren tres escenarios:
+
+• objetivo al inicio;
+• objetivo en el centro;
+• objetivo al final o ausente.
+
+¿Cuál representa el peor caso?
+
+ALGORITMO buscar_secuencial(A, objetivo)
+  PARA i ← 1 HASTA longitud(A)
+    SI A[i] = objetivo
+      devolver i
+  FIN PARA
+  devolver NO_ENCONTRADO
+FIN
+
+En el peor caso inspecciona n elementos: Θ(n).
+
+---
+
+DIVIDIR EL INTERVALO
+
+Estrategia:
+
+1. inspeccionar el elemento central;
+2. terminar si coincide;
+3. conservar solo la mitad donde puede estar el objetivo;
+4. repetir.
+
+La condición indispensable es que la colección esté ordenada.
+
+---
+
+PSEUDOCÓDIGO BINARIO
+
+ALGORITMO buscar_binaria(A, objetivo)
+  bajo ← 1; alto ← longitud(A)
+  MIENTRAS bajo ≤ alto
+    medio ← piso((bajo+alto)/2)
+    SI A[medio] = objetivo: devolver medio
+    SI objetivo < A[medio]: alto ← medio-1
+    EN OTRO CASO: bajo ← medio+1
+  devolver NO_ENCONTRADO
+FIN
+
+---
+
+TRAZA BINARIA
+
+Para 32 tarjetas registren:
+
+pregunta | bajo | alto | medio | respuesta | candidatos restantes
+
+Elijan un objetivo cercano a un extremo. Verifiquen que el intervalo disminuya y que el objetivo nunca se descarte incorrectamente.
+
+---
+
+CONFRONTAR: DESCARTA LA MITAD Y CONSERVA LA RESPUESTA
+
+Después de k preguntas quedan aproximadamente:
+
+n/2ᵏ candidatos
+
+La búsqueda termina cuando:
+
+n/2ᵏ ≤ 1
+
+Por tanto, k crece como log₂n. Aquí k cuenta reducciones del intervalo. La comparación final con el candidato restante se cuenta por separado.
+
+---
+
+REDUCCIONES Y COMPARACIONES
+
+Reducciones necesarias para quedar con un candidato:
+
+16 → 4
+
+32 → 5
+
+64 → 6
+
+1 000 000 → cerca de 20
+
+Si la operación básica es «comparar con el elemento medio», agreguen la comprobación final. Declaren la convención antes de contrastar con la búsqueda secuencial.
+
+---
+
+EL PRECIO DEL ORDEN
+
+La búsqueda binaria es eficiente cuando los datos ya están ordenados.
+
+Si debemos ordenar para realizar una sola búsqueda, el costo de preparación puede cambiar la decisión.
+
+Si realizaremos miles de búsquedas, ordenar una vez puede ser una inversión útil.
+
+---
+
+TRANSFERIR: ELIGE UNA BÚSQUEDA CON SUS CONDICIONES
+
+Completen:
+
+estrategia | requisito | mejor caso | peor caso | crecimiento | ventaja | límite
+
+Filas: búsqueda secuencial y búsqueda binaria.
+
+Una elección responsable considera tanto el costo como las condiciones necesarias para aplicarla.
+
+---
+
+TRANSFERENCIA
+
+Elijan una situación:
+
+• buscar un contacto;
+• revisar una lista desordenada;
+• consultar un diccionario;
+• localizar un registro en una base de datos.
+
+Indiquen estrategia, tamaño de entrada, precondición, operación básica y crecimiento esperado.
+
+---
+
+SALIDA INDIVIDUAL: EXPLICA EL PATRÓN
+
+Responde:
+
+1. ¿Qué ocurre con n² cuando n se duplica?
+2. ¿Por qué 1000n puede superar inicialmente a n²?
+3. ¿Qué condición necesita la búsqueda binaria?
+4. Explica Θ(log n) sin usar la frase «porque es más rápido».
+
+---
+
+SIGUIENTE PASO
+
+En la secuencia posterior formalizaremos sumatorias, cotas y demostraciones con mayor rigor.
+
+La teoría de qué problemas son computables y cuáles no se abordará después de consolidar estas herramientas de descripción y análisis.
+
+---
+
+MATERIALES QUE SUSTENTAN LA SESIÓN
+
+Material base del curso, páginas 22–89, y material Crecimiento de funciones.
+
+Las actividades adaptan el contenido para una primera semana activa con estudiantes que ya programan.

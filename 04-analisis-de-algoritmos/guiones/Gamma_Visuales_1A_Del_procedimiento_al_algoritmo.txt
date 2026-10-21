@@ -1,0 +1,38 @@
+INSTRUCCIONES ADICIONALES PARA GAMMA
+
+Audiencia: estudiantes universitarios de Ingeniería en Computación que ya cursaron programación.
+Duración: 90 minutos.
+Formato: presentación 16:9.
+Texto: preservar exactamente los cortes marcados con --- del guion 1A.
+Extensión prevista: 34 tarjetas.
+Voz: hablar directamente al estudiante. No incluir notas para el profesor.
+
+ESTILO VISUAL
+
+Cómic universitario contemporáneo, tinta limpia, sombreado plano, estudiantes mexicanos de aproximadamente 20 años, aula y objetos reconocibles de computación. Paleta azul marino, turquesa, coral y crema. Expresiones naturales, no infantiles. Sin palabras, números, logotipos ni pseudocódigo dentro de imágenes generadas.
+
+IMÁGENES GENERADAS: USAR SOLO EN ESTAS 8 TARJETAS
+
+PORTADA: dos estudiantes frente a una hoja carta, regla y tijeras; al centro, un barco de papel como problema de especificación. Encuadre horizontal con espacio libre para el título.
+TRABAJO EN PAREJA: dos estudiantes intercambian los papeles de quien diseña y quien ejecuta; ambos producen evidencia escrita.
+CONSTRUIR: EL RETO DEL BARCO: una pareja entrega instrucciones a otra sin mostrar el modelo terminado; tensión amable y curiosidad.
+ELEMENTOS QUE DEBEMOS NOMBRAR: manos sostienen una hoja con borde, esquina, centro y línea de doblez claramente visibles, sin etiquetas escritas.
+CONFRONTAR: UNA INSTRUCCIÓN, DOS INTERPRETACIONES: composición dividida; la misma instrucción produce dos dobleces en sentidos distintos.
+PROBAR: OTRA PAREJA EJECUTA TU ALGORITMO: una pareja ejecuta literalmente el algoritmo de otra y marca el primer paso imposible.
+CONFRONTAR: QUERÍAMOS UN BARCO Y APARECIÓ UNA FLOR: el resultado esperado y el observado aparecen juntos; estudiantes comparan el primer estado divergente.
+COSTO DE UNA HOJA A n HOJAS: una hoja se convierte visualmente en 10, 100 y muchas hojas; el mismo procedimiento se repite.
+
+OBJETOS NATIVOS, NO IMÁGENES
+
+RUTA DE 90 MINUTOS: línea de tiempo horizontal con los cinco bloques de la sesión.
+LA ENTRADA Y SU TAMAÑO: diagrama de una hoja y un lote de n hojas.
+EL ESTADO: secuencia estado inicial, operación y estado siguiente.
+PSEUDOCÓDIGO: bloque monoespaciado legible.
+TRAZA DE EJECUCIÓN: tabla editable con paso, operación, estado esperado, observado y decisión.
+COSTO DE UNA HOJA A n HOJAS: comparación visual entre T(1)=d+c+v, T_d(1)=d y T(n)=k·n.
+TABLA DE ESCALAMIENTO: tabla editable para n=1, 10, 100 y 1000.
+TRABAJO TOTAL Y TIEMPO TRANSCURRIDO: diagrama que distinga trabajo total, recursos y tiempo transcurrido.
+
+COMPOSICIÓN
+
+Alternar portada, pregunta focal, actividad, comparación, diagrama, código, tabla y síntesis. No repetir una composición más de dos tarjetas consecutivas. Mantener tipografía grande; dividir antes de reducir. Cada actividad debe mostrar acción, producto y criterio de logro.

@@ -1,0 +1,317 @@
+CLASE 4
+¿CÓMO FORMALIZAMOS EL CRECIMIENTO?
+Theta, O, Omega y búsqueda binaria
+
+En esta clase convertirás las intuiciones sobre crecimiento en afirmaciones matemáticas que puedan justificarse.
+
+---
+
+ACTIVIDAD INICIAL. BÚSQUEDA HUMANA
+
+Una persona sostiene una lista ordenada de tarjetas numeradas.
+Otra busca una clave mediante recorrido secuencial.
+Después repite la búsqueda descartando la mitad.
+
+El resto del grupo registra cada comparación.
+
+Rondas:
+16 tarjetas.
+32 tarjetas.
+64 tarjetas.
+
+Antes de comenzar cada ronda, predigan el peor número de comparaciones.
+
+---
+
+TARJETA 1. De la observación a la afirmación
+
+Observación:
+4n + 20 parece crecer como n.
+
+Afirmación que queremos justificar:
+4n + 20 pertenece a Theta de n.
+
+Necesitamos precisar:
+A partir de qué valor de n.
+Entre qué múltiplos de n queda la función.
+
+---
+
+TARJETA 2. Theta: cota ajustada
+
+f(n) pertenece a Theta de g(n) si existen constantes positivas c1, c2 y n0 tales que:
+
+0 menor o igual que c1 g(n)
+menor o igual que f(n)
+menor o igual que c2 g(n)
+
+para toda n mayor o igual que n0.
+
+Interpretación:
+A partir de n0, f queda atrapada entre dos múltiplos de g.
+
+---
+
+TARJETA 3. Demostrar una función lineal
+
+Sea:
+f(n) = 4n + 20.
+
+Para n mayor o igual que 1:
+f(n) es mayor o igual que 4n.
+
+Para n mayor o igual que 20:
+4n + 20 es menor o igual que 5n.
+
+Una elección posible:
+c1 = 4.
+c2 = 5.
+n0 = 20.
+
+Por tanto:
+4n + 20 pertenece a Theta de n.
+
+Juego de constantes:
+Cada pareja propone valores de c1, c2 y n0. Otra pareja intenta encontrar un valor de n que viole la desigualdad.
+
+---
+
+TARJETA 4. Las constantes no son únicas
+
+Para demostrar Theta no buscamos las únicas constantes correctas.
+Buscamos alguna combinación que satisfaga la definición.
+
+Para 4n + 20 también podrían funcionar cotas menos ajustadas.
+
+Pregunta:
+¿Podrías elegir c1 = 1 y c2 = 10 con algún n0 adecuado?
+
+---
+
+TARJETA 5. O: cota superior
+
+f(n) pertenece a O de g(n) si existen c y n0 positivos tales que:
+
+0 menor o igual que f(n)
+menor o igual que c g(n)
+
+para toda n mayor o igual que n0.
+
+O responde:
+¿Con qué crecimiento podemos acotar la función por arriba?
+
+---
+
+TARJETA 6. Una cota verdadera puede ser poco informativa
+
+f(n) = 20n + 200.
+
+Es verdad que:
+f pertenece a O de n cuadrada.
+
+También es verdad que:
+f pertenece a O de n cúbica.
+
+Pero la clasificación ajustada es:
+f pertenece a Theta de n.
+
+No confundas una cota superior válida con el orden exacto de crecimiento.
+
+---
+
+TARJETA 7. Omega: cota inferior
+
+f(n) pertenece a Omega de g(n) si existen c y n0 positivos tales que:
+
+0 menor o igual que c g(n)
+menor o igual que f(n)
+
+para toda n mayor o igual que n0.
+
+Omega responde:
+¿Con qué crecimiento podemos acotar la función por abajo?
+
+---
+
+TARJETA 8. Relación entre las tres notaciones
+
+f pertenece a Theta de g
+si y sólo si
+f pertenece a O de g
+y
+f pertenece a Omega de g.
+
+Theta representa una cota ajustada porque coinciden el orden de la cota superior y el de la inferior.
+
+---
+
+TARJETA 9. Polinomios y término dominante
+
+Sea:
+f(n) = a sub d n elevada a d + términos de menor grado,
+con a sub d positivo.
+
+Entonces:
+f pertenece a Theta de n elevada a d.
+
+Ejemplos:
+7n cuarta - 3n cuadrada + 10 pertenece a Theta de n cuarta.
+2n cúbica + 1000n cuadrada pertenece a Theta de n cúbica.
+
+---
+
+TARJETA 10. Sumatorias frecuentes
+
+Suma de 1 desde 1 hasta n:
+Theta de n.
+
+Suma de i desde 1 hasta n:
+Theta de n cuadrada.
+
+Suma de i cuadrada desde 1 hasta n:
+Theta de n cúbica.
+
+Suma de logaritmo de i desde 1 hasta n:
+Theta de n logaritmo de n.
+
+Serie geométrica creciente:
+Tiene el orden de su término mayor.
+
+---
+
+TARJETA 11. Problema de búsqueda
+
+Entrada:
+Un arreglo E con n elementos ordenados y una clave K.
+
+Salida:
+Un índice donde E contiene K, o -1 si K no aparece.
+
+Operación básica:
+Comparar K con un elemento de E.
+
+Pregunta:
+¿Cómo aprovechamos que el arreglo está ordenado?
+
+---
+
+TARJETA 12. Búsqueda secuencial
+
+para i desde 0 hasta n - 1
+    si E[i] = K
+        devolver i
+    si E[i] es mayor que K
+        devolver -1
+devolver -1
+
+Peor caso:
+n comparaciones.
+
+Clasificación:
+Theta de n.
+
+Detenerse al superar K mejora algunos casos, pero no cambia el peor caso lineal.
+
+---
+
+TARJETA 13. Búsqueda binaria
+
+Comparar K con el elemento central.
+
+Si son iguales:
+Terminar.
+
+Si K es menor:
+Continuar en la mitad izquierda.
+
+Si K es mayor:
+Continuar en la mitad derecha.
+
+Cada comparación elimina aproximadamente la mitad de los candidatos.
+
+---
+
+TARJETA 14. Pseudocódigo de búsqueda binaria
+
+función binaria(E, primero, último, K)
+    si último es menor que primero
+        devolver -1
+    medio = piso de (primero + último) entre 2
+    si E[medio] = K
+        devolver medio
+    si K es menor que E[medio]
+        devolver binaria(E, primero, medio - 1, K)
+    devolver binaria(E, medio + 1, último, K)
+
+Precondición indispensable:
+E está ordenado.
+
+---
+
+TARJETA 15. ¿Por qué aparece el logaritmo?
+
+Después de d comparaciones quedan aproximadamente:
+
+n entre 2 elevada a d elementos.
+
+El proceso termina cuando esta cantidad es menor o igual que 1.
+
+n entre 2 elevada a d menor o igual que 1.
+
+Por tanto:
+d es aproximadamente logaritmo base 2 de n.
+
+La búsqueda binaria pertenece a Theta de logaritmo de n.
+
+---
+
+TARJETA 16. MATLAB y Python: misma idea, índices diferentes
+
+MATLAB utiliza índices desde 1.
+Python utiliza índices desde 0.
+
+Al traducir el pseudocódigo debes revisar:
+Valor inicial de primero.
+Valor inicial de último.
+Cálculo de medio.
+Actualización de los límites.
+Condición de intervalo vacío.
+
+El algoritmo es el mismo; la representación de los índices cambia.
+
+---
+
+TARJETA 17. Actividad de integración
+
+Para cada algoritmo:
+Define entrada y salida.
+Identifica la operación básica.
+Obtén o justifica la función de peor caso.
+Clasifica mediante Theta.
+Indica la precondición que permite el resultado.
+
+Algoritmos:
+Suma mediante ciclo.
+Suma mediante fórmula.
+Búsqueda secuencial.
+Búsqueda binaria.
+
+Puntuación:
+4 puntos por corrección.
+3 puntos por conteo justificable.
+2 puntos por clasificación asintótica correcta.
+1 punto por identificar explícitamente la precondición.
+
+---
+
+TARJETA 18. Cierre
+
+¿Qué diferencia existe entre O y Theta?
+¿Por qué n y n entre 2 pertenecen al mismo orden?
+¿Cómo demuestra una cota inferior que no estamos subestimando el crecimiento?
+¿Qué propiedad permite que la búsqueda binaria descarte la mitad?
+¿Por qué cerca de veinte comparaciones bastan para un millón de elementos?
+
+FUENTES
+Baase y Van Gelder. Algoritmos computacionales. Páginas PDF 22 a 89 del archivo proporcionado.
+Presentación Crecimiento de Funciones proporcionada para el curso.

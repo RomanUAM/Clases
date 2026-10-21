@@ -1,0 +1,459 @@
+EXPOSICIÓN 1
+¿CÓMO ME COMUNICO CON UNA MÁQUINA?
+De las instrucciones cotidianas a los algoritmos
+
+En esta sesión aprenderás a:
+Distinguir entrada, operaciones y salida.
+Escribir instrucciones que no dependan de adivinanzas.
+Reconocer cuándo un procedimiento es correcto.
+Diferenciar un problema difícil de un problema no computable.
+Comparar procedimientos cuando aumenta el tamaño de la entrada.
+
+---
+
+TARJETA 1. ¿Cómo le dices a una máquina qué debe hacer?
+
+Imagina que una máquina debe construir un barco de papel.
+
+No puede observarte y copiarte.
+No conoce expresiones como “hazlo así”, “dobla un poco” o “como siempre”.
+No puede completar información con experiencia previa.
+
+Pregunta:
+¿Qué tendrías que comunicarle para que produzca el barco correcto?
+
+---
+
+TARJETA 2. Una persona interpreta; una máquina ejecuta
+
+Si le dices a una persona “dobla la hoja a la mitad”, quizá observe el contexto y elija un doblez razonable.
+
+Para una máquina quedan preguntas abiertas:
+¿Qué borde debe moverse?
+¿Con qué borde debe coincidir?
+¿El doblez es horizontal, vertical o diagonal?
+¿Qué cara de la hoja debe quedar afuera?
+¿Cuándo debe detener el movimiento?
+
+Una instrucción útil debe eliminar estas ambigüedades.
+
+---
+
+TARJETA 3. El problema del barco de papel
+
+Problema:
+Construir un barco de papel a partir de una hoja tamaño carta.
+
+Entrada:
+Una hoja de papel tamaño carta.
+
+Recursos disponibles:
+Manos o mecanismos capaces de sujetar y doblar.
+Regla.
+Tijeras, si el modelo elegido requiere una hoja cuadrada.
+
+Salida:
+Un barco de papel.
+
+Pero “barco de papel” todavía necesita una definición verificable.
+
+---
+
+TARJETA 4. ¿Cómo reconocemos una salida correcta?
+
+Al terminar, la figura debe cumplir criterios observables:
+Tiene dos lados aproximadamente simétricos.
+La base puede abrirse.
+La figura se sostiene sobre una superficie.
+Los pliegues conservan la forma cuando se suelta el papel.
+La figura corresponde al modelo de barco elegido.
+
+Pregunta:
+¿Qué otro criterio añadirías para que dos personas puedan evaluar el resultado de la misma manera?
+
+---
+
+TARJETA 5. Entrada y recursos no son lo mismo
+
+La entrada contiene los datos o elementos que el problema transforma.
+
+En este caso:
+La hoja y sus dimensiones forman la entrada.
+
+Los recursos permiten ejecutar el procedimiento.
+
+En este caso:
+Las manos, la regla, las tijeras y el tiempo son recursos.
+
+Pregunta:
+Si cambiamos una hoja por 1000 hojas, ¿cambió la entrada o cambiaron los recursos?
+
+---
+
+TARJETA 6. Un sistema de referencia para doblar
+
+Para comunicar un doblez podemos nombrar:
+Borde superior.
+Borde inferior.
+Borde izquierdo.
+Borde derecho.
+Cara visible.
+Esquinas A, B, C y D.
+
+Instrucción ambigua:
+“Dobla la hoja a la mitad.”
+
+Instrucción más precisa:
+“Mueve el borde superior hasta hacerlo coincidir con el borde inferior. Mantén alineadas las esquinas y presiona el pliegue horizontal.”
+
+La segunda instrucción define dirección, destino y condición de término.
+
+---
+
+TARJETA 7. Preparación del mayor cuadrado
+
+Esta versión del barco utilizará una hoja cuadrada.
+
+1. Coloca la hoja carta en posición vertical.
+2. Lleva la esquina superior derecha hacia el borde izquierdo.
+3. Alinea el borde superior con el borde izquierdo.
+4. Marca el pliegue diagonal.
+5. Identifica el rectángulo que queda sin cubrir.
+6. Corta ese rectángulo.
+7. Abre la figura.
+
+Resultado intermedio:
+Un cuadrado de lado igual al lado menor de la hoja carta.
+
+Una hoja carta mide aproximadamente 21.59 por 27.94 centímetros.
+El mayor cuadrado posible tiene lado de 21.59 centímetros.
+
+Advertencia:
+No todos los barcos requieren una hoja cuadrada. Este paso pertenece sólo a la versión que hemos definido.
+
+---
+
+TARJETA 8. Pseudocódigo del barco
+
+ENTRADA: una hoja tamaño carta
+SALIDA: un barco que cumple los criterios establecidos
+
+obtener el mayor cuadrado de la hoja
+doblar el cuadrado uniendo el borde superior con el inferior
+marcar el eje vertical y volver a abrir
+doblar las esquinas superiores hacia el eje vertical
+doblar hacia arriba las pestañas inferiores
+abrir la figura por la base y aplanarla como rombo
+doblar hacia arriba la punta inferior de cada cara
+abrir otra vez por la base y formar un rombo
+separar las dos puntas superiores
+ajustar la base
+verificar la salida
+
+Pregunta:
+¿Cuál de estos pasos todavía podría interpretarse de más de una manera?
+
+---
+
+TARJETA 9. Si el resultado es una flor
+
+Esperábamos un barco y obtuvimos una flor.
+
+Entonces la salida no satisface la condición solicitada.
+
+Las causas posibles incluyen:
+El procedimiento contiene un paso incorrecto.
+Una instrucción admite varias interpretaciones.
+La máquina o la persona ejecutó otro movimiento.
+La entrada no cumplía los requisitos.
+La salida esperada estaba mal definida.
+
+Obtener una flor es un problema de corrección, no de eficiencia.
+
+---
+
+TARJETA 10. ¿Probar una vez demuestra que funciona?
+
+Si el procedimiento produce un barco con una hoja, sabemos que funcionó en ese caso.
+
+Todavía debemos preguntar:
+¿Funciona con cualquier hoja que cumpla las condiciones de entrada?
+¿Termina siempre?
+¿Cada paso puede ejecutarse exactamente como está escrito?
+
+Probar ejemplos ayuda a encontrar errores.
+Un ejemplo exitoso no demuestra por sí solo que el algoritmo sea correcto para todos los casos.
+
+---
+
+TARJETA 11. ¿Qué significa que un problema sea computable?
+
+Un problema es computable si existe un algoritmo que:
+Recibe cualquier entrada válida.
+Ejecuta pasos claramente definidos.
+Termina después de un número finito de pasos.
+Produce la salida correcta.
+
+Ejemplos computables:
+Sumar los primeros n números.
+Ordenar una lista finita.
+Buscar un valor en un arreglo finito.
+Seguir una secuencia completamente especificada de dobleces.
+
+---
+
+TARJETA 12. Ambiguo no significa no computable
+
+La instrucción “haz un barco bonito” no está suficientemente especificada.
+
+El problema no puede programarse todavía porque faltan criterios:
+¿Qué significa bonito?
+¿Qué modelos se aceptan?
+¿Cómo se evalúa el resultado?
+
+Esto no demuestra que el problema sea no computable.
+Primero debemos convertir la petición en una especificación precisa.
+
+Idea central:
+Un problema mal definido y un problema no computable son cosas diferentes.
+
+---
+
+TARJETA 13. ¿Qué significa que un problema no sea computable?
+
+Un problema es no computable cuando puede formularse con precisión, pero no existe ningún algoritmo capaz de resolver correctamente todos sus casos válidos.
+
+Ejemplo clásico:
+El problema de la parada pregunta si cualquier programa terminará o continuará ejecutándose para siempre con una entrada determinada.
+
+Alan Turing demostró que no puede existir un algoritmo general que responda correctamente para todos los programas y todas las entradas.
+
+No computable no significa:
+Que todavía no conocemos un programa.
+Que el programa sería lento.
+Que la instrucción está mal redactada.
+
+---
+
+TARJETA 14. Tres situaciones diferentes
+
+Problema mal especificado:
+No sabemos exactamente qué entrada aceptar ni qué salida evaluar.
+Ejemplo: “Construye el barco más bonito.”
+
+Problema computable pero costoso:
+Existe un algoritmo, aunque podría tardar demasiado para entradas grandes.
+Ejemplo: examinar una cantidad enorme de posibilidades en un juego.
+
+Problema no computable:
+Ningún algoritmo puede resolver todos los casos.
+Ejemplo: el problema general de la parada.
+
+Pregunta:
+¿En cuál categoría colocarías la construcción de un barco con instrucciones precisas?
+
+---
+
+TARJETA 15. Condición previa y condición posterior
+
+Condición previa:
+La hoja no está rota.
+Tiene las dimensiones previstas.
+Los mecanismos necesarios pueden realizar los dobleces.
+
+Condición posterior:
+La figura obtenida cumple los criterios establecidos para el barco.
+
+Un algoritmo es correcto si, para toda entrada que satisface la condición previa, termina y produce una salida que satisface la condición posterior.
+
+---
+
+TARJETA 16. ¿Cuánto trabajo requiere un barco?
+
+Para analizar el trabajo necesitamos elegir una operación básica.
+
+Podríamos contar:
+Cada doblez.
+Cada corte.
+Cada verificación.
+
+Para esta comparación contaremos dobleces y cortes.
+
+Pregunta:
+¿Sería razonable considerar que un corte y un doblez tienen exactamente el mismo costo?
+
+---
+
+TARJETA 17. Una hoja, 100 hojas o 1000 hojas
+
+Supongamos que cada barco requiere k operaciones.
+
+Para una hoja:
+T(1) = k
+
+Para 100 hojas:
+T(100) = 100k
+
+Para 1000 hojas:
+T(1000) = 1000k
+
+Si repetimos el proceso completo para cada hoja:
+
+T(n) = kn
+
+El trabajo crece linealmente con el número de hojas.
+
+---
+
+TARJETA 18. ¿Podemos producir más barcos en menos tiempo?
+
+Podemos repartir las hojas entre varias personas o máquinas.
+También podemos preparar cortes y dobleces por lotes.
+
+Si trabajan p personas con la misma velocidad, el tiempo ideal se aproxima a:
+
+T(n,p) = techo de n entre p, multiplicado por k.
+
+Pero repartir el trabajo también cuesta:
+Hay que distribuir materiales.
+Coordinar las etapas.
+Revisar resultados.
+
+Paralelizar reduce tiempo transcurrido, pero no elimina el trabajo total.
+
+---
+
+TARJETA 19. Otro problema: sumar del 1 al 100
+
+Entrada:
+n = 100
+
+Salida:
+1 + 2 + 3 + ... + 100
+
+¿Qué procedimiento elegirías?
+
+A. Recorrer los 100 números.
+B. Emparejar el primero con el último.
+C. Usar directamente una fórmula.
+
+Vota antes de calcular.
+Después tendrás que justificar tu elección.
+
+---
+
+TARJETA 20. Pseudocódigo con ciclo
+
+función sumar_con_ciclo(n)
+    suma = 0
+    para i desde 1 hasta n
+        suma = suma + i
+    devolver suma
+
+Operación básica:
+Actualizar la variable suma.
+
+Número de iteraciones:
+n
+
+Orden de crecimiento:
+Theta de n.
+
+---
+
+TARJETA 21. El mismo algoritmo en MATLAB y Python
+
+MATLAB
+
+function s = sumar_con_ciclo(n)
+    s = 0;
+    for i = 1:n
+        s = s + i;
+    end
+end
+
+PYTHON
+
+def sumar_con_ciclo(n):
+    s = 0
+    for i in range(1, n + 1):
+        s += i
+    return s
+
+La sintaxis cambia.
+La estrategia y el número de iteraciones permanecen.
+
+---
+
+TARJETA 22. Emparejar extremos
+
+1 + 100 = 101
+2 + 99 = 101
+3 + 98 = 101
+...
+50 + 51 = 101
+
+Hay 50 pares de 101.
+
+Suma = 50 por 101 = 5050.
+
+Corrección:
+No son 49 pares más 50.
+Para sumar de 1 hasta n aparece n + 1, no n - 1.
+
+---
+
+TARJETA 23. Recorrer pares sigue siendo lineal
+
+función sumar_por_pares(n)
+    suma = 0
+    para i desde 1 hasta piso de n entre 2
+        suma = suma + i + (n + 1 - i)
+    si n es impar
+        suma = suma + (n + 1) entre 2
+    devolver suma
+
+El procedimiento realiza aproximadamente n entre 2 iteraciones.
+
+Reduce el trabajo por un factor constante, pero continúa en Theta de n.
+
+---
+
+TARJETA 24. La fórmula directa
+
+S(n) = n(n + 1) entre 2.
+
+PSEUDOCÓDIGO
+
+función sumar_con_formula(n)
+    devolver n(n + 1) entre 2
+
+MATLAB
+
+function s = sumar_con_formula(n)
+    s = n * (n + 1) / 2;
+end
+
+PYTHON
+
+def sumar_con_formula(n):
+    return n * (n + 1) // 2
+
+Bajo el modelo elemental de operaciones aritméticas de costo constante, este procedimiento pertenece a Theta de 1.
+
+---
+
+TARJETA 25. Cierre
+
+Responde con tus propias palabras:
+
+¿Qué información necesita una máquina para distinguir un doblez horizontal de uno vertical?
+¿Por qué obtener una flor indica un problema de corrección?
+¿Por qué una petición ambigua no es automáticamente no computable?
+¿Qué condiciones debe cumplir un problema computable?
+¿Cuál es la diferencia entre computable pero lento y no computable?
+¿Por qué recorrer n entre 2 pares sigue siendo un procedimiento lineal?
+
+FUENTES
+Baase y Van Gelder. Algoritmos computacionales. Páginas PDF 22 a 89 del archivo proporcionado.
+Presentación Crecimiento de Funciones proporcionada para el curso.

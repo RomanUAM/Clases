@@ -1,0 +1,830 @@
+\documentclass[11pt,letterpaper]{article}
+\usepackage[provide=*,spanish]{babel}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Sans}
+\usepackage{amsmath,amssymb}
+\usepackage[margin=1.8cm,headheight=15pt,headsep=14pt,footskip=24pt]{geometry}
+\usepackage{longtable,array,booktabs,xcolor,fancyhdr,hyperref,enumitem,microtype}
+\hypersetup{hidelinks,pdftitle={Muestreo y tamaño de muestra},pdfauthor={Román Anselmo Mora Gutiérrez}}
+\pagestyle{fancy}\fancyhf{}\fancyhead[L]{\small UAM\quad Apunte de estudio}\fancyfoot[R]{\small Probabilidad y Análisis de Datos\quad\thepage}
+\renewcommand{\headrulewidth}{0pt}
+\setlength{\parindent}{0pt}\setlength{\parskip}{6pt}
+\setlength{\tabcolsep}{5pt}\renewcommand{\arraystretch}{1.12}
+\setlength{\emergencystretch}{2em}
+\definecolor{cabecera}{RGB}{232,238,242}
+\usepackage{colortbl}
+\setcounter{secnumdepth}{0}
+\setlength{\abovedisplayskip}{6pt}\setlength{\belowdisplayskip}{6pt}
+\begin{document}
+{\LARGE\bfseries Muestreo y tamaño de muestra\par}\medskip
+\textbf{Apunte de Probabilidad y Análisis de Datos}\par
+¿Cómo elegimos a quién observar y qué podemos concluir con esas observaciones? Para responder, necesitas relacionar la pregunta con la población, la selección y el análisis. El tamaño de la muestra es una parte de esa decisión.
+
+Este apunte desarrolla los conceptos y después plantea dos casos: estimar tomas de agua por entidad y conocer opiniones sobre la cafetería universitaria. Las consignas aparecen antes de las soluciones. Al final encontrarás los cálculos, el contraste de resultados y los datos completos del caso del agua.
+\section{La pregunta determina qué observamos}
+\textbf{Población objetivo.} Es el conjunto de unidades sobre el que quieres concluir. Debe estar delimitado por sus integrantes, lugar y periodo. En el agua son las 32 entidades federativas en 2020; en la cafetería debes decidir si estudiarás toda la comunidad de una unidad de la UAM o a sus personas usuarias durante un periodo definido.
+
+\textbf{Unidad de muestreo.} Es la unidad que seleccionas en una etapa del diseño. En el caso del agua seleccionas entidades; en una encuesta puedes seleccionar directamente personas o seleccionar primero grupos y después personas.
+
+\textbf{Unidad de observación.} Es aquella sobre la que registras la variable. En el agua coincide con la entidad. Si seleccionas un paquete y examinas sus pilas, el paquete es una unidad de selección inicial y cada pila es una unidad observada.
+
+\textbf{Variable.} Es la característica registrada: cantidad de tomas por entidad o respuesta de una persona sobre un aspecto de la cafetería. Un conteo y una opinión afirmativa requieren estimadores distintos.
+
+\textbf{Marco de muestreo.} Es la lista o mecanismo que permite localizar y seleccionar unidades. Puede tener omisiones, duplicados o registros desactualizados. Sortear correctamente dentro de una lista incompleta no incorpora a quienes quedaron fuera.
+
+\textbf{Muestra seleccionada y muestra observada.} La primera incluye a quienes fueron elegidos; la segunda a quienes finalmente aportaron información utilizable. Una persona seleccionada que no responde no debe desaparecer del registro del proceso.
+
+\textbf{Censo.} Observa todas las unidades de la población definida. El archivo del agua permite trabajar con los 32 registros; muestrear sobre él es una simulación didáctica que permite comprobar las estimaciones.
+
+\textbf{Parámetro y estadístico.} El parámetro describe la población y es fijo para esa población y periodo. El estadístico se calcula con la muestra y puede cambiar al seleccionar otra. El diseño y el estimador, juntos, determinan cómo usarás el estadístico para aproximar el parámetro.
+\clearpage
+\section{Cantidades que no debemos confundir}
+\begin{longtable}{p{.25\textwidth}p{.62\textwidth}}
+\toprule\rowcolor{cabecera} Símbolo & Significado \\ \midrule
+$N$ & Número de unidades de la población. \\
+$m$ y $n$ & Tamaño del premuestreo y de la muestra definitiva. \\
+$x_i$ & Valor observado en la unidad $i$. \\
+$\mu$ y $\bar{x}$ & Media poblacional y media calculada con la muestra. \\
+$P$, $p$ y $\widehat p$ & Proporción poblacional, anticipación para planear y proporción observada. \\
+$\sigma^2$ y $S^2$ & Varianzas de la población finita con divisores $N$ y $N-1$, respectivamente. \\
+$s^2$ y $s$ & Varianza muestral y desviación estándar muestral. \\
+$E$ & Margen de error absoluto deseado o estimado para un estimador. \\
+$z$ & Cuantil normal correspondiente al nivel nominal usado en la aproximación. \\
+\bottomrule
+\end{longtable}
+Para la población completa y una muestra de tamaño $m$:
+\[
+\mu=\frac{\sum_{i=1}^N x_i}{N},\qquad
+\sigma^2=\frac{\sum_{i=1}^N(x_i-\mu)^2}{N},\qquad
+S^2=\frac{\sum_{i=1}^N(x_i-\mu)^2}{N-1}.
+\]
+\[
+\bar{x}=\frac{\sum_{i=1}^m x_i}{m},\qquad
+s^2=\frac{\sum_{i=1}^m(x_i-\bar{x})^2}{m-1},\qquad s=\sqrt{s^2}.
+\]
+En una población finita, $S^2=N\sigma^2/(N-1)$. Declaramos la convención porque la fórmula de la varianza de la media bajo muestreo sin reemplazo se escribe de manera sencilla usando $S^2$. Bajo aleatorio simple, $s^2$ estima sin sesgo a $S^2$. Si los casos preliminares se fijan por criterio, esa propiedad no queda asegurada.
+
+\textbf{Desviación estándar.} Describe diferencias entre los valores de las unidades. En el agua se expresa en tomas; la varianza se expresa en tomas al cuadrado.
+
+\textbf{Error estándar.} Describe la variación del estimador entre muestras obtenidas con el mismo diseño. En aleatorio simple sin reemplazo:
+\[
+\operatorname{EE}(\bar X)=\sqrt{\left(1-\frac nN\right)\frac{S^2}{n}}.
+\]
+\textbf{Margen de error.} En la aproximación normal se obtiene como $E\approx z\operatorname{EE}$. No es lo mismo que la desviación estándar ni que el error efectivamente cometido. Si conocemos $\mu$, el error observado de una media es $\bar{x}-\mu$; si no lo conocemos, tampoco conocemos ese error exacto.
+\clearpage
+\section{Muestreo probabilístico y no probabilístico}
+\subsection{Qué significa seleccionar probabilísticamente}
+Un diseño es probabilístico cuando utiliza un mecanismo aleatorio definido y cada unidad de la población cubierta tiene una probabilidad de inclusión conocida y positiva. Esa probabilidad se denota $\pi_i$. No exige que todas las $\pi_i$ sean iguales: cuando difieren, el análisis debe respetarlas, por ejemplo mediante ponderaciones.
+
+Aleatorio no significa improvisado. Un sorteo establece de antemano la población, el tamaño y una regla de selección verificable. Elegir a quienes se van encontrando depende de accesibilidad, aunque no exista intención consciente de favorecer a nadie.
+
+El diseño probabilístico permite estimar características de la población cubierta y cuantificar el error de muestreo con procedimientos adecuados al diseño. Para extender la conclusión a la población objetivo debemos revisar también cobertura y respuesta.
+\subsection{Qué caracteriza a una selección no probabilística}
+La inclusión depende de accesibilidad, juicio, participación voluntaria o contactos, sin probabilidades conocidas para las unidades de la población. Esto no vuelve inútil la información: puede servir para explorar experiencias, identificar problemas, probar preguntas y estudiar casos. Sin supuestos adicionales no podemos atribuir a sus porcentajes el alcance de una encuesta probabilística.
+
+Una estrategia puede combinar fases: entrevistas intencionales para entender el problema y después una encuesta probabilística para estimar proporciones. Cada fase conserva su propósito y sus límites; no se suman ambas muestras como si compartieran un solo mecanismo de selección.
+\subsection{Qué no garantiza una selección aleatoria}
+Ninguna muestra particular reproduce necesariamente todas las características de la población. El respaldo del diseño se refiere al comportamiento del procedimiento a través de las muestras posibles. El 95\,\% nominal de un procedimiento de intervalos no significa que 95\,\% de los individuos estén cerca de la media, ni que cada intervalo concreto contendrá el parámetro.
+
+\textbf{Sesgo y precisión.} El sesgo es una desviación sistemática del estimador respecto del parámetro; la precisión se relaciona con su variabilidad. Aumentar una muestra por conveniencia no elimina el sesgo de selección. Una muestra puede producir cifras muy estables y seguir excluyendo a un sector importante.
+
+El margen de error convencional no incluye por sí solo errores de cobertura, no respuesta, preguntas mal entendidas, respuestas condicionadas por miedo ni errores de registro. En el caso de la cafetería, proteger la libertad de responder también mejora la calidad de la información.
+\clearpage
+\section{Muestreo aleatorio simple y premuestreo}
+En el aleatorio simple sin reemplazo, todas las muestras posibles de tamaño $n$ tienen la misma probabilidad. Como consecuencia, cada unidad tiene probabilidad de inclusión $n/N$. La igualdad de probabilidades individuales, por sí sola, no demuestra que todas las muestras sean equiprobables.
+
+Para realizarlo, construye el marco completo, identifica cada unidad una sola vez, determina el tamaño y sortea $n$ identificadores distintos. Conserva el resultado del sorteo antes de comparar sus valores. No repitas la selección hasta que aparezca una media que te agrade.
+
+En el agua, sortear 19 de las 32 entidades produce una probabilidad individual de inclusión de $19/32$. No se necesitan entidades contiguas, de tamaño parecido ni distribuidas simétricamente. La representatividad no se juzga solo por cómo se ve la selección en un mapa.
+
+\textbf{Cuándo elegirlo y por qué.} Cuando dispones de un marco completo, puedes contactar a cualquier unidad seleccionada y buscas una estimación general sin asegurar tamaños particulares por sector. Su fundamento es dar a todas las muestras de tamaño fijado la misma oportunidad de selección.
+
+\textbf{Ventajas.} La selección, las probabilidades y los estimadores son transparentes. Sirve como referencia para comparar la precisión de otros diseños y permite calcular el error de muestreo bajo sus condiciones.
+
+\textbf{Limitaciones y alcance.} Requiere una lista adecuada. Puede dispersar mucho la recolección y dejar pocas observaciones de sectores pequeños. No evita la falta de respuesta ni asegura que cada muestra se parezca exactamente a la población.
+
+\textbf{En nuestros casos.} Es una opción natural para sortear 19 de las 32 entidades. En cafetería sería viable con un padrón completo; si importa comparar sectores pequeños, conviene valorar estratificación.
+\clearpage
+\section{Premuestreo y aprovechamiento de observaciones previas}
+
+\subsection{Para qué sirve un premuestreo}
+Un premuestreo es una observación preliminar utilizada para estudiar la variable, probar la recolección y aproximar la variabilidad necesaria para planear la muestra definitiva. El cálculo de tamaño utiliza esa aproximación, no una variabilidad poblacional que ya conozcamos con certeza.
+
+En la clase, las cinco entidades iniciales fueron indicadas de antemano. Sus resultados pueden usarse como referencia didáctica, pero no consta que formen un aleatorio simple. Sustituir Puebla por Ciudad de México puede cambiar considerablemente $s^2$ y el tamaño calculado, aunque la población completa permanezca igual.
+
+No buscamos un premuestreo que produzca un tamaño pequeño. Buscamos información pertinente sobre la variabilidad. Si el premuestreo es reducido o poco diverso, la planificación puede subestimar el tamaño necesario.
+\subsection{Qué ocurre al conservar observaciones preliminares}
+Si las cinco primeras se fijan y luego se sortean 14 de las 27 restantes, el conjunto no es un aleatorio simple de 19: las primeras cinco tienen probabilidad de inclusión 1 y las otras $14/27$.
+
+Sin embargo, ese procedimiento \textbf{sí puede analizarse como un diseño probabilístico con cinco unidades de inclusión cierta y un muestreo aleatorio en el resto}. La media simple de las 19 no es el estimador adecuado para ese diseño. Al final desarrollaremos el estimador que suma las cinco observadas y expande la información de las otras 14 al grupo de 27.
+
+Esta distinción permite aprovechar observaciones previas sin afirmar que se obtuvieron con un diseño diferente del realmente aplicado.
+\clearpage
+\section{Muestreo estratificado}
+Antes de seleccionar, dividimos la población en estratos que no se superponen y que juntos abarcan toda la población. Seleccionamos unidades probabilísticamente dentro de \textbf{todos} los estratos. Una categoría se vuelve estrato del diseño cuando interviene en la selección, no solo porque aparezca después en una tabla de resultados.
+
+La estratificación suele ser útil si las unidades de cada estrato son semejantes respecto de la variable estudiada y existen diferencias entre estratos. La semejanza se refiere a esa variable: compartir una etiqueta no garantiza que las opiniones sobre cafetería sean parecidas.
+
+En la UAM podemos considerar el vínculo institucional: estudiantes, personal académico y personal administrativo. Primero debemos resolver los vínculos múltiples mediante una regla que evite duplicar personas. Si deseamos usar horarios como estratos, necesitamos información previa que permita asignar a cada integrante; el horario mixto no se transforma en varias personas.
+
+\textbf{Cuándo elegirlo y por qué.} Cuando necesitas asegurar observaciones de todos los sectores o mejorar precisión usando información auxiliar relacionada con la variable. Necesitas conocer el estrato de cada unidad antes de seleccionar.
+
+\textbf{Ventajas.} Permite planear tamaños para sectores de interés y aprovechar diferencias entre ellos. Puede disminuir la varianza frente a un aleatorio simple del mismo tamaño si la estratificación es pertinente.
+
+\textbf{Limitaciones y alcance.} Exige clasificaciones y tamaños poblacionales fiables; demasiados cruces pueden generar estratos pequeños. No garantiza una mejora si la clasificación tiene poca relación con la variable. La asignación y los pesos forman parte del análisis.
+
+\textbf{En nuestros casos.} En cafetería, vínculo institucional y horarios podrían orientar estratos si existe un marco adecuado. No debemos afirmar que sus opiniones difieren antes de observarlas.
+
+\subsection{Cómo distribuir el tamaño entre estratos}
+La asignación proporcional conserva la participación de cada estrato en la población:
+\[
+n_h=n\frac{N_h}{N},\qquad W_h=\frac{N_h}{N}.
+\]
+$N_h$ es la población del estrato, $n_h$ su muestra y $W_h$ su peso poblacional. Si reúne 20\,\% de la población, recibe aproximadamente 20\,\% de la muestra. Ajusta los redondeos para que las cantidades sumen $n$.
+
+No necesitamos observar a la mayoría de cada estrato. Tampoco la asignación proporcional es siempre la mejor: puede convenir aumentar la muestra de un sector pequeño para compararlo con otros, o considerar variabilidad y costos. Esto requiere respetar los pesos al calcular resultados generales.
+
+Si dentro de cada estrato aplicamos aleatorio simple, una media o proporción general puede estimarse con
+\[
+\widehat\mu_{\mathrm{est}}=\sum_h W_h\bar{x}_h,
+\qquad\widehat P_{\mathrm{est}}=\sum_h W_h\widehat p_h.
+\]
+No promedies sin ponderar los resultados de los sectores si sus tamaños poblacionales difieren. Un tamaño suficiente para el total no asegura la misma precisión para cada sector.
+\subsection{Estratificación frente a cuotas y análisis posterior}
+Seleccionar por sorteo dentro de todos los grupos es distinto de completar cantidades con personas disponibles: esto último es muestreo por cuotas. Seleccionar primero un aleatorio simple y después comparar categorías no convierte el sorteo original en estratificado. Una eventual postestratificación es un ajuste del análisis que debe describirse como tal.
+\clearpage
+\section{Muestreo por conglomerados}
+Un conglomerado es un conjunto de unidades que podemos seleccionar conjuntamente. Los paquetes de pilas o tornillos son ejemplos del contexto de la clase. Primero debemos identificar la población de paquetes y cómo localizarlos.
+
+\textbf{Una etapa.} Sorteamos algunos paquetes y observamos todos sus elementos. La selección ocurre en el nivel de los paquetes.
+
+\textbf{Dos etapas.} Sorteamos paquetes y después sorteamos algunos elementos dentro de cada paquete. Hay un mecanismo de selección en cada nivel. Para que el diseño completo sea probabilístico, las etapas deben permitir calcular probabilidades finales de inclusión conocidas y positivas.
+
+\textbf{Multietápico.} Generaliza esta idea a dos o más niveles. No es una categoría opuesta a estratificado: podemos formar estratos y realizar una selección en varias etapas dentro de ellos.
+
+\textbf{Cuándo elegirlo y por qué.} Cuando las unidades están agrupadas y resulta más económico localizar y visitar grupos que unidades dispersas. Se necesita un marco de conglomerados y un mecanismo probabilístico para elegirlos.
+
+\textbf{Ventajas.} Puede reducir traslados y costos, y permite comenzar sin una lista de todos los individuos. En una etapa basta observar los integrantes de los grupos seleccionados.
+
+\textbf{Limitaciones y alcance.} La semejanza dentro de los grupos puede aumentar el error para un mismo número de individuos. Pocos conglomerados dan información limitada sobre la diversidad entre grupos. Los tamaños desiguales requieren especial cuidado con probabilidades y pesos.
+
+\textbf{En nuestros casos.} Los paquetes de pilas o tornillos son conglomerados si sorteamos paquetes. En cafetería, usar grupos escolares como único marco dejaría fuera a otros miembros de la comunidad.
+
+\subsection{Qué distingue conglomerados y estratos}
+\begin{longtable}{p{.20\textwidth}p{.33\textwidth}p{.33\textwidth}}
+\toprule\rowcolor{cabecera} Aspecto & Estratos & Conglomerados \\ \midrule
+Grupos incluidos & Todos los estratos & Algunos conglomerados sorteados \\
+Primera selección & Unidades dentro de cada estrato & Grupos de unidades \\
+Propósito frecuente & Asegurar participación y mejorar precisión & Reducir traslados o costos de recolección \\
+\bottomrule
+\end{longtable}
+Los conglomerados no se definen por ser homogéneos. Idealmente, cada uno reúne parte de la diversidad de la población, pero en la práctica sus integrantes pueden parecerse mucho. Pilas del mismo paquete pueden compartir condiciones de fabricación; personas del mismo grupo pueden compartir experiencias.
+
+Cuando las unidades internas son muy semejantes, observar muchas del mismo conglomerado aporta menos información que observar unidades de más conglomerados. Por eso el tamaño no depende solo del número total de individuos: importan también el número de grupos y su semejanza interna.
+
+En cafetería, elegir grupos escolares completos solo cubriría a estudiantes de esos grupos y no automáticamente a académicos o administrativos. Un diseño de conglomerados para toda la comunidad necesita un marco que incluya a todos los sectores y evite duplicaciones. La comodidad de trabajar con grupos existentes no resuelve por sí sola la cobertura.
+\clearpage
+\section{Muestreo multietápico}
+Es un diseño que selecciona unidades en niveles sucesivos. En los paquetes, una primera etapa elige paquetes y otra elige pilas o tornillos dentro de ellos. En un diseño de una etapa por conglomerados, en cambio, se observan todos los integrantes de los conglomerados sorteados.
+
+\textbf{Cuándo elegirlo y por qué.} Cuando construir una lista completa de individuos sería costoso, pero puedes disponer de listas de grupos y obtener listas internas solo para los grupos seleccionados. Permite organizar una población extensa por niveles operativos.
+
+\textbf{Cómo se aplica.} Define las unidades de cada etapa, sus marcos y sus sorteos. Para un individuo $i$ del grupo $g$, si la segunda selección depende solo del grupo elegido, su probabilidad es
+\[
+\pi_i=\pi_g\,\pi_{i\mid g}.
+\]
+$\pi_g$ es la probabilidad de incluir el grupo y $\pi_{i\mid g}$ la probabilidad condicional de incluir al individuo dentro de ese grupo. Las etapas pueden tener probabilidades diferentes; una etapa de inclusión cierta tiene probabilidad 1.
+
+\textbf{Ventajas.} Reduce la construcción de marcos individuales y puede ajustar el esfuerzo de campo a la organización territorial o institucional. Permite combinar estratos, selección de grupos y selección interna.
+
+\textbf{Limitaciones y alcance.} Complica la selección y el cálculo del error. La pérdida de cobertura en una etapa se transmite a las siguientes. Los estimadores deben utilizar las probabilidades finales y considerar la agrupación; la fórmula del aleatorio simple no se vuelve válida por tener el mismo número de personas.
+
+\textbf{En nuestros casos.} Podría ser útil para una encuesta de la comunidad distribuida en distintas unidades o áreas, si los marcos cubren a todos sus integrantes. Es innecesario complicar el caso de 32 entidades con etapas si se seleccionan directamente sus registros.
+
+Estratificado y multietápico pueden coexistir: uno establece grupos de los cuales queremos seleccionar, y el otro describe niveles sucesivos de selección. Elegir el diseño exige especificar ambos aspectos.
+\clearpage
+
+\section{Muestreo sistemático}
+Ordenamos las $N$ unidades y seleccionamos a intervalos regulares a partir de un inicio aleatorio. Cuando $N/n$ es entero, utilizamos $k=N/n$: sorteamos una posición de 1 a $k$ y tomamos cada $k$-ésima unidad.
+
+En una lista de 1000 unidades, para seleccionar 100 tenemos $k=10$. Si el inicio sorteado es 7, las posiciones son $7,17,27,\ldots,997$. La regla debe fijarse antes de observar los resultados.
+
+Si el inicio se elige deliberadamente y no hay otra aleatorización, no podemos atribuir automáticamente las probabilidades del diseño aleatorio. El orden también importa: un patrón periódico relacionado con la variable puede hacer que el intervalo seleccione repetidamente unidades de un mismo tipo.
+
+\textbf{Cuándo elegirlo y por qué.} Cuando tienes una lista o secuencia completa y necesitas distribuir la selección a lo largo de ella mediante una regla sencilla. El orden debe revisarse antes de fijar el intervalo.
+
+\textbf{Ventajas.} Requiere un inicio aleatorio y después una regla repetible. Facilita la operación y puede dispersar la selección a lo largo de un orden relevante.
+
+\textbf{Limitaciones y alcance.} Un patrón periódico puede coincidir con el intervalo y perjudicar la precisión. Ordenar por una característica no garantiza mejor representación. La estimación de varianza depende del diseño y no se copia automáticamente del aleatorio simple.
+
+\textbf{En nuestros casos.} En agua puede utilizarse un orden espacial explícito para dispersar las entidades. En cafetería, seleccionar cada cierto ingreso representa entradas al servicio; sin ajustes no equivale a seleccionar personas únicas de toda la comunidad.
+\clearpage
+\section{Aplicación del sistemático a nueve entidades}
+
+\subsection{Seleccionar nueve de 32 sin redondear el intervalo}
+Una forma de obtener exactamente nueve es utilizar un intervalo fraccionario. Numera las posiciones de 1 a 32 y define
+\[
+k=\frac{32}{9},\qquad U\sim\operatorname{Uniforme}(0,k),\qquad
+j_r=\lfloor U+rk\rfloor+1,\quad r=0,1,\ldots,8.
+\]
+$U$ es un único inicio sorteado; $\lfloor a\rfloor$ indica la parte entera inferior de $a$. Este procedimiento selecciona nueve posiciones distintas y cada posición tiene probabilidad $9/32$. No es un aleatorio simple: no todas las combinaciones de nueve pueden aparecer.
+
+Para aplicarlo a la cobertura territorial, primero necesitas una regla espacial para ordenar las entidades. El orden alfabético del archivo no equivale a un recorrido geográfico. Como no se proporcionaron coordenadas ni un orden espacial, no debemos inventar una selección territorial y presentarla como realizada.
+\subsection{Qué puede mejorar y qué puede empeorar}
+Dispersar posiciones puede ser útil cuando recoge diversidad territorial relevante y evita concentración. No garantiza precisión superior: depende del orden y de la distribución de la variable. La estimación de incertidumbre debe respetar el diseño sistemático; con un solo inicio no se obtiene automáticamente la estimación insesgada de varianza que usamos en aleatorio simple.
+
+Cubrir más territorio tampoco equivale a representar más habitantes ni a observar todos los municipios de una entidad. Si deseas asegurar participación de regiones, la estratificación geográfica es otra opción que debes distinguir del recorrido sistemático.
+\clearpage
+\section{Muestreo por transectos}
+Estos procedimientos describen principalmente \textbf{cómo se distribuye la observación en el espacio}. Para clasificarlos debes responder además cómo se eligieron los lugares y cuáles unidades podían ser incluidas.
+\subsection{Observación por transectos}
+Un transecto es una línea o franja sobre la que registramos las unidades o características de interés. El protocolo debe indicar su ubicación, orientación, longitud o ancho cuando corresponda, qué se observará y cómo se registrarán los datos.
+
+Puede incorporarse a un diseño probabilístico si la ubicación y las demás selecciones se aleatorizan de forma que las unidades de la población definida tengan probabilidades de inclusión conocidas y positivas. También puede ser sistemático con aleatorización. Si se coloca deliberadamente por facilidad de acceso o porque el lugar parece típico, la selección es no probabilística.
+
+Registrar solo organismos que cumplen una característica no vuelve automáticamente conveniente al muestreo: esa condición puede definir la población de interés. Debemos distinguir el criterio de elegibilidad del mecanismo de selección.
+
+\textbf{Cuándo elegirlo y por qué.} Cuando las unidades o características se estudian sobre un espacio y una línea o franja facilita registrar su distribución de forma consistente. Es necesario justificar cómo se sitúan y qué área o recorrido cubren.
+
+\textbf{Ventajas.} Ordena el trabajo de campo y permite observar cambios a lo largo de recorridos. Un protocolo constante facilita comparar registros obtenidos con el mismo esfuerzo.
+
+\textbf{Limitaciones y alcance.} Puede omitir zonas alejadas de las líneas, sobrerrepresentar sitios accesibles y depender de la detectabilidad. Su alcance probabilístico exige un diseño espacial explícito; no basta llamar transecto al recorrido.
+
+\textbf{En nuestros casos.} No corresponde usarlo como sustituto de una selección de opiniones de la comunidad. Una fila de comensales no se vuelve un transecto de toda la UAM por observarla de un extremo al otro.
+\clearpage
+\section{Muestreo en cinco de oros}
+
+\subsection{Observación en cinco de oros}
+Distribuye puntos en una disposición semejante al cinco de una carta: uno central y cuatro periféricos. La posición concreta y cuántas unidades se observan en cada punto dependen del protocolo. \textbf{Cinco puntos no significan necesariamente cinco individuos.}
+
+Si las posiciones se fijan por geometría o criterio sin un sorteo, no corresponden a una selección aleatoria simple. Para sostener un diseño probabilístico, el patrón debe incorporarse a una selección aleatorizada que permita calcular probabilidades de inclusión y cubra la población definida. Sortear individuos dentro de cinco sitios elegidos deliberadamente no vuelve probabilística toda la selección territorial.
+
+Ni el dibujo equilibrado ni la separación visual de puntos garantizan que se recoja toda la variabilidad del terreno. Las zonas intermedias o inaccesibles también forman parte de la evaluación de cobertura.
+
+\textbf{Cuándo elegirlo y por qué.} Cuando un protocolo de observación de un área utiliza cinco posiciones distribuidas entre centro y periferia. Se elige para organizar espacialmente la inspección, no porque cinco sea un tamaño universal suficiente.
+
+\textbf{Ventajas.} Es fácil de comunicar y ejecutar, distribuye observaciones en lugares distintos y puede servir para una inspección exploratoria o un protocolo de campo definido.
+
+\textbf{Limitaciones y alcance.} Cinco posiciones pueden dejar sin observar variaciones entre ellas. No ofrecen automáticamente un margen de error ni aseguran cobertura de toda el área. Si no hubo aleatorización, las conclusiones se limitan a lo observado o requieren supuestos adicionales.
+
+\textbf{En nuestros casos.} La distribución territorial de cinco entidades no equivale a un cinco de oros del país. Para el agua o la cafetería debemos justificar la población y el mecanismo de selección, no solo dibujar posiciones.
+
+\subsection{Tres preguntas que no son equivalentes}
+\begin{longtable}{p{.36\textwidth}p{.50\textwidth}}
+\toprule\rowcolor{cabecera} Pregunta & Distinción correspondiente \\ \midrule
+¿Cómo se eligen las unidades? & Probabilístico o no probabilístico \\
+¿Dónde se distribuye la observación? & Líneas, franjas, puntos o patrones espaciales \\
+¿Cómo se analizan los datos? & Métodos estadísticos adecuados a variables, diseño y supuestos \\
+\bottomrule
+\end{longtable}
+No probabilístico no es sinónimo de no paramétrico. Usar después una técnica no paramétrica no corrige la falta de aleatorización de una muestra por conveniencia.
+\clearpage
+\section{Muestreo por conveniencia}
+Seleccionamos las unidades disponibles, cercanas o accesibles. En la cafetería, entrevistar a quienes encontramos al terminar una comida corresponde a conveniencia si no hubo una selección probabilística previa.
+
+Puede servir para probar el cuestionario y detectar asuntos relevantes, pero quienes están allí pueden diferir de quienes no usan el servicio o asisten en otro horario. Aumentar el número de entrevistas en ese mismo lugar no resuelve la exclusión.
+
+\textbf{Cuándo elegirlo y por qué.} Cuando buscas una exploración rápida, probar la comprensión de preguntas o comprobar si el procedimiento de registro funciona. El objetivo debe admitir trabajar con casos accesibles.
+
+\textbf{Ventajas.} Requiere pocos recursos y permite detectar problemas del cuestionario antes de una encuesta más costosa.
+
+\textbf{Limitaciones y alcance.} La accesibilidad condiciona quién entra. No permite calcular por sí sola las probabilidades de inclusión ni un error aleatorio para la población objetivo. No justifica estimar porcentajes comunitarios sin supuestos adicionales.
+
+\textbf{En nuestros casos.} Las diez entrevistas iniciales de cafetería sirven para identificar asuntos y planear con cautela. No muestran que 80 por ciento de toda la comunidad considere justo el pago.
+\section{Muestreo por convocatoria abierta}
+
+\subsection{Participación voluntaria y autoselección}
+Difundimos una invitación y participan quienes deciden responder y cumplen los criterios. El mecanismo de incorporación depende de autoselección: pueden participar más quienes tienen interés, disponibilidad o experiencias intensas.
+
+La diferencia con conveniencia es el mecanismo principal: en conveniencia predomina el acceso de quien investiga; en convocatoria, la decisión de responder de quien recibe la invitación. Ambos mecanismos pueden coexistir.
+
+Invitar a personas que fueron previamente sorteadas es distinto de abrir una encuesta a todo voluntario. En la primera situación, debemos evaluar la falta de respuesta de la muestra seleccionada; no debemos cambiar el nombre del diseño solo porque las personas puedan rechazar la invitación.
+
+\textbf{Cuándo elegirlo y por qué.} Cuando quieres recibir aportaciones de personas dispuestas a colaborar o recoger experiencias de forma abierta. Conviene si la participación y la variedad de relatos son parte del propósito exploratorio.
+
+\textbf{Ventajas.} Amplía las vías de participación y facilita reunir comentarios sin contar inicialmente con un padrón de personas.
+
+\textbf{Limitaciones y alcance.} Quien responde puede tener más interés, disponibilidad, acceso digital o una experiencia más intensa que quien no participa. Muchas respuestas no eliminan esa autoselección. La ausencia de una opinión en la convocatoria no prueba que no exista.
+
+\textbf{En nuestros casos.} Un enlace abierto de cafetería podría recoger sugerencias, pero sus porcentajes no deben presentarse como una encuesta aleatoria de la UAM.
+\clearpage
+\section{Muestreo intencional o por juicio}
+
+\subsection{Selección de casos relevantes}
+Seleccionamos casos por su relevancia para la pregunta: por ejemplo, elegir deliberadamente entidades muy pobladas y distantes para contrastar situaciones. Debemos explicar qué criterio usamos y por qué. Ese criterio no equivale a un sorteo ni permite asignar automáticamente un margen de error aleatorio.
+
+Todo diseño puede tener criterios de inclusión. Definir quién pertenece a la población no convierte la selección en intencional; lo decisivo es cómo elegimos entre las unidades elegibles.
+
+\textbf{Cuándo elegirlo y por qué.} Cuando interesa comprender casos con características relevantes, contrastar experiencias o estudiar situaciones específicas más que estimar una frecuencia poblacional. Debes hacer explícito el criterio de elección.
+
+\textbf{Ventajas.} Concentra el esfuerzo en casos informativos y permite explorar diferencias que una muestra pequeña al azar podría no incluir.
+
+\textbf{Limitaciones y alcance.} El criterio puede reflejar supuestos del investigador y omitir experiencias contrarias. Su valor depende de la pertinencia y transparencia de la selección; no produce representatividad estadística por decisión del investigador.
+
+\textbf{En nuestros casos.} Elegir cinco entidades pobladas y alejadas permite comparar esos casos, no estimar sin más la media de las 32. En cafetería puede ayudar a escuchar experiencias poco visibles sin convertirlas en porcentajes generales.
+\section{Muestreo por cuotas}
+
+\subsection{Cantidades fijadas sin sorteo interno}
+Fijamos cantidades de participantes por categoría y las completamos sin selección aleatoria interna. Puede asegurar que ciertas categorías aparezcan, pero no que sus integrantes representen a todas las personas del sector.
+
+No debe confundirse con estratificado. Tener estudiantes, académicos y administrativos en la muestra no basta para afirmar estratificación probabilística: debemos sortear dentro de los estratos o utilizar otro mecanismo probabilístico explícito.
+
+\textbf{Cuándo elegirlo y por qué.} Cuando necesitas incluir cantidades de categorías relevantes, pero la operación no utiliza un sorteo dentro de ellas. Es necesario comunicar que se trata de cuotas y explicar cómo se completan.
+
+\textbf{Ventajas.} Evita que algunas categorías queden totalmente ausentes por facilidad de acceso y permite controlar cantidades durante la recolección.
+
+\textbf{Limitaciones y alcance.} Completar las cantidades no elimina el sesgo dentro de cada categoría. Las cuotas no garantizan probabilidades conocidas ni el error de una muestra estratificada aleatoria. Coincidir con proporciones poblacionales en algunas variables no asegura coincidencia en las opiniones.
+
+\textbf{En nuestros casos.} Asignar cantidades a estudiantes, académicos y administrativos y entrevistar disponibles es cuotas. Seleccionarlos probabilísticamente dentro de todos los sectores es otro diseño.
+\clearpage
+\section{Muestreo por bola de nieve}
+Participantes iniciales contactan o recomiendan a otras personas que cumplen los criterios del estudio. La muestra crece mediante redes de relaciones; el protocolo debe registrar cómo se inicia y se extiende la cadena.
+
+\textbf{Cuándo elegirlo y por qué.} Cuando no hay un marco accesible y se busca conocer experiencias difíciles de localizar mediante contacto directo. La recomendación puede facilitar el acceso, sin que obligue a quien recibe la invitación a participar.
+
+\textbf{Ventajas.} Permite llegar a personas que un contacto institucional podría no localizar y explorar experiencias compartidas dentro de redes. Puede complementar una fase cualitativa.
+
+\textbf{Limitaciones y alcance.} Las primeras personas condicionan las redes a las que se llega. Personas aisladas o de otras redes pueden quedar fuera; quienes tienen más contactos pueden aparecer con mayor frecuencia. La modalidad habitual no ofrece probabilidades conocidas de inclusión para toda la población.
+
+\textbf{En la cafetería.} Puede ayudar a escuchar a personas que dejaron de usar el servicio y no están presentes en sus instalaciones. No es una justificación suficiente para estimar la proporción de toda la comunidad que apoya la cena.
+
+\textbf{Cuidado con la confianza.} Pide que se comparta una invitación voluntaria en lugar de exigir nombres o revelar quién expresó una crítica. Ser recomendado no debe convertirse en presión para responder.
+\section{Muestreo consecutivo}
+Se incluyen todos los casos que cumplen los criterios y se presentan durante un periodo definido, o hasta completar una cantidad. Su regla debe especificar lugar, fechas, horarios y qué se considera un caso.
+
+\textbf{Cuándo elegirlo y por qué.} Cuando la población operativa se manifiesta como un flujo de llegadas y quieres evitar escoger discrecionalmente entre las personas elegibles que van apareciendo. Debe corresponder con la pregunta que se quiere responder.
+
+\textbf{Ventajas.} Tiene una regla de inclusión fácil de auditar y reduce la selección arbitraria entre quienes llegan durante la ventana observada. Permite describir ese flujo con un procedimiento consistente.
+
+\textbf{Limitaciones y alcance.} Quienes llegan en ese periodo pueden diferir de quienes llegan en otro o no acuden. Los días y horarios condicionan la información. Si se detiene al alcanzar una cuota, pueden predominar quienes llegan primero. No se vuelve probabilístico para toda la población por incluir todos los casos sucesivos.
+
+\textbf{En la cafetería.} Entrevistar a todas las personas elegibles que llegan durante una ventana describe a quienes acuden en ella. Si el objetivo es toda la comunidad, deja fuera a no usuarios y a otros horarios. Debes evitar contar varias veces a una misma persona si la unidad de interés es la persona.
+
+\textbf{Diferencia con conveniencia y censo.} En consecutivo se busca incluir cada caso elegible de la ventana; en conveniencia puede elegirse solo a quienes resultan más fáciles. Registrar realmente todas las unidades de una población definida puede ser un censo de esa población, pero no un censo de la comunidad entera si solo se observó una ventana de llegadas.
+
+\clearpage
+\section{Tipos de muestreo y condiciones de selección}
+{\small
+\begin{longtable}{>{\raggedright\arraybackslash}p{0.1674\textwidth}>{\raggedright\arraybackslash}p{0.35340000000000005\textwidth}>{\raggedright\arraybackslash}p{0.35340000000000005\textwidth}}
+\toprule
+\rowcolor{cabecera}
+\textbf{Procedimiento} & \textbf{Cuándo es probabilístico} & \textbf{Cuándo no lo es} \\ \midrule
+\endfirsthead
+\toprule
+\rowcolor{cabecera}\textbf{Procedimiento} & \textbf{Cuándo es probabilístico} & \textbf{Cuándo no lo es} \\ \midrule
+\endhead
+Aleatorio simple & Todas las muestras de tamaño n tienen igual probabilidad. & Elegir al tanteo no es aleatorio simple. \\ \addlinespace[2pt]
+Sistemático & Inicio aleatorio y regla con probabilidades conocidas y positivas. & Inicio y recorrido fijados sin aleatorización. \\ \addlinespace[2pt]
+Estratificado & Selección probabilística dentro de todos los estratos. & Completar categorías por accesibilidad corresponde a cuotas si se fijan cantidades. \\ \addlinespace[2pt]
+Conglomerados & Se sortean grupos; si se submuestrea, la selección interna también es probabilística. & Se eligen grupos por conveniencia o juicio. \\ \addlinespace[2pt]
+Multietápico & Todas las etapas permiten calcular la probabilidad final de inclusión. & Alguna etapa depende de selección sin probabilidades conocidas. \\ \addlinespace[2pt]
+Transectos & Ubicación y selección con probabilidades conocidas y positivas para las unidades. & Se ubican en sitios accesibles o considerados típicos sin sorteo. \\ \addlinespace[2pt]
+Cinco de oros & Patrón incorporado a un diseño aleatorizado con cobertura y probabilidades conocidas. & Cinco puntos fijos, uno central y cuatro periféricos, elegidos sin aleatorización. \\ \addlinespace[2pt]
+Conveniencia & No lo es por sí mismo. & Se eligen casos accesibles. \\ \addlinespace[2pt]
+Convocatoria abierta & Una invitación abierta no constituye un sorteo. & Responden quienes deciden participar. \\ \addlinespace[2pt]
+Intencional y cuotas & Si se sortea dentro de grupos, describe el diseño probabilístico correspondiente. & Selección por relevancia o para completar cantidades. \\ \addlinespace[2pt]
+Bola de nieve & Su modalidad habitual no lo es. & Los contactos de participantes determinan la incorporación. \\ \addlinespace[2pt]
+Consecutivo & Incluir casos sucesivos no lo vuelve aleatorio. & Se incluyen los casos elegibles que llegan durante un periodo. \\ \addlinespace[2pt]
+\bottomrule
+\end{longtable}}
+
+Estratificar significa seleccionar dentro de todos los estratos; muestrear conglomerados significa seleccionar algunos grupos. Los estratos no se superponen y cubren la población. Los conglomerados no se definen por ser homogéneos: su semejanza interna puede disminuir la precisión.
+
+En asignación proporcional: \(n_h\) = n(\(N_h\)/N). \(N_h\) es el tamaño del estrato, N el total y n la muestra. Ajusta los redondeos para que las asignaciones sumen n. Puedes combinar estratificación con varias etapas.
+
+Transectos y cinco de oros describen la distribución espacial. Muestreo no probabilístico y análisis no paramétrico son conceptos diferentes.
+
+\clearpage
+\section{Cómo elegir entre los métodos}
+Empieza por la pregunta y el alcance que necesitas. Después examina el marco disponible, la diversidad relevante, los costos y la posibilidad de contactar a las unidades. Elige un diseño que puedas realizar y analizar como lo describes.
+\begin{longtable}{p{.34\textwidth}p{.23\textwidth}p{.32\textwidth}}
+\toprule\rowcolor{cabecera} Condición o necesidad & Opción que evaluar & Por qué y qué debes comprobar \\ \midrule
+Estimar un resultado general con lista completa & Aleatorio simple & Selección directa; revisar cobertura y respuesta. \\
+Asegurar presencia y comparar sectores & Estratificado & Planear selección en todos; conocer clasificación y tamaños. \\
+Reducir traslados entre unidades agrupadas & Conglomerados & Concentrar trabajo; valorar semejanza interna y número de grupos. \\
+No hay lista individual completa, pero sí marcos por niveles & Multietápico & Construir listas donde se selecciona; calcular probabilidades finales. \\
+Seleccionar regularmente sobre una lista o secuencia & Sistemático & Facilitar ejecución; revisar inicio, orden y periodicidad. \\
+Distribuir observaciones sobre un área & Transectos o cinco de oros & Especificar ubicación, protocolo y aleatorización; no sustituyen el diseño de inclusión. \\
+Probar preguntas o explorar experiencias & Conveniencia o intencional & Rapidez o relevancia; no atribuir porcentajes poblacionales. \\
+Recibir aportaciones abiertas & Convocatoria & Facilitar participación; reconocer autoselección. \\
+Incluir cantidades de categorías sin sorteo & Cuotas & Presencia de categorías; reconocer sesgo interno posible. \\
+Localizar experiencias mediante contactos & Bola de nieve & Acceso a redes; reconocer a quienes quedan fuera. \\
+Registrar casos que llegan en una ventana & Consecutivo & Regla consistente; delimitar el flujo observado. \\
+\bottomrule
+\end{longtable}
+\subsection{Qué elegiríamos en los dos casos}
+Para el agua, el aleatorio simple es una referencia defendible porque tenemos un marco de 32 entidades y valores definidos para todas. Un diseño sistemático espacial podría buscar dispersión, pero requiere un orden territorial real. Escoger deliberadamente las más pobladas responde a un contraste de casos, no a la misma estimación probabilística.
+
+Para la cafetería, si el objetivo es estimar opiniones de toda la comunidad y comparar vínculos institucionales, consideraríamos un diseño estratificado cuando existan listas y tamaños fiables. Si solo hay un padrón conjunto y no se requieren resultados precisos por sector, un aleatorio simple puede ser suficiente. Si las listas están disponibles por grupos o niveles, debemos evaluar conglomerados o etapas y recalcular la precisión.
+
+Una fase exploratoria puede usar conveniencia, juicio o contactos para mejorar preguntas y entender la desconfianza. La encuesta de estimación necesita su propio diseño. Las dos fases no deben confundirse ni sumarse para obtener un porcentaje comunitario.
+\clearpage
+\section{Herramientas para resolver los casos}
+Antes de calcular, identifica si buscas una media o una proporción. Define la población, el diseño, el nivel de confianza y el error tolerado. Mantén los decimales hasta el resultado final y redondea el tamaño hacia arriba.
+\subsection{Cuando estimas una media}
+Para un premuestreo de tamaño $m$, calcula
+\[\bar{x}=\frac{\sum x_i}{m},\qquad s^2=\frac{\sum(x_i-\bar{x})^2}{m-1},\qquad s=\sqrt{s^2}.\]
+$x_i$ es el valor de cada unidad; $\bar{x}$ es la media preliminar; $s^2$ aproxima la variabilidad. La varianza queda en unidades al cuadrado y la desviación estándar en las unidades de la variable.
+Para una población muy grande, la referencia inicial para una media es $n_0=z^2s^2/E^2$. Con la convención finita de $S^2$ utilizada aquí, la corrección equivalente es $n=Nn_0/(N+n_0)$. Para planear un aleatorio simple sin reemplazo sobre $N$ unidades:
+\[n\approx\frac{Nz^2s^2}{NE^2+z^2s^2},\qquad
+E\approx z\sqrt{\left(1-\frac nN\right)\frac{s^2}{n}}.\]
+$n$ es el tamaño definitivo; $E$ es el margen absoluto para la media; $z=1.96$ corresponde a una confianza normal nominal de 95\,\%. Estas expresiones usan la varianza finita con divisor $N-1$, estimada por $s^2$.
+\subsection{Cuando estimas una proporción}
+\[\widehat p=\frac{\text{respuestas afirmativas}}{\text{respuestas válidas}},\qquad
+n_0=\frac{z^2p(1-p)}{E^2},\qquad n\approx\frac{Nn_0}{N-1+n_0}.\]
+$p$ es la proporción anticipada para planear; no debe confundirse con una proporción poblacional conocida. Si no hay una referencia confiable, $p=0.50$ maximiza $p(1-p)$. Cinco puntos porcentuales se escriben $E=0.05$.
+La corrección de proporciones es la expresión convencional de planificación para población finita; el denominador difiere de la fórmula de medias porque la varianza de una variable binaria con divisor $N-1$ es $Np(1-p)/(N-1)$.
+\subsection{Cuando hay estratos o no respuesta}
+La asignación proporcional es $n_h=n(N_h/N)$, donde $N_h$ es la población del estrato. Si esperas una tasa de respuesta $r$, una referencia operativa es $n_{\mathrm{contactar}}=\lceil n/r\rceil$. No elimina el sesgo de no respuesta.
+Las fórmulas anteriores no sustituyen el cálculo propio de un diseño por conglomerados, sistemático o estratificado. Tampoco justifican un margen aleatorio para una muestra por conveniencia.
+\subsection{Cómo comprobar tu respuesta}
+Revisa que $n\leq N$, que no repitas unidades en un sorteo sin reemplazo y que distingas margen de error previsto de error observado. Una estimación se contrasta con el parámetro solo cuando este se conoce.
+\clearpage
+
+\section{Caso del agua y decisiones del estudiante}
+Quieres estimar la media de tomas de agua en operación para abastecimiento público por entidad federativa en 2020. La población tiene N = 32 entidades, incluida Ciudad de México. La unidad es la entidad, no una toma individual ni un municipio.
+
+Fuente de datos: Indicadores20261020090520.csv, proporcionado para la clase. El indicador cita el Censo Nacional de Gobiernos Municipales y Demarcaciones Territoriales de la Ciudad de México. Conserva sus notas de agregación municipal al interpretar los registros.
+
+{\small
+\begin{longtable}{>{\raggedright\arraybackslash}p{0.651\textwidth}>{\raggedright\arraybackslash}p{0.2232\textwidth}}
+\toprule
+\rowcolor{cabecera}
+\textbf{Entidad del premuestreo} & \textbf{Tomas} \\ \midrule
+\endfirsthead
+\toprule
+\rowcolor{cabecera}\textbf{Entidad del premuestreo} & \textbf{Tomas} \\ \midrule
+\endhead
+Nayarit & 480 \\ \addlinespace[2pt]
+Quintana Roo & 694 \\ \addlinespace[2pt]
+Puebla & 1100 \\ \addlinespace[2pt]
+Sonora & 769 \\ \addlinespace[2pt]
+Tamaulipas & 179 \\ \addlinespace[2pt]
+\bottomrule
+\end{longtable}}
+
+\subsection{Antes de consultar la solución}
+1. Calcula la media, la varianza muestral con divisor m - 1 y la desviación estándar del premuestreo de m = 5 entidades.
+
+2. Para planear un muestreo aleatorio simple sin reemplazo, utiliza confianza nominal de 95 \% y margen de error E = 100 tomas por entidad. Determina n y redondea hacia arriba.
+
+3. Sustituye Puebla por Ciudad de México, cuyo valor es 514. Repite los cálculos y explica por qué cambia n aunque la población siga siendo la misma.
+
+4. Conserva las cinco observadas con CDMX y sortea 14 entre las otras 27. Explica por qué no es un aleatorio simple de 19, identifica las probabilidades de inclusión y compara la media simple con un estimador que respete este diseño. Contrasta después con el sorteo de 19 entre las 32.
+
+5. Si solo puedes seleccionar nueve entidades al azar, calcula el margen de error previsto con cada premuestreo. Distingue margen planificado y error realmente observado.
+
+6. ¿Qué cambiaría si ordenaras espacialmente las entidades y utilizaras un muestreo sistemático? Especifica el sorteo y cómo obtendrías exactamente nueve; 32/9 no es entero.
+
+7. ¿Qué alcance tendría elegir deliberadamente cinco entidades muy pobladas y separadas? Define cómo medirías población y distancia. Este archivo no contiene población humana ni coordenadas.
+
+Las cinco entidades del premuestreo fueron indicadas para el ejercicio; no consta un sorteo. Su variabilidad se usa como referencia didáctica provisional. Las fórmulas no convierten ese premuestreo en probabilístico.
+
+\clearpage
+\section{Tabla de una muestra aleatoria simple de 19 entidades}
+Se sortearon 19 entidades distintas entre las 32 del archivo, sin obligar a incluir las cinco iniciales. Para reproducir la selección se utilizó la semilla 20261020; el procedimiento y los datos se conservan con el archivo fuente. La tabla se presenta en el orden original del archivo.
+
+{\small
+\begin{longtable}{>{\raggedright\arraybackslash}p{0.558\textwidth}>{\raggedright\arraybackslash}p{0.1395\textwidth}>{\raggedright\arraybackslash}p{0.17670000000000002\textwidth}}
+\toprule
+\rowcolor{cabecera}
+\textbf{Entidad seleccionada} & \textbf{\(x_i\) tomas} & \textbf{\(x_i\)\textsuperscript{2}} \\ \midrule
+\endfirsthead
+\toprule
+\rowcolor{cabecera}\textbf{Entidad seleccionada} & \textbf{\(x_i\) tomas} & \textbf{\(x_i\)\textsuperscript{2}} \\ \midrule
+\endhead
+Baja California & 126 & 15,876 \\ \addlinespace[2pt]
+Baja California Sur & 166 & 27,556 \\ \addlinespace[2pt]
+Campeche & 529 & 279,841 \\ \addlinespace[2pt]
+Coahuila de Zaragoza & 399 & 159,201 \\ \addlinespace[2pt]
+Chiapas & 453 & 205,209 \\ \addlinespace[2pt]
+Guanajuato & 829 & 687,241 \\ \addlinespace[2pt]
+Michoacán de Ocampo & 764 & 583,696 \\ \addlinespace[2pt]
+Morelos & 560 & 313,600 \\ \addlinespace[2pt]
+Nayarit & 480 & 230,400 \\ \addlinespace[2pt]
+Puebla & 1,100 & 1,210,000 \\ \addlinespace[2pt]
+Querétaro & 324 & 104,976 \\ \addlinespace[2pt]
+San Luis Potosí & 331 & 109,561 \\ \addlinespace[2pt]
+Sinaloa & 811 & 657,721 \\ \addlinespace[2pt]
+Sonora & 769 & 591,361 \\ \addlinespace[2pt]
+Tabasco & 793 & 628,849 \\ \addlinespace[2pt]
+Tamaulipas & 179 & 32,041 \\ \addlinespace[2pt]
+Tlaxcala & 496 & 246,016 \\ \addlinespace[2pt]
+Veracruz de Ignacio de la Llave & 1,207 & 1,456,849 \\ \addlinespace[2pt]
+Zacatecas & 1,088 & 1,183,744 \\ \addlinespace[2pt]
+Total & 11,404 & 8,723,738 \\ \addlinespace[2pt]
+\bottomrule
+\end{longtable}}
+
+En esta tabla, la coma separa millares. Calcula la media con la suma de \(x_i\) y verifica la varianza usando la suma de \(x_i\)\textsuperscript{2}. El sorteo debe fijarse antes de comparar resultados; no se repite hasta obtener una media cercana a la población.
+
+Compara esta muestra con el premuestreo y con el promedio de las 32 entidades. En este caso conocemos toda la población y podemos medir el error observado; en una encuesta real normalmente desconocemos el parámetro.
+
+\clearpage
+\section{Caso de la cafetería y encuesta preliminar}
+Quieres conocer la opinión de la comunidad de una unidad de la UAM sobre el servicio de cafetería. Para este caso se establece que es un servicio subsidiado, con desayuno y comida. Debes considerar estudiantes, personal académico y personal administrativo, así como asistencia matutina, vespertina, nocturna o mixta. No supongas tamaños poblacionales ni horarios oficiales que no se proporcionaron.
+
+\subsection{Diez respuestas obtenidas por conveniencia}
+En una encuesta previa a diez personas accesibles se obtuvieron los siguientes resultados. Cada pregunta se analiza por separado; las respuestas pueden coincidir en las mismas personas.
+
+{\small
+\begin{longtable}{>{\raggedright\arraybackslash}p{0.5394\textwidth}>{\raggedright\arraybackslash}p{0.18600000000000003\textwidth}>{\raggedright\arraybackslash}p{0.14880000000000002\textwidth}}
+\toprule
+\rowcolor{cabecera}
+\textbf{Opinión expresada} & \textbf{Respuestas de 10} & \textbf{Proporción} \\ \midrule
+\endfirsthead
+\toprule
+\rowcolor{cabecera}\textbf{Opinión expresada} & \textbf{Respuestas de 10} & \textbf{Proporción} \\ \midrule
+\endhead
+Considera justo el pago & 8 & 0.80 \\ \addlinespace[2pt]
+Considera que la comida podría mejorar & 6 & 0.60 \\ \addlinespace[2pt]
+Pide más opciones de comida & 7 & 0.70 \\ \addlinespace[2pt]
+Considera que el servicio debe fomentarse & 9 & 0.90 \\ \addlinespace[2pt]
+Solicita que se ofrezca cena & 7 & 0.70 \\ \addlinespace[2pt]
+\bottomrule
+\end{longtable}}
+
+No sumes estos porcentajes como si fueran categorías excluyentes. Sin los registros individuales tampoco puedes saber cuántas personas apoyan simultáneamente dos propuestas. No deduzcas qué sectores respondieron: esa información no se proporcionó.
+
+\subsection{La decisión que debes construir}
+Propón y justifica qué tipo de muestreo usarías y qué tamaño necesitarías. Compara aleatorio simple, estratificado, conglomerados, conveniencia y bola de nieve. Explica si combinarías una fase exploratoria no probabilística con una encuesta probabilística y qué conclusiones permitiría cada fase.
+
+Para hacer comparables tus cálculos, utiliza como supuesto de planificación 95 \% de confianza nominal y  $\pm$ 5 puntos porcentuales por pregunta. No se conoce N: expresa la corrección como función de N y calcula primero el tamaño para población grande.
+
+¿A quiénes quieres representar: a toda la comunidad o únicamente a quienes usan la cafetería? Si deseas ambas perspectivas, define indicadores y denominadores distintos. Una persona que no usa el servicio puede opinar sobre su existencia o sobre la cena, pero puede no tener experiencia para evaluar la comida.
+
+\clearpage
+\section{Diseña una encuesta que las personas puedan responder con confianza}
+\subsection{Población y cobertura}
+Define la unidad de la UAM y un periodo de referencia. Explica cómo construirías un marco sin duplicar a quienes tienen más de un vínculo institucional. Si las categorías de vínculo se usan como estratos, deben ser excluyentes mediante una regla explícita.
+
+Decide si estratificarías por vínculo institucional y, cuando haya información previa fiable, por horario. Si no existe un marco de horarios, no inventes esos estratos: registra la asistencia y facilita la respuesta en distintos horarios. Las personas de horario mixto no deben contarse varias veces.
+
+\subsection{Selección y tamaño}
+Describe cómo sortearías participantes y cómo contactarías a quienes no se encuentran en la cafetería. Justifica por qué seleccionar solo comensales a mediodía podría dejar fuera a personas nocturnas, no usuarias o con experiencias negativas.
+
+Calcula n para cada opinión preliminar y luego con p = 0.50. Decide cuál usarías para cubrir las cinco preguntas. Explica si buscas precisión global o también para cada sector y horario; el tamaño global no asegura la misma precisión en todos los subgrupos.
+
+\subsection{Preguntas y registro}
+Define un periodo para experiencia de uso y separa frecuencia, pago, calidad, variedad, apoyo al servicio y posible uso de cena. Ofrece “no lo he utilizado”, “no sé” y “prefiero no responder” cuando correspondan. No conviertas “podría mejorar” automáticamente en insatisfacción ni el apoyo a la cena en uso efectivo.
+
+\subsection{Confianza y protección de datos}
+Explica cómo responderías al miedo a perder el subsidio, a consecuencias laborales o académicas, o a que una crítica identifique a alguien. La invitación debe aclarar propósito, voluntariedad y que participar o rechazar no afecta calificaciones, empleo ni acceso al servicio.
+
+Decide qué datos son indispensables. Evita nombres, matrículas, números de empleado e información económica o de salud si no son necesarios. Explica quién accederá a los datos, qué resultados se publicarán y cuándo se eliminarán identificadores y archivos de contacto.
+
+\subsection{Producto solicitado}
+Entrega una propuesta argumentada con población y marco, diseño, cálculo de tamaño, selección y contacto, preguntas, protección de información y alcance de resultados. Incluye qué harías ante falta de respuesta y qué limitaciones mantendrías en el informe. No se ha realizado la encuesta definitiva.
+
+\clearpage
+\section{Cálculos del agua a partir de los premuestreos}
+Consulta esta sección después de resolver. Usamos m para el premuestreo y n para el tamaño de la muestra definitiva.
+
+\subsection{Premuestreo con Puebla}
+\begin{gather*}\bar{x}=\frac{480+694+1100+769+179}{5}=\frac{3222}{5}=644.40\\[3pt]\begin{aligned}\sum(x_i-\bar{x})^2={}&27027.36+2460.16+207571.36\\&+15525.16+216597.16\end{aligned}\\[3pt]\sum(x_i-\bar{x})^2=469181.20\\[3pt]s^2=\frac{469181.20}{5-1}=117295.30,\qquad s\approx342.48\text{ tomas}\end{gather*}
+\subsection{Premuestreo con Ciudad de México}
+\begin{gather*}\bar{x}=\frac{480+694+514+769+179}{5}=\frac{2636}{5}=527.20\\[3pt]\begin{aligned}\sum(x_i-\bar{x})^2={}&2227.84+27822.24+174.24\\&+58467.24+121243.24\end{aligned}\\[3pt]s^2=\frac{209934.80}{4}=52483.70,\qquad s\approx229.09\text{ tomas}\end{gather*}
+\clearpage
+\subsection{Tamaño para estimar una media}
+Para selección aleatoria simple sin reemplazo, la varianza de la media es (1 - n/N)\(S^2\)/n, donde \(S^2\) es la varianza finita con divisor N - 1. La aproximamos con \(s^2\) del premuestreo y usamos la aproximación normal como planificación.
+
+\begin{gather*}E\approx z\sqrt{\left(1-\frac nN\right)\frac{s^2}{n}}\\[3pt]E^2\approx z^2s^2\left(\frac1n-\frac1N\right)\\[3pt]\frac1n\approx\frac{E^2}{z^2s^2}+\frac1N\\[3pt]n\approx\frac{Nz^2s^2}{NE^2+z^2s^2}\end{gather*}
+Con N = 32, z = 1.96 y E = 100 tomas:
+
+\begin{gather*}\text{Con Puebla: } n\approx\frac{32(1.96)^2(117295.30)}{32(100)^2+(1.96)^2(117295.30)}\\[3pt]n\approx18.71\quad\Rightarrow\quad n=19\text{ entidades}\\[3pt]\text{Con CDMX: } n\approx\frac{32(1.96)^2(52483.70)}{32(100)^2+(1.96)^2(52483.70)}\\[3pt]n\approx12.37\quad\Rightarrow\quad n=13\text{ entidades}\end{gather*}
+La población no cambió. Cambió la estimación preliminar de su variabilidad. Un premuestreo pequeño puede producir un tamaño insuficiente. Como fue fijado deliberadamente, no atribuimos a su varianza una garantía de representatividad.
+
+\clearpage
+\section{Cálculos de la muestra aleatoria y contraste final}
+\subsection{Media y varianza de las 19 entidades sorteadas}
+\begin{gather*}\sum x_i=11404,\qquad\sum x_i^2=8723738,\qquad n=19\\[3pt]\bar{x}=\frac{11404}{19}=600.210526\ldots\approx600.21\text{ tomas por entidad}\\[3pt]s^2=\frac{\sum x_i^2-(\sum x_i)^2/n}{n-1}\\[3pt]s^2=\frac{8723738-11404^2/19}{18}=104385.397661\ldots\approx104385.40\\[3pt]s=\sqrt{104385.397661\ldots}\approx323.09\text{ tomas}\end{gather*}
+\subsection{Margen estimado y error observado}
+\begin{gather*}E\approx1.96\sqrt{\left(1-\frac{19}{32}\right)\frac{104385.397661}{19}}\approx92.60\text{ tomas}\\[3pt]600.21\pm92.60\quad\Rightarrow\quad[507.61,\;692.81]\end{gather*}
+La población completa suma 23271 tomas: \(\mu\) = 23271/32 = 727.21875. El error observado es \(\bar{x}\) - \(\mu\) = -127.008224, aproximadamente -127.01 tomas. Su valor absoluto es 127.01.
+
+El intervalo aproximado de esta selección no contiene \(\mu\). El nivel nominal no garantiza que cada intervalo particular lo contenga; además, la aproximación normal y la estimación de variabilidad pueden ser limitadas en esta población. No repitas sorteos hasta obtener el resultado deseado.
+
+\subsection{Comparación de conjuntos}
+{\small
+\begin{longtable}{>{\raggedright\arraybackslash}p{0.3441\textwidth}>{\raggedright\arraybackslash}p{0.07440000000000001\textwidth}>{\raggedright\arraybackslash}p{0.12090000000000001\textwidth}>{\raggedright\arraybackslash}p{0.31620000000000004\textwidth}}
+\toprule
+\rowcolor{cabecera}
+\textbf{Conjunto} & \textbf{n o N} & \textbf{Media} & \textbf{Varianza \(s^2\) o \(S^2\)} \\ \midrule
+\endfirsthead
+\toprule
+\rowcolor{cabecera}\textbf{Conjunto} & \textbf{n o N} & \textbf{Media} & \textbf{Varianza \(s^2\) o \(S^2\)} \\ \midrule
+\endhead
+Premuestreo con Puebla & 5 & 644.40 & 117295.30 \\ \addlinespace[2pt]
+Premuestreo con CDMX & 5 & 527.20 & 52483.70 \\ \addlinespace[2pt]
+Cinco con CDMX más 14 adicionales & 19 & 514.21 & 83120.18 \\ \addlinespace[2pt]
+Aleatorio simple desde las 32 & 19 & 600.21 & 104385.40 \\ \addlinespace[2pt]
+Población completa & 32 & 727.22 & 204142.37 \\ \addlinespace[2pt]
+\bottomrule
+\end{longtable}}
+
+La tercera fila conserva el ejercicio previo: a Nayarit, Quintana Roo, CDMX, Sonora y Tamaulipas se agregaron Veracruz, Michoacán, Tlaxcala, San Luis Potosí, Guerrero, Chiapas, Morelos, Baja California, Zacatecas, Baja California Sur, Coahuila, Querétaro, Colima y Durango. Sus 19 valores no forman un aleatorio simple. Sí permiten un diseño probabilístico con unidades de inclusión cierta y un estimador distinto, desarrollado en la sección siguiente.
+
+En la última fila se muestra \(S^2\) con divisor 31 para mantener la comparación y usarla en la fórmula del diseño. La varianza descriptiva poblacional con divisor 32 es $\sigma^2=197762.920898$, distinta de $S^2=204142.369960$. Una sola muestra no demuestra superioridad general de un diseño.
+
+\clearpage
+\section{Conservar cinco entidades y sortear otras catorce}
+Las cinco con CDMX suman 2636. Las 14 adicionales del ejercicio son las siguientes; la selección se reprodujo sorteando con semilla 20261020 entre las 27 entidades restantes, en el orden del archivo.
+\begin{longtable}{p{.55\textwidth}rr}
+\toprule\rowcolor{cabecera} Entidad & Tomas & Cuadrado \\ \midrule
+Veracruz & 1207 & 1456849 \\
+Michoacán & 764 & 583696 \\
+Tlaxcala & 496 & 246016 \\
+San Luis Potosí & 331 & 109561 \\
+Guerrero & 516 & 266256 \\
+Chiapas & 453 & 205209 \\
+Morelos & 560 & 313600 \\
+Baja California & 126 & 15876 \\
+Zacatecas & 1088 & 1183744 \\
+Baja California Sur & 166 & 27556 \\
+Coahuila & 399 & 159201 \\
+Querétaro & 324 & 104976 \\
+Colima & 355 & 126025 \\
+Durango & 349 & 121801 \\
+\midrule Total & 7134 & 4920366 \\ \bottomrule
+\end{longtable}
+La media simple de los 19 y su varianza descriptiva son
+\[
+\bar{x}_{19}=\frac{2636+7134}{19}=514.210526\ldots,
+\qquad s_{19}^2=\frac{6520000-9770^2/19}{18}=83120.175439\ldots.
+\]
+Sin embargo, estas cinco unidades entran con certeza y las demás tienen probabilidad $14/27$. La media simple pondera igual observaciones con probabilidades distintas. Para estimar la media de las 32 necesitamos respetar el diseño.
+
+Denota por $C$ las cinco conocidas y por $R$ las 27 restantes. Estimamos el total de $R$ usando las 14 sorteadas y agregamos el total conocido de $C$:
+\[
+\widehat\mu=\frac{\sum_{i\in C}x_i+27\bar{x}_{14}}{32},\qquad
+\bar{x}_{14}=\frac{7134}{14}=509.571429\ldots.
+\]
+\[
+\widehat\mu=\frac{2636+27(7134/14)}{32}=512.325893\ldots\approx512.33.
+\]
+Este estimador es insesgado bajo el sorteo de las 14 del resto, con las cinco fijadas como conocidas. No requiere que las cinco hayan sido sorteadas.
+\clearpage
+\section{Incertidumbre del diseño con cinco unidades conocidas}
+Solo el total de las otras 27 está siendo estimado mediante muestreo. La parte conocida no añade incertidumbre de selección. Calculamos primero la varianza de las 14:
+\[
+s_{14}^2=\frac{4920366-7134^2/14}{13}=98852.571429\ldots.
+\]
+La estimación de la varianza de la media ponderada es
+\[
+\widehat{\operatorname{Var}}(\widehat\mu)
+=\left(\frac{27}{32}\right)^2\left(1-\frac{14}{27}\right)\frac{s_{14}^2}{14}.
+\]
+Por tanto,
+\[
+\widehat{\operatorname{EE}}(\widehat\mu)\approx49.1964,
+\qquad E\approx1.96(49.1964)=96.4250\text{ tomas}.
+\]
+El intervalo normal aproximado sería $512.33\pm96.42$. La media real es 727.22 y el error observado del estimador es aproximadamente $-214.89$ tomas. Esta realización también subestima la media, y su intervalo aproximado tampoco la contiene.
+
+No es válido concluir, a partir de una sola realización, que un diseño probabilístico siempre supera a otro ni que el estimador sea sesgado porque en esta ocasión se alejó del parámetro. La insesgadez describe su promedio sobre los sorteos posibles; no garantiza cercanía en cada uno.
+\subsection{Qué sí recuperamos de las cinco observaciones iniciales}
+Podemos usarlas para planear con cautela y también conservarlas como información conocida si el resto se selecciona y analiza correctamente. Lo que no podemos hacer es llamar aleatorio simple al conjunto ni usar su media simple como si todas las unidades tuvieran igual probabilidad.
+
+La diferencia entre la media simple 514.21 y el estimador 512.33 es pequeña en esta realización, pero esa cercanía no vuelve intercambiables los procedimientos. Son fórmulas que responden a mecanismos de selección distintos.
+\subsection{Qué tamaño indicaría la variabilidad completa}
+Como conocemos las 32 entidades, podemos comprobar qué ocurriría si hubiéramos planeado el aleatorio simple con su varianza real:
+\[
+n\approx\frac{32(1.96)^2(204142.369960)}{32(100)^2+(1.96)^2(204142.369960)}
+=22.7266\ldots\quad\Rightarrow\quad23\text{ entidades}.
+\]
+Los valores 19 y 13 procedían de dos referencias preliminares que subestimaron la variabilidad. La comparación ilustra por qué el tamaño calculado depende de la calidad de la información utilizada para planear y del margen nominal que queremos alcanzar.
+
+\clearpage
+\section{Presupuesto limitado y alternativas de selección}
+\subsection{Margen de error con nueve entidades}
+\begin{gather*}E\approx1.96\sqrt{\left(1-\frac9{32}\right)\frac{s^2}{9}}\\[3pt]\text{Con Puebla: } E\approx1.96\sqrt{\frac{23}{32}\frac{117295.30}{9}}\approx189.70\\[3pt]\text{Con CDMX: } E\approx1.96\sqrt{\frac{23}{32}\frac{52483.70}{9}}\approx126.89\\[3pt]\text{Con }S^2\text{ de las 32: }E\approx1.96\sqrt{\frac{23}{32}\frac{204142.369960}{9}}\approx250.26\end{gather*}
+Son márgenes normales aproximados, expresados en tomas por entidad. El tercero permite comprobar la planificación porque conocemos la población. No significa que toda muestra de nueve cometerá ese error ni que la cobertura normal sea exacta.
+
+Los dos premuestreos subestiman la variabilidad completa; el cambio de Puebla por CDMX acentúa la subestimación. Por presupuesto podemos aceptar menor precisión, pero debemos comunicarla y revisar si todavía permite responder la pregunta.
+
+\subsection{Sistemático para dispersar la muestra}
+Ordena espacialmente las entidades y especifica un método sistemático de tamaño fijo con inicio aleatorio. Un listado alfabético no garantiza dispersión territorial. Cuando N/n no es entero se necesita una regla explícita que conserve el tamaño y las probabilidades de inclusión.
+
+La cobertura espacial puede mejorar la precisión cuando recoge diferencias territoriales relevantes, pero depende de la variable y el orden. Los patrones periódicos pueden perjudicarla. El error debe estimarse de acuerdo con el diseño, no copiando automáticamente la fórmula del aleatorio simple.
+
+\subsection{Cinco entidades pobladas y distantes}
+Si las eliges deliberadamente, el muestreo es intencional no probabilístico. La media describe esos casos. No permite atribuir un margen aleatorio convencional al promedio de las 32 entidades. Población humana y dispersión deben definirse con datos adicionales; una entidad extensa no equivale a observar todo su territorio.
+
+Contar tomas no mide por sí solo calidad del agua, acceso de habitantes, continuidad o suficiencia del servicio. Tampoco el promedio por entidad equivale a una tasa por habitante.
+
+\clearpage
+\section{Cálculos de tamaño para la encuesta de cafetería}
+\subsection{De respuestas a proporciones}
+Las proporciones preliminares son 8/10 = 0.80, 6/10 = 0.60, 7/10 = 0.70, 9/10 = 0.90 y 7/10 = 0.70. Son resultados de diez personas por conveniencia, no estimaciones representativas de la comunidad.
+
+Para planear una encuesta probabilística que estime una proporción, con aproximación normal, se utiliza:
+
+\begin{gather*}n_0=\frac{z^2p(1-p)}{E^2}\end{gather*}
+Aquí z = 1.96 corresponde a confianza nominal de 95 \% y E = 0.05 a cinco puntos porcentuales. p es una anticipación de la proporción, no una certeza. El cálculo supone selección aleatoria simple como referencia.
+
+{\small
+\begin{longtable}{>{\raggedright\arraybackslash}p{0.2232\textwidth}>{\raggedright\arraybackslash}p{0.37200000000000005\textwidth}>{\raggedright\arraybackslash}p{0.14880000000000002\textwidth}>{\raggedright\arraybackslash}p{0.1302\textwidth}}
+\toprule
+\rowcolor{cabecera}
+\textbf{Opinión} & \textbf{Sustitución en la fórmula} & \textbf{\(n_0\)} & \textbf{Redondeo} \\ \midrule
+\endfirsthead
+\toprule
+\rowcolor{cabecera}\textbf{Opinión} & \textbf{Sustitución en la fórmula} & \textbf{\(n_0\)} & \textbf{Redondeo} \\ \midrule
+\endhead
+Pago justo & 1.96\textsuperscript{2}(0.8)(0.2)/0.05\textsuperscript{2} & 245.8624 & 246 \\ \addlinespace[2pt]
+Mejorar comida & 1.96\textsuperscript{2}(0.6)(0.4)/0.05\textsuperscript{2} & 368.7936 & 369 \\ \addlinespace[2pt]
+Más opciones & 1.96\textsuperscript{2}(0.7)(0.3)/0.05\textsuperscript{2} & 322.6944 & 323 \\ \addlinespace[2pt]
+Fomentar servicio & 1.96\textsuperscript{2}(0.9)(0.1)/0.05\textsuperscript{2} & 138.2976 & 139 \\ \addlinespace[2pt]
+Ofrecer cena & 1.96\textsuperscript{2}(0.7)(0.3)/0.05\textsuperscript{2} & 322.6944 & 323 \\ \addlinespace[2pt]
+Referencia conservadora & 1.96\textsuperscript{2}(0.5)(0.5)/0.05\textsuperscript{2} & 384.1600 & 385 \\ \addlinespace[2pt]
+\bottomrule
+\end{longtable}}
+
+Si aceptaras como anticipaciones los cinco porcentajes, el máximo sería 369 respuestas completas para población grande. Dada la selección por conveniencia y el tamaño diez, una referencia más prudente es p = 0.50: 385 respuestas. El 95 \% es por estimación; no garantiza cobertura simultánea del conjunto de cinco.
+
+\subsection{Corrección por población finita}
+\begin{gather*}n\approx\frac{Nn_0}{N-1+n_0}\end{gather*}
+No se proporcionó N de la comunidad definida: no hay un tamaño finito único. Como ejemplo hipotético, si N = 1000 y p = 0.50:
+
+\begin{gather*}n\approx\frac{1000(384.16)}{999+384.16}=277.7408\ldots\quad\Rightarrow\quad278\text{ respuestas}\end{gather*}
+Si anticipas una tasa de respuesta r = 0.70, contactarías aproximadamente techo(278/0.70) = 398 personas seleccionadas. Esta tasa es un supuesto ilustrativo. Contactar más no elimina el sesgo de no respuesta. Conserva los decimales de \(n_0\) hasta el redondeo final.
+
+Si solo las personas usuarias responden las preguntas de experiencia, se necesitan suficientes respuestas de ese dominio. El total de 385 no asegura 385 usuarios ni precisión de  $\pm$ 5 puntos en cada sector. No inventes su proporción: estúdiala primero y ajusta la planificación.
+
+\clearpage
+\section{Una propuesta razonada para la cafetería}
+\subsection{Combinar exploración y estimación}
+Una opción defendible es explorar primero motivos, vocabulario y barreras con entrevistas intencionales o por conveniencia, y luego aplicar una encuesta probabilística. La primera fase mejora el cuestionario; no se mezclan sus casos con la segunda como si todos tuvieran probabilidades conocidas.
+
+Si existen listas adecuadas, propondríamos estratificar por vínculo institucional y sortear personas dentro de cada estrato. La asignación proporcional usa \(n_h\) = n(\(N_h\)/N). Para comparar sectores pequeños puede requerirse sobrerrepresentación y ponderación. El tamaño y la precisión deben recalcularse para el diseño final.
+
+El horario se incorporaría como estrato solo si existe información previa utilizable. De lo contrario se mediría y se ofrecerían ventanas de respuesta compatibles con distintas asistencias. Elegir salones o áreas como conglomerados puede reducir costos, pero exige cobertura de toda la población y considerar la correlación interna.
+
+Bola de nieve puede servir para escuchar experiencias difíciles de localizar, sin convertirlas en porcentajes generales. Conveniencia ayuda a probar preguntas. Ninguna de las dos sustituye una selección probabilística para estimar la opinión de toda la comunidad.
+
+\subsection{Obtener confianza mediante prácticas verificables}
+Presenta una invitación breve y neutral, con propósito, duración, responsable y forma de consultar resultados. No hagas depender el servicio de responder. Permite rechazar y omitir preguntas. Evita entrevistas frente a jefaturas, profesores evaluadores o personal que sirve los alimentos; ofrece un espacio privado o respuesta autoadministrada.
+
+Informa que una opinión crítica no determina la entrega de beneficios ni se usará para evaluar individualmente a quien responde. No prometas cambios de menú o cena que no puedas asegurar. Devuelve resultados agregados y explica cómo se considerarán las propuestas.
+
+\subsection{Separar contacto y respuestas}
+Recoge solo variables necesarias. Si utilizas identificadores para invitar o controlar duplicados, mantenlos separados de las respuestas, restringe accesos y define fechas de eliminación. No prometas anonimato si puedes reconstruir quién respondió: en ese caso ofrece confidencialidad y describe el resguardo. Revisa si la plataforma almacena correos u otros metadatos identificadores.
+
+Agrupa o no publiques cruces con pocas personas que permitan reconocer a alguien. Revisa comentarios abiertos para retirar identificadores. Si se necesita información económica, alimentaria o de salud, justifica su necesidad y ofrece no responder; para estas preguntas de opinión no es indispensable solicitarla.
+
+\subsection{Analizar sin exceder los datos}
+Reporta denominadores válidos por pregunta, no respuesta y resultados ponderados cuando corresponda. Distingue usuarios de no usuarios y horarios sin duplicar personas. No sustituyas silenciosamente a quienes rechazan por personas accesibles: usa seguimiento respetuoso y un protocolo probabilístico documentado.
+
+Las diez respuestas iniciales sugieren asuntos que vale la pena investigar. No demuestran la opinión de la UAM ni la viabilidad de ofrecer cena. La decisión sobre cena requiere además demanda efectiva, horarios, capacidad y costos. La encuesta informa esa decisión, pero no la resuelve por sí sola.
+
+\clearpage\section{Datos completos para contrastar el caso del agua}\small
+La tabla permite comprobar el promedio poblacional y las selecciones. Periodo 2020. Fuente: archivo proporcionado. Las notas de origen se conservan en datos/Indicadores20261020090520.csv.
+
+\begin{longtable}{p{0.70\textwidth}r}\toprule Entidad & Tomas \\ \midrule\endfirsthead\toprule Entidad & Tomas \\ \midrule\endhead
+Aguascalientes & 501 \\
+Baja California & 126 \\
+Baja California Sur & 166 \\
+Campeche & 529 \\
+Coahuila de Zaragoza & 399 \\
+Colima & 355 \\
+Chiapas & 453 \\
+Chihuahua & 871 \\
+Ciudad de México & 514 \\
+Durango & 349 \\
+Guanajuato & 829 \\
+Guerrero & 516 \\
+Hidalgo & 1156 \\
+Jalisco & 1941 \\
+México & 1633 \\
+Michoacán de Ocampo & 764 \\
+Morelos & 560 \\
+Nayarit & 480 \\
+Nuevo León & 424 \\
+Oaxaca & 1637 \\
+Puebla & 1100 \\
+Querétaro & 324 \\
+Quintana Roo & 694 \\
+San Luis Potosí & 331 \\
+Sinaloa & 811 \\
+Sonora & 769 \\
+Tabasco & 793 \\
+Tamaulipas & 179 \\
+Tlaxcala & 496 \\
+Veracruz de Ignacio de la Llave & 1207 \\
+Yucatán & 1276 \\
+Zacatecas & 1088 \\
+\midrule Total & 23271 \\ \bottomrule\end{longtable}\clearpage
+\section{Fuentes para profundizar en la elección del diseño}
+Los datos y cálculos de los casos proceden del archivo y de las condiciones proporcionadas en clase. Las siguientes fuentes primarias permiten ampliar la discusión de diseños, ventajas y limitaciones.
+
+Statistics Canada. \textit{Survey Methods and Practices}, capítulo 6, Sample designs. Explica marcos, selección probabilística y no probabilística, conglomerados y etapas.\par
+\url{https://www150.statcan.gc.ca/n1/pub/12-587-x/12-587-x2003001-eng.pdf}
+
+Statistics Canada. \textit{Statistics Power from Data}, sección 3.2.2, Probability sampling. Presenta los principales diseños probabilísticos.\par
+\url{https://www150.statcan.gc.ca/n1/edu/power-pouvoir/ch13/prob/5214899-eng.htm}
+
+Statistics Canada. \textit{Statistics Power from Data}, sección 3.2.3, Non-probability sampling. Discute selección voluntaria, por juicio y por cuotas.\par
+\url{https://www150.statcan.gc.ca/n1/edu/power-pouvoir/ch13/nonprob/5214898-eng.htm}
+
+La selección del diseño y la protección de las respuestas deben justificarse en cada estudio. Ninguna lista de ventajas reemplaza esa decisión.
+\end{document}

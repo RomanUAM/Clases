@@ -1,0 +1,127 @@
+CLASE 1 · Antes de calcular, define el dato
+Probabilidad y Estadística · UEA 1153001 · Semana 1 · 90 minutos
+Pregunta: si observamos doce entradas de gatos en cinco minutos, ¿qué podemos afirmar?
+
+---
+Una afirmación apresurada
+«Vimos doce gatos en el campus». Los datos disponibles son 2, 3, 1, 4 y 2 avistamientos por minuto. Anota qué tendría que significar “avistamiento” para defender esa frase.
+
+---
+00–06 min · Tu primera respuesta
+Individualmente escribe: (a) ¿doce entradas implican doce gatos distintos?, (b) ¿qué información falta?, (c) ¿qué entiendes por azar, posibilidad y probabilidad? Compararemos respuestas después de definir el registro.
+
+---
+Dos preguntas diferentes
+«¿Qué ocurrió durante estos cinco minutos?» pide describir los datos. «¿Qué ocurrirá durante otro intervalo?» exige un modelo y evidencia sobre la variación. Señala cuál de las dos preguntas puedes contestar hoy.
+
+---
+Una situación incierta
+No sabemos cuántas entradas habrá en el próximo minuto. Ese desconocimiento despierta una pregunta de probabilidad que retomaremos después. Hoy empezamos por precisar qué dato observamos y cómo lo registramos.
+
+---
+¿Qué es un dato?
+Un dato es el valor registrado de una variable para una unidad de observación. En «2 entradas durante el primer minuto», la unidad es ese intervalo, la variable es el conteo y el dato es 2.
+
+---
+06–12 min · Señala las tres partes
+En «3 entradas durante el segundo minuto», subraya el dato, nombra la variable y delimita la unidad. Compara con la respuesta de otra persona del equipo. ¿Están contando entradas o individuos distintos?
+
+---
+Población y muestra
+La población de interés reúne los intervalos a los que querríamos extender una conclusión bajo condiciones definidas. La muestra contiene los intervalos efectivamente observados. Cinco intervalos consecutivos forman una muestra; no equivalen a todos los momentos del campus.
+
+---
+¿Toda muestra representa a la población?
+No necesariamente. Observar solo al mediodía o solo una zona podría sesgar lo que vemos. Una muestra sigue siendo muestra aunque su selección sea deficiente; su calidad determina qué conclusiones se pueden defender.
+
+---
+Dos tipos de variable
+«Color del animal visto» es una variable cualitativa. «Número de entradas durante un minuto» es cuantitativa discreta: toma conteos enteros 0, 1, 2, … . Señalen qué gráfica sería adecuada para esta última.
+
+---
+12–17 min · Clasifiquen ejemplos
+Clasifiquen «zona del campus», «hora de inicio», «número de entradas» y «duración medida en segundos». Para cada caso indiquen si registra una categoría o una cantidad y cuál es su unidad o escala.
+
+---
+Dato y contexto
+Un conteo de 3 pierde sentido si no sabemos si corresponde a un minuto, dos minutos o toda la tarde. Hora, lugar, duración y criterio de entrada son metadatos necesarios para interpretar y comparar registros.
+
+---
+Describir e inferir
+Describir: «en estos cinco intervalos hubo doce entradas». Inferir: «en otros intervalos habrá cerca de 2.4 por minuto». La segunda frase necesita un diseño de muestreo y una medida de incertidumbre que aún no tenemos.
+
+---
+Vuelve al caso de los gatos
+La palabra «gato» puede referirse a un individuo o a un evento de entrada. Vamos a medir entradas a un radio aproximado de 3 m durante intervalos de un minuto. Formula una pregunta que respete esa definición.
+
+---
+Una pregunta que sí se puede medir
+¿Cuántas entradas al radio registramos por minuto en una zona, fecha y horario definidos? La respuesta describirá estos intervalos. Para hablar de otros lugares u horarios necesitaríamos un diseño adicional.
+
+---
+Unidad y variable
+Unidad de observación: un intervalo de 1 minuto. Xᵢ: número de entradas al radio durante el intervalo i. Xᵢ ∈ {0,1,2,…}. Cinco intervalos producen cinco valores de X, aunque el total de entradas sea doce.
+
+---
+La regla de reingreso
+Si el mismo animal sale y vuelve a entrar, registren otra entrada y anoten la posible repetición. Si no pueden identificar individuos, el informe hablará de eventos de entrada, nunca de doce animales distintos.
+
+---
+22–30 min · Cuatro responsabilidades
+Integrante 1: lee y cuida el protocolo. 2: observa entradas desde un punto fijo. 3: cronometra y registra todos los intervalos. 4: anota incidencias y verifica la regla de reingreso. Cambiarán de función en la siguiente clase.
+
+---
+Acuerden el protocolo antes de observar
+Escriban zona, punto fijo, referencia de 3 m, hora inicial, cinco intervalos consecutivos y criterio de entrada. Registren también los intervalos con cero. No cambien la regla a mitad del conteo.
+
+---
+30–40 min · Observa sin intervenir
+Mantén distancia y no alimentes ni llames a los animales. Si el lugar no es seguro o accesible, usa el conjunto suministrado {2,3,1,4,2} y decláralo como dato de práctica, no como observación propia.
+
+---
+La tabla reproducible
+Columnas: intervalo i | hora de inicio | hora de fin | Xᵢ | incidencia. Revisen que haya cinco filas, la misma duración en cada una y una anotación para cualquier entrada ambigua.
+
+---
+Una primera verificación
+Si los cinco conteos son {2,3,1,4,2}, el total es ΣXᵢ=12. El número 12 tiene unidad «entradas registradas». Indica por qué «gatos distintos» sería otra variable que este protocolo no mide.
+
+---
+Frecuencia absoluta
+f(x)=número de intervalos con Xᵢ=x. En el ejemplo: f(1)=1, f(2)=2, f(3)=1, f(4)=1. Comprueben que Σₓf(x)=5; cada intervalo debe contarse una vez.
+
+---
+50–60 min · Diagrama de puntos
+Dibuja el eje horizontal con conteos 0, 1, 2, 3 y 4. Coloca un punto por intervalo sobre su valor. Debe haber cinco puntos. ¿Cuál conteo aparece dos veces?
+
+---
+La media observada
+x̄=(1/n)ΣᵢXᵢ. Para {2,3,1,4,2}: x̄=12/5=2.4 entradas por intervalo de un minuto. Conserva la unidad y explica qué sintetiza el número 2.4.
+
+---
+Un resumen todavía no es una predicción
+La media 2.4 resume estos cinco intervalos. No conocemos la tasa habitual de entradas en otros días. Para estimarla habrá que justificar cómo se eligen intervalos y medir incertidumbre.
+
+---
+60–75 min · Audita otro equipo
+Intercambien registro y diagrama. Comprueben variable, duración, ceros, reingresos, cinco puntos y conclusión. Escriban una observación específica que el otro equipo pueda corregir o responder con evidencia.
+
+---
+75–83 min · Producto común
+Entreguen una página con pregunta, protocolo, cinco datos, tabla de frecuencias, diagrama, cálculo de media y conclusión descriptiva. Añadan dos límites y la corrección recibida. Los cuatro integrantes deben poder explicar una decisión.
+
+---
+Una conclusión defendible
+«En estos cinco intervalos de un minuto registramos doce entradas al radio; el promedio observado fue 2.4 entradas por intervalo». La frase declara qué se midió y hasta dónde llegan los datos.
+
+---
+83–90 min · Salida individual
+Define Xᵢ con unidad. Explica por qué doce entradas no son necesariamente doce individuos. Escribe una pregunta sobre otros intervalos que aún no puedes contestar con certeza y qué datos pedirías.
+
+---
+La próxima clase
+Cinco corridas de tres lanzamientos producirán cinco valores entre 0 y 3. Calcularemos medidas de centro y dispersión. La pregunta sobre lo que esperaríamos de una moneda equilibrada quedará abierta para la semana de probabilidad.
+
+---
+Fuentes y alcance
+Guía docente Word 1150018: semana 1, datos y descriptiva. UEA 1153001: programa institucional. Notas de Mora et al., §1.1.1; Lederer (2025), §§1.2 y 2.2. Caso adaptado de «Clase 1» SCIROM. {2,3,1,4,2} es ejemplo didáctico.

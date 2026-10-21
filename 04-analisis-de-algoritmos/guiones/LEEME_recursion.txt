@@ -1,0 +1,8 @@
+Ejecutar Python: python recurrencias.py
+Ejecutar MATLAB: abrir recurrencias_matlab.m y ejecutar.
+Entradas: enteros no negativos; MergeSort: lista/vector numerico finito.
+Python comprobado automaticamente; MATLAB revisado, sin entorno MATLAB disponible para ejecutar.
+En MATLAB 50! es aproximado (double); Python entrega el entero exacto.
+Resultados: F10=55; Hanoi10=1023; MergeSort=[1,2,3,4,5,7,8,9].
+resolver_damas es un motor generico: requiere es_meta y sucesores del tablero; no es un juego completo.
+Los limites de recursion de cada entorno restringen entradas grandes.
